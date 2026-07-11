@@ -18,12 +18,13 @@ lightBtn.addEventListener("click", () => {
 
     title.style.display = "block";
 
-    lightBtn.style.display = "none";giftBox.style.display = "block";
+    lightBtn.style.display = "none";
+    giftBox.style.display = "block";
+    });
 giftBox.addEventListener("click", () => {
     giftBox.classList.add("open");
 
     setTimeout(() => {
         alert("🎁 Surprise is coming...");
     }, 800);
-});
 });
