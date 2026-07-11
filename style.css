@@ -87,3 +87,72 @@ background:#ff4d6d;
 color:white;
 cursor:pointer;
 }
+/* ---------- Gift Box ---------- */
+
+.giftBox{
+position:absolute;
+bottom:80px;
+left:50%;
+transform:translateX(-50%);
+width:120px;
+height:120px;
+cursor:pointer;
+display:none;
+animation:giftFloat 2s ease-in-out infinite;
+}
+
+.gift-body{
+position:absolute;
+bottom:0;
+width:120px;
+height:80px;
+background:#e53935;
+border-radius:0 0 10px 10px;
+box-shadow:0 10px 20px rgba(0,0,0,.4);
+}
+
+.gift-body::before{
+content:"";
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+width:14px;
+height:100%;
+background:#ffd54f;
+}
+
+.gift-lid{
+position:absolute;
+top:0;
+width:120px;
+height:30px;
+background:#ef5350;
+border-radius:10px;
+transition:.8s;
+}
+
+.gift-lid::before{
+content:"";
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+width:14px;
+height:30px;
+background:#ffd54f;
+}
+
+.giftBox.open .gift-lid{
+transform:translateY(-45px) rotate(-12deg);
+}
+
+@keyframes giftFloat{
+
+0%,100%{
+transform:translateX(-50%) translateY(0);
+}
+
+50%{
+transform:translateX(-50%) translateY(-10px);
+}
+
+}
