@@ -1,5 +1,89 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
 body{
-background:black;
+background:#080808;
+font-family:Poppins,sans-serif;
+overflow:hidden;
 color:white;
-font-family:Arial;
+}
+
+.screen{
+width:100%;
+height:100vh;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+position:relative;
+}
+
+.screen.active{
+display:flex;
+}
+
+.loader{
+width:70px;
+height:70px;
+border:6px solid rgba(255,255,255,.2);
+border-top:6px solid #ff4d6d;
+border-radius:50%;
+animation:spin 1s linear infinite;
+margin-bottom:25px;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+.fairyLights{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-evenly;
+padding:15px 5px;
+}
+
+.fairyLights span{
+width:12px;
+height:12px;
+border-radius:50%;
+background:#444;
+box-shadow:none;
+transition:.5s;
+}
+
+.fairyLights.on span{
+background:#ffe082;
+box-shadow:
+0 0 10px #ffd54f,
+0 0 20px #ffd54f,
+0 0 35px #fff176;
+}
+
+#birthdayTitle{
+display:none;
+font-size:55px;
+font-family:"Great Vibes",cursive;
+margin-top:60px;
+color:#ff5c8a;
+text-align:center;
+}
+
+#lightBtn{
+margin-top:50px;
+padding:14px 35px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:#ff4d6d;
+color:white;
+cursor:pointer;
 }
