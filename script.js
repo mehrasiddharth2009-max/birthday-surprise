@@ -1,65 +1,27 @@
-const loading = document.getElementById("loadingScreen");
-const lightScreen = document.getElementById("lightScreen");
-const lightBtn = document.getElementById("lightBtn");
-const fairyLights = document.querySelector(".fairyLights");
-const title = document.getElementById("birthdayTitle");
-const giftBox = document.getElementById("giftBox");
-const cake = document.getElementById("cake");
-const knife = document.getElementById("knife");
-const cutBtn = document.getElementById("cutBtn");
-const cakeSlice = document.getElementById("cakeSlice");
-const continueBtn = document.getElementById("continueBtn");
+const loading=document.getElementById("loading");
 
-// 2 sec loading
-setTimeout(() => {
-    loading.classList.remove("active");
-    lightScreen.classList.add("active");
-}, 2000);
+const lightsPage=document.getElementById("lightsPage");
 
-// Turn on lights
-lightBtn.addEventListener("click", () => {
+const fairy=document.querySelector(".fairyLights");
 
-    fairyLights.classList.add("on");
+const btn=document.getElementById("lightBtn");
 
-    title.style.display = "block";
+const title=document.getElementById("title");
 
-    lightBtn.style.display = "none";
-    giftBox.style.display = "block";
-    });
-giftBox.addEventListener("click", () => {
+setTimeout(()=>{
 
-    giftBox.classList.add("open");
+loading.classList.remove("active");
 
-    setTimeout(() => {
+lightsPage.classList.add("active");
 
-        giftBox.style.display = "none";
+},2000);
 
-        cake.style.display = "block";
-        knife.style.display = "block";
-cutBtn.style.display = "block";
+btn.onclick=()=>{
 
-    }, 800);
+fairy.classList.add("on");
 
-});
-cutBtn.addEventListener("click", () => {
+title.style.display="block";
 
-    // Knife animation
-    knife.style.transform = "translateX(-50%) translateY(120px) rotate(25deg)";
+btn.style.display="none";
 
-    setTimeout(() => {
-
-        // Cake cut
-        cake.classList.add("cut");
-
-        // Hide knife
-        knife.style.display = "none";
-
-        // Hide cut button
-        cutBtn.style.display = "none";
-
-        // Show continue button
-        continueBtn.style.display = "block";
-
-    }, 700);
-
-});
+};
