@@ -7,6 +7,8 @@ const giftBox = document.getElementById("giftBox");
 const cake = document.getElementById("cake");
 const knife = document.getElementById("knife");
 const cutBtn = document.getElementById("cutBtn");
+const cakeSlice = document.getElementById("cakeSlice");
+const continueBtn = document.getElementById("continueBtn");
 
 // 2 sec loading
 setTimeout(() => {
@@ -37,5 +39,27 @@ giftBox.addEventListener("click", () => {
 cutBtn.style.display = "block";
 
     }, 800);
+
+});
+cutBtn.addEventListener("click", () => {
+
+    // Knife animation
+    knife.style.transform = "translateX(-50%) translateY(120px) rotate(25deg)";
+
+    setTimeout(() => {
+
+        // Cake cut
+        cake.classList.add("cut");
+
+        // Hide knife
+        knife.style.display = "none";
+
+        // Hide cut button
+        cutBtn.style.display = "none";
+
+        // Show continue button
+        continueBtn.style.display = "block";
+
+    }, 700);
 
 });
