@@ -30,7 +30,7 @@ giftBox.addEventListener("click", () => {
 
         giftBox.style.display = "none";
 
-        document.getElementById("cake").style.display = "block";
+        cake.style.display = "block";
 
     }, 800);
 
