@@ -4,6 +4,7 @@ const lightBtn = document.getElementById("lightBtn");
 const fairyLights = document.querySelector(".fairyLights");
 const title = document.getElementById("birthdayTitle");
 const giftBox = document.getElementById("giftBox");
+const cake = document.getElementById("cake");
 
 // 2 sec loading
 setTimeout(() => {
@@ -22,9 +23,15 @@ lightBtn.addEventListener("click", () => {
     giftBox.style.display = "block";
     });
 giftBox.addEventListener("click", () => {
+
     giftBox.classList.add("open");
 
     setTimeout(() => {
-        alert("🎁 Surprise is coming...");
+
+        giftBox.style.display = "none";
+
+        document.getElementById("cake").style.display = "block";
+
     }, 800);
+
 });
