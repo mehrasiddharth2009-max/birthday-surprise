@@ -5,304 +5,132 @@ box-sizing:border-box;
 }
 
 body{
-background:#080808;
+background:#070707;
 font-family:Poppins,sans-serif;
 overflow:hidden;
 color:white;
 }
 
 .screen{
-width:100%;
-height:100vh;
+
 display:none;
+
 justify-content:center;
+
 align-items:center;
+
 flex-direction:column;
+
+height:100vh;
+
 position:relative;
+
 }
 
-.screen.active{
+.active{
+
 display:flex;
+
 }
 
 .loader{
-width:70px;
-height:70px;
-border:6px solid rgba(255,255,255,.2);
-border-top:6px solid #ff4d6d;
+
+width:75px;
+
+height:75px;
+
 border-radius:50%;
+
+border:7px solid rgba(255,255,255,.15);
+
+border-top:7px solid #ff4f7d;
+
 animation:spin 1s linear infinite;
-margin-bottom:25px;
+
 }
 
 @keyframes spin{
+
 100%{
+
 transform:rotate(360deg);
+
 }
+
 }
 
 .fairyLights{
+
 position:absolute;
-top:0;
-left:0;
+
+top:10px;
+
 width:100%;
+
 display:flex;
+
 justify-content:space-evenly;
-padding:15px 5px;
+
 }
 
 .fairyLights span{
-width:12px;
-height:12px;
-border-radius:50%;
+
+width:13px;
+
+height:13px;
+
 background:#444;
-box-shadow:none;
-transition:.5s;
-}
 
-.fairyLights.on span{
-background:#ffe082;
-box-shadow:
-0 0 10px #ffd54f,
-0 0 20px #ffd54f,
-0 0 35px #fff176;
-}
-
-#birthdayTitle{
-display:none;
-font-size:55px;
-font-family:"Great Vibes",cursive;
-margin-top:60px;
-color:#ff5c8a;
-text-align:center;
-}
-
-#lightBtn{
-margin-top:50px;
-padding:14px 35px;
-font-size:18px;
-border:none;
-border-radius:30px;
-background:#ff4d6d;
-color:white;
-cursor:pointer;
-}
-/* ---------- Gift Box ---------- */
-
-.giftBox{
-position:absolute;
-bottom:80px;
-left:50%;
-transform:translateX(-50%);
-width:120px;
-height:120px;
-cursor:pointer;
-display:none;
-animation:giftFloat 2s ease-in-out infinite;
-}
-
-.gift-body{
-position:absolute;
-bottom:0;
-width:120px;
-height:80px;
-background:#e53935;
-border-radius:0 0 10px 10px;
-box-shadow:0 10px 20px rgba(0,0,0,.4);
-}
-
-.gift-body::before{
-content:"";
-position:absolute;
-left:50%;
-transform:translateX(-50%);
-width:14px;
-height:100%;
-background:#ffd54f;
-}
-
-.gift-lid{
-position:absolute;
-top:0;
-width:120px;
-height:30px;
-background:#ef5350;
-border-radius:10px;
-transition:.8s;
-}
-
-.gift-lid::before{
-content:"";
-position:absolute;
-left:50%;
-transform:translateX(-50%);
-width:14px;
-height:30px;
-background:#ffd54f;
-}
-
-.giftBox.open .gift-lid{
-transform:translateY(-45px) rotate(-12deg);
-}
-
-@keyframes giftFloat{
-
-0%,100%{
-transform:translateX(-50%) translateY(0);
-}
-
-50%{
-transform:translateX(-50%) translateY(-10px);
-}
-
-}
-/* ---------- Cake ---------- */
-
-.cake{
-display:block;
-position:absolute;
-bottom:70px;
-left:50%;
-transform:translateX(-50%);
-width:170px;
-height:170px;
-}
-
-.cake-bottom{
-position:absolute;
-bottom:0;
-width:170px;
-height:60px;
-background:#d2691e;
-border-radius:0 0 20px 20px;
-}
-
-.cake-middle{
-position:absolute;
-bottom:55px;
-left:10px;
-width:150px;
-height:45px;
-background:#f8c291;
-border-radius:12px;
-}
-
-.cake-top{
-position:absolute;
-bottom:95px;
-left:20px;
-width:130px;
-height:35px;
-background:#ffeaa7;
-border-radius:12px;
-}
-
-.candle{
-position:absolute;
-bottom:128px;
-left:50%;
-transform:translateX(-50%);
-width:10px;
-height:35px;
-background:white;
-border-radius:5px;
-}
-
-.flame{
-position:absolute;
-top:-12px;
-left:50%;
-transform:translateX(-50%);
-width:12px;
-height:18px;
-background:orange;
 border-radius:50%;
-box-shadow:0 0 15px yellow;
-animation:flicker .3s infinite alternate;
+
+transition:.5s;
+
 }
 
-@keyframes flicker{
-from{
-transform:translateX(-50%) scale(1);
-}
-to{
-transform:translateX(-50%) scale(1.2);
-}
-}
-/* ---------- Knife ---------- */
+.on span{
 
-.knife{
-display:block;
-position:absolute;
-left:50%;
-bottom:240px;
-transform:translateX(-50%);
-font-size:42px;
-z-index:9999;
+background:#ffe082;
+
+box-shadow:
+
+0 0 10px #ffd54f,
+
+0 0 20px #ffd54f,
+
+0 0 35px #fff176;
+
 }
 
-#cutBtn{
+#title{
+
 display:none;
-position:absolute;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-padding:14px 28px;
-border:none;
-border-radius:30px;
-background:#ff4d6d;
-color:#fff;
+
+font-family:"Great Vibes",cursive;
+
+font-size:60px;
+
+color:#ff5e8a;
+
+margin-bottom:40px;
+
+text-align:center;
+
+}
+
+button{
+
+padding:15px 35px;
+
 font-size:18px;
-cursor:pointer;
-box-shadow:0 0 15px rgba(255,77,109,.5);
-}
 
-#cutBtn:hover{
-transform:translateX(-50%) scale(1.05);
-}
-/* ---------- Cake Slice ---------- */
-
-.cake-slice{
-position:absolute;
-right:18px;
-bottom:0;
-width:45px;
-height:60px;
-background:#d2691e;
-border-radius:0 0 12px 12px;
-display:none;
-transition:1s;
-z-index:30;
-}
-
-.cake-slice::before{
-content:"";
-position:absolute;
-top:-10px;
-left:0;
-width:100%;
-height:12px;
-background:#ffeaa7;
-border-radius:10px;
-}
-
-.cake.cut .cake-slice{
-display:block;
-transform:translate(80px,-10px) rotate(-10deg);
-}
-
-#continueBtn{
-display:none;
-position:absolute;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-padding:14px 30px;
 border:none;
-border-radius:30px;
-background:#ff4d6d;
+
+border-radius:40px;
+
+background:#ff4f7d;
+
 color:white;
-font-size:18px;
+
 cursor:pointer;
-box-shadow:0 0 15px rgba(255,77,109,.4);
+
 }
