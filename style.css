@@ -156,3 +156,76 @@ transform:translateX(-50%) translateY(-10px);
 }
 
 }
+/* ---------- Cake ---------- */
+
+.cake{
+display:none;
+position:absolute;
+bottom:70px;
+left:50%;
+transform:translateX(-50%);
+width:170px;
+height:170px;
+}
+
+.cake-bottom{
+position:absolute;
+bottom:0;
+width:170px;
+height:60px;
+background:#d2691e;
+border-radius:0 0 20px 20px;
+}
+
+.cake-middle{
+position:absolute;
+bottom:55px;
+left:10px;
+width:150px;
+height:45px;
+background:#f8c291;
+border-radius:12px;
+}
+
+.cake-top{
+position:absolute;
+bottom:95px;
+left:20px;
+width:130px;
+height:35px;
+background:#ffeaa7;
+border-radius:12px;
+}
+
+.candle{
+position:absolute;
+bottom:128px;
+left:50%;
+transform:translateX(-50%);
+width:10px;
+height:35px;
+background:white;
+border-radius:5px;
+}
+
+.flame{
+position:absolute;
+top:-12px;
+left:50%;
+transform:translateX(-50%);
+width:12px;
+height:18px;
+background:orange;
+border-radius:50%;
+box-shadow:0 0 15px yellow;
+animation:flicker .3s infinite alternate;
+}
+
+@keyframes flicker{
+from{
+transform:translateX(-50%) scale(1);
+}
+to{
+transform:translateX(-50%) scale(1.2);
+}
+}
