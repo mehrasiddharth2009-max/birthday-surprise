@@ -5,6 +5,8 @@ const fairyLights = document.querySelector(".fairyLights");
 const title = document.getElementById("birthdayTitle");
 const giftBox = document.getElementById("giftBox");
 const cake = document.getElementById("cake");
+const knife = document.getElementById("knife");
+const cutBtn = document.getElementById("cutBtn");
 
 // 2 sec loading
 setTimeout(() => {
@@ -31,6 +33,8 @@ giftBox.addEventListener("click", () => {
         giftBox.style.display = "none";
 
         cake.style.display = "block";
+        knife.style.display = "block";
+cutBtn.style.display = "block";
 
     }, 800);
 
