@@ -7,6 +7,7 @@ const fairy=document.querySelector(".fairyLights");
 const btn=document.getElementById("lightBtn");
 
 const title=document.getElementById("title");
+const giftBox = document.getElementById("giftBox");
 
 setTimeout(()=>{
 
@@ -23,5 +24,10 @@ fairy.classList.add("on");
 title.style.display="block";
 
 btn.style.display="none";
+giftBox.style.display="block";
+};
+giftBox.onclick=()=>{
+
+giftBox.classList.add("open");
 
 };
