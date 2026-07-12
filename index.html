@@ -1,76 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>Birthday Surprise ❤️</title>
 
 <link rel="stylesheet" href="style.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<div id="app">
-
 <!-- Loading -->
-<section id="loadingScreen" class="screen active">
-    <div class="loader"></div>
-    <h2>Preparing Something Special ✨️</h2>
-    
+
+<section id="loading" class="screen active">
+
+<div class="loader"></div>
+
+<h2>Preparing Your Surprise ❤️</h2>
+
 </section>
 
-<!-- Light Screen -->
-<section id="lightScreen" class="screen">
+<!-- Lights -->
 
-    <div class="fairyLights">
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-        <span></span><span></span><span></span><span></span>
-    </div>
+<section id="lightsPage" class="screen">
 
-    <h1 id="birthdayTitle">Happy Birthday </h1>
+<div class="fairyLights">
 
-    <button id="lightBtn">
-        Turn On Lights ✨
-    </button>
-<!-- Gift Box -->
-<div id="giftBox" class="giftBox">
-    <div class="gift-lid"></div>
-    <div class="gift-body"></div>
-</div>
-<!-- Cake -->
-<div id="cake" class="cake">
-
-    <div class="cake-top"></div>
-
-    <div class="cake-middle"></div>
-
-    <div class="cake-bottom"></div>
-
-    <div class="candle">
-        <div class="flame"></div>
-    </div>
-    
-    <div class="cake-slice" id="cakeSlice"></div>
+<span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span>
 
 </div>
-    <!-- Knife -->
-<div id="knife" class="knife">
-    🔪
-</div>
 
-<button id="cutBtn">
-    Cut Cake 🎂
-    <button id="continueBtn">
-    Continue ✨️
-    </button>
+<h1 id="title">
+
+Happy Birthday 🎂 
+
+</h1>
+
+<button id="lightBtn">
+
+Turn On Lights ✨
+
 </button>
 
 </section>
-
-</div>
 
 <script src="script.js"></script>
 
