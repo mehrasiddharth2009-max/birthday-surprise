@@ -202,3 +202,22 @@ transform:translateX(-50%) translateY(-10px);
 }
 
 }
+/* ===== Cake & Cut Button ===== */
+
+.cake{
+display:none;
+position:absolute;
+bottom:75px;
+left:50%;
+transform:translateX(-50%);
+width:180px;
+height:180px;
+}
+
+#cutBtn{
+display:none;
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+}
