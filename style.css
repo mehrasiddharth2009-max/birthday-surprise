@@ -207,7 +207,7 @@ transform:translateX(-50%) translateY(-10px);
 .cake{
 display:none;
 position:absolute;
-bottom:120px;
+bottom:170px;
 left:50%;
 transform:translateX(-50%);
 width:180px;
@@ -313,7 +313,7 @@ transform:translateX(-50%) translateY(-8px);
 #cutBtn{
 display:none;
 position:absolute;
-bottom:35px;
+bottom:55px;
 left:50%;
 transform:translateX(-50%);
 padding:15px 35px;
