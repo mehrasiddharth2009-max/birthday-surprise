@@ -326,6 +326,15 @@ cursor:pointer;
 z-index:10;
 box-shadow:0 0 18px rgba(255,79,125,.5);
 }
+#cutBtn{
+position:absolute;
+left:50%;
+top:88%;
+bottom:auto;
+transform:translateX(-50%);
+z-index:20;
+white-space:nowrap;
+                           }
 /* Final button position fix */
 
 #cutBtn{
