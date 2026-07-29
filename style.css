@@ -314,7 +314,7 @@ transform:translateX(-50%) translateY(-8px);
 #cutBtn{
 display:none;
 position:absolute;
-top:calc(50% + 190px);
+bottom:55px;
 left:50%;
 transform:translateX(-50%);
 z-index:10;
