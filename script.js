@@ -8,7 +8,9 @@ const btn=document.getElementById("lightBtn");
 
 const title=document.getElementById("title");
 const giftBox = document.getElementById("giftBox");
+const cake=document.getElementById("cake");
 
+const cutBtn=document.getElementById("cutBtn");
 setTimeout(()=>{
 
 loading.classList.remove("active");
@@ -29,5 +31,15 @@ giftBox.style.display="block";
 giftBox.onclick=()=>{
 
 giftBox.classList.add("open");
+
+setTimeout(()=>{
+
+giftBox.style.display="none";
+
+cake.style.display="block";
+
+cutBtn.style.display="block";
+
+},800);
 
 };
