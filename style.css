@@ -330,7 +330,7 @@ box-shadow:0 0 18px rgba(255,79,125,.45);
 #cutBtn{
 position:fixed !important;
 left:50% !important;
-bottom:90px !important;
+bottom:180px !important;
 transform:translateX(-50%) !important;
 z-index:99999 !important;
 padding:15px 35px;
