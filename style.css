@@ -202,31 +202,12 @@ transform:translateX(-50%) translateY(-10px);
 }
 
 }
-/* ===== Cake & Cut Button ===== */
+/* ===== Cake ===== */
 
 .cake{
 display:none;
 position:absolute;
-bottom:75px;
-left:50%;
-transform:translateX(-50%);
-width:180px;
-height:180px;
-}
-
-#cutBtn{
-display:none;
-position:absolute;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-}
-/* ===== Realistic Birthday Cake ===== */
-
-.cake{
-display:none;
-position:absolute;
-bottom:75px;
+bottom:120px;
 left:50%;
 transform:translateX(-50%);
 width:180px;
@@ -282,7 +263,6 @@ background:repeating-linear-gradient(
 #ff5c8a 5px 10px
 );
 border-radius:6px;
-box-shadow:0 3px 7px rgba(0,0,0,.25);
 }
 
 .flame{
@@ -292,26 +272,56 @@ bottom:34px;
 transform:translateX(-50%);
 width:18px;
 height:27px;
-background:radial-gradient(circle at 50% 65%,#fff 0 15%,#ffd54f 30%,#ff9800 65%,#ff5722 100%);
+background:radial-gradient(
+circle at 50% 65%,
+#fff 0 15%,
+#ffd54f 30%,
+#ff9800 65%,
+#ff5722 100%
+);
 border-radius:60% 60% 55% 55%;
 animation:flameMove .5s ease-in-out infinite alternate;
 box-shadow:0 0 15px #ff9800;
 }
 
 @keyframes flameMove{
+
 from{
 transform:translateX(-50%) scale(1) rotate(-3deg);
 }
+
 to{
 transform:translateX(-50%) scale(1.12) rotate(3deg);
 }
+
 }
 
 @keyframes cakeFloat{
+
 0%,100%{
 transform:translateX(-50%) translateY(0);
 }
+
 50%{
 transform:translateX(-50%) translateY(-8px);
 }
-  }
+
+}
+
+/* ===== Cut Cake Button ===== */
+
+#cutBtn{
+display:none;
+position:absolute;
+bottom:35px;
+left:50%;
+transform:translateX(-50%);
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:40px;
+background:#ff4f7d;
+color:white;
+cursor:pointer;
+box-shadow:0 0 18px rgba(255,79,125,.45);
+}
