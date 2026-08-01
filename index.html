@@ -1,83 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Birthday Surprise ❤️</title>
+<title>Birthday Surprise 🎂</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+/* ===== BASIC ===== */
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  overflow:hidden;
+  background:#050509;
+  color:white;
+  font-family:Arial, sans-serif;
+}
+
+.page{
+  width:100%;
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* ===== LOADING ===== */
+
+#loading{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:#050509;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  transition:opacity .6s ease;
+}
+
+.loader{
+  width:90px;
+  height:90px;
+  border:9px solid #292932;
+  border-top-color:#ff4f81;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+
+#loading h1{
+  margin-top:28px;
+  font-size:28px;
+  text-align:center;
+}
+
+@keyframes spin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+
+/* ===== FAIRY LIGHTS ===== */
+
+.fairy-lights{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:90px;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  padding:0 18px;
+}
+
+.bulb{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#35353b;
+  transition:.5s;
+}
+
+.fairy-lights.on .bulb{
+  background:#ffe18a;
+  box-shadow:
+  0 0 10px #ffd54f,
+  0 0 25px #ffca28,
+  0 0 45px #ffb300;
+}
+
+
+/* ===== BUTTON ===== */
+
+.main-btn{
+  border:none;
+  outline:none;
+  color:white;
+  background:#ff4778;
+  padding:17px 35px;
+  border-radius:50px;
+  font-size:20px;
+  cursor:pointer;
+  box-shadow:0 8px 25px rgba(255,71,120,.35);
+}
+
+.main-btn:active{
+  transform:scale(.95);
+}
+
+
+/* ===== BIRTHDAY TITLE ===== */
+
+#birthdayTitle{
+  display:none;
+  position:absolute;
+  top:34%;
+  width:100%;
+  text-align:center;
+  color:#ff4f81;
+  font-size:58px;
+  font-family:cursive;
+  text-shadow:
+  0 0 10px rgba(255,79,129,.5),
+  0 0 25px rgba(255,79,129,.3);
+  animation:titleFloat 2s ease-in-out infinite;
+}
+
+@keyframes titleFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-8px);
+  }
+}
+
+
+/* ===== GIFT ===== */
+
+#giftBox{
+  display:none;
+  position:absolute;
+  top:53%;
+  width:145px;
+  height:125px;
+  cursor:pointer;
+  animation:giftFloat 1.8s ease-in-out infinite;
+}
+
+.gift-body{
+  position:absolute;
+  bottom:0;
+  width:145px;
+  height:100px;
+  border-radius:12px;
+  background:linear-gradient(
+  to bottom,
+  #ff5c87,
+  #d91f57
+  );
+}
+
+.gift-lid{
+  position:absolute;
+  top:8px;
+  left:-7px;
+  width:159px;
+  height:35px;
+  border-radius:10px;
+  background:#ff759a;
+  transition:.6s;
+}
+
+.gift-ribbon{
+  position:absolute;
+  left:62px;
+  top:0;
+  width:20px;
+  height:125px;
+  background:#ffe08a;
+}
+
+#giftBox.open .gift-lid{
+  transform:
+  translateY(-55px)
+  rotate(-12deg);
+}
+
+@keyframes giftFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+}
+
+
+/* ===== CAKE AREA ===== */
+
+#cakeArea{
+  display:none;
+  position:absolute;
+  top:48%;
+  left:50%;
+  width:260px;
+  transform:translateX(-50%);
+  flex-direction:column;
+  align-items:center;
+}
+
+#cakeArea.show{
+  display:flex;
+}
+
+
+/* ===== CAKE ===== */
+
+.cake{
+  position:relative;
+  width:180px;
+  height:190px;
+  animation:cakeFloat 2.5s ease-in-out infinite;
+}
+
+.cake-bottom{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:180px;
+  height:68px;
+  border-radius:0 0 25px 25px;
+  background:
+  linear-gradient(
+  to bottom,
+  #a94b2f,
+  #6e2418
+  );
+  box-shadow:
+  0 12px 18px rgba(0,0,0,.45),
+  inset 0 -8px 10px rgba(0,0,0,.18);
+}
+
+.cake-middle{
+  position:absolute;
+  bottom:60px;
+  left:10px;
+  width:160px;
+  height:55px;
+  border-radius:16px;
+  background:
+  linear-gradient(
+  to bottom,
+  #f6b6a8,
+  #d87b6d
+  );
+}
+
+.cake-top{
+  position:absolute;
+  bottom:108px;
+  left:22px;
+  width:136px;
+  height:44px;
+  border-radius:20px;
+  background:
+  linear-gradient(
+  to bottom,
+  #fff4d6,
+  #f0c97c
+  );
+}
+
+.candle{
+  position:absolute;
+  bottom:147px;
+  left:84px;
+  width:13px;
+  height:40px;
+  border-radius:6px;
+  background:
+  repeating-linear-gradient(
+  45deg,
+  white 0 5px,
+  #ff5c8a 5px 10px
+  );
+}
+
+.flame{
+  position:absolute;
+  bottom:182px;
+  left:79px;
+  width:23px;
+  height:32px;
+  border-radius:
+  60% 60% 55% 55%;
+  background:
+  radial-gradient(
+  circle at 50% 65%,
+  white 0 15%,
+  #ffd54f 30%,
+  #ff9800 65%,
+  #ff5722 100%
+  );
+  box-shadow:0 0 20px #ff9800;
+  animation:flameMove .5s ease-in-out infinite alternate;
+}
+
+@keyframes cakeFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-7px);
+  }
+}
+
+@keyframes flameMove{
+  from{
+    transform:scale(1) rotate(-3deg);
+  }
+
+  to{
+    transform:scale(1.12) rotate(3deg);
+  }
+}
+
+
+/* ===== CUT BUTTON ===== */
+
+#cutBtn{
+  margin-top:28px;
+  border:none;
+  color:white;
+  background:#ff4778;
+  padding:16px 42px;
+  border-radius:50px;
+  font-size:20px;
+  cursor:pointer;
+  white-space:nowrap;
+  box-shadow:0 8px 25px rgba(255,71,120,.4);
+}
+
+#cutBtn:active{
+  transform:scale(.95);
+}
+
+
+/* ===== FINAL MESSAGE ===== */
+
+#finalMessage{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:#050509;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+}
+
+#finalMessage h1{
+  color:#ff4f81;
+  font-size:48px;
+  margin-bottom:20px;
+}
+
+#finalMessage p{
+  font-size:22px;
+  line-height:1.6;
+  color:#fff;
+}
+
+.heart{
+  font-size:65px;
+  margin-top:25px;
+  animation:heartBeat 1s infinite;
+}
+
+@keyframes heartBeat{
+  50%{
+    transform:scale(1.2);
+  }
+}
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:500px){
+
+  #birthdayTitle{
+    top:35%;
+    font-size:48px;
+  }
+
+  #giftBox{
+    top:54%;
+  }
+
+  #cakeArea{
+    top:48%;
+  }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
 <!-- Loading -->
 
-<section id="loading" class="screen active">
+<div id="loading">
 
 <div class="loader"></div>
 
-<h2>Preparing Your Surprise ❤️</h2>
-
-</section>
-
-<!-- Lights -->
-
-<section id="lightsPage" class="screen">
-
-<div class="fairyLights">
-
-<span></span><span></span><span></span><span></span>
-<span></span><span></span><span></span><span></span>
-<span></span><span></span><span></span><span></span>
+<h1>
+Preparing Your Surprise 💗
+</h1>
 
 </div>
 
-<h1 id="title">
 
-Happy Birthday  
+<!-- Main Page -->
 
-</h1>
+<div class="page">
 
-<button id="lightBtn">
+<div class="fairy-lights" id="fairyLights">
+
+<div class="bulb"></div>
+<div class="bulb"></div>
+<div class="bulb"></div>
+<div class="bulb"></div>
+<div class="bulb"></div>
+<div class="bulb"></div>
+<div class="bulb"></div>
+<div class="bulb"></div>
+<div class="bulb"></div>
+<div class="bulb"></div>
+
+</div>
+
+
+<button
+id="lightBtn"
+class="main-btn">
 
 Turn On Lights ✨
 
 </button>
 
-  <div id="giftBox" class="giftBox">
 
-    <div class="gift-lid"></div>
+<h1 id="birthdayTitle">
 
-    <div class="gift-body"></div>
+Happy Birthday
 
-    <div class="gift-ribbon-v"></div>
+</h1>
 
-    <div class="gift-ribbon-h"></div>
 
-</div>
-<div id="cakeArea" class="cakeArea">
+<!-- Gift -->
 
-  <div id="cake" class="cake">
+<div id="giftBox">
 
-    <div class="cake-top"></div>
+<div class="gift-body"></div>
 
-    <div class="cake-middle"></div>
+<div class="gift-ribbon"></div>
 
-    <div class="cake-bottom"></div>
-
-    <div class="candle">
-      <div class="flame"></div>
-    </div>
-
-  </div>
-
-  <button id="cutBtn">
-    Cut Cake 🎂
-  </button>
+<div class="gift-lid"></div>
 
 </div>
+
+
+<!-- Cake -->
+
+<div id="cakeArea">
+
+<div class="cake">
+
+<div class="cake-bottom"></div>
+
+<div class="cake-middle"></div>
+
+<div class="cake-top"></div>
+
+<div class="candle"></div>
+
+<div class="flame"></div>
+
+</div>
+
+
+<button id="cutBtn">
+
+Cut Cake 🎂
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- Final Screen -->
+
+<div id="finalMessage">
+
+<h1>
+Happy Birthday! 🎂
+</h1>
+
+<p>
+
+May your day be filled with happiness,<br>
+
+beautiful memories and lots of smiles 💗
+
+</p>
+
+<div class="heart">
+
+💖
+
+</div>
+
+</div>
+
+
+<script>
+
+/* Loading */
+
+setTimeout(function(){
+
+document
+.getElementById("loading")
+.style.display="none";
+
+},2000);
+
+
+/* Lights */
+
+document
+.getElementById("lightBtn")
+.onclick=function(){
+
+document
+.getElementById("fairyLights")
+.classList.add("on");
+
+document
+.getElementById("birthdayTitle")
+.style.display="block";
+
+this.style.display="none";
+
+document
+.getElementById("giftBox")
+.style.display="block";
+
+};
+
+
+/* Gift */
+
+document
+.getElementById("giftBox")
+.onclick=function(){
+
+this.classList.add("open");
+
+setTimeout(function(){
+
+document
+.getElementById("giftBox")
+.style.display="none";
+
+document
+.getElementById("cakeArea")
+.classList.add("show");
+
+},700);
+
+};
+
+
+/* Cut Cake */
+
+document
+.getElementById("cutBtn")
+.onclick=function(){
+
+document
+.getElementById("finalMessage")
+.style.display="flex";
+
+};
+
+</script>
+
+</body>
+</html>
