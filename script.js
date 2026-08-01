@@ -80,3 +80,10 @@ alert("Happy Birthday! 🎂🎉");
 }
 
 });
+cutBtn.onclick=()=>{
+
+document.getElementById("cakeArea").classList.add("cut");
+
+cutBtn.style.display="none";
+
+};
