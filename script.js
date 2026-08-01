@@ -36,9 +36,7 @@ setTimeout(()=>{
 
 giftBox.style.display="none";
 
-cake.style.display="block";
-
-cutBtn.style.display="block";
+document.getElementById("cakeArea").classList.add("show");
 
 },800);
 
