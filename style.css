@@ -416,3 +416,17 @@ transform:scale(.78) translateY(-8px);
 }
 
 }
+/* FINAL LOADING FIX */
+
+#loading{
+display:none !important;
+visibility:hidden !important;
+opacity:0 !important;
+pointer-events:none !important;
+}
+
+#lightsPage{
+display:block !important;
+visibility:visible !important;
+opacity:1 !important;
+}
