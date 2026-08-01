@@ -1,71 +1,82 @@
+window.addEventListener("DOMContentLoaded", () => {
+
 const loading = document.getElementById("loading");
 const lightsPage = document.getElementById("lightsPage");
-
 const fairy = document.querySelector(".fairyLights");
 const btn = document.getElementById("lightBtn");
-
 const title = document.getElementById("title");
 const giftBox = document.getElementById("giftBox");
-
-const cake = document.getElementById("cake");
 const cakeArea = document.getElementById("cakeArea");
-
 const cutBtn = document.getElementById("cutBtn");
-
-
-/* Loading screen */
 
 setTimeout(() => {
 
-  loading.classList.remove("active");
+if (loading) {
+loading.classList.remove("active");
+loading.style.display = "none";
+}
 
-  lightsPage.classList.add("active");
+if (lightsPage) {
+lightsPage.classList.add("active");
+lightsPage.style.display = "block";
+}
 
 }, 2000);
 
-
-/* Turn on lights */
+if (btn) {
 
 btn.onclick = () => {
 
-  fairy.classList.add("on");
+if (fairy) {
+fairy.classList.add("on");
+}
 
-  title.style.display = "block";
+if (title) {
+title.style.display = "block";
+}
 
-  btn.style.display = "none";
+btn.style.display = "none";
 
-  giftBox.style.display = "block";
+if (giftBox) {
+giftBox.style.display = "block";
+}
 
 };
 
+}
 
-/* Open gift */
+if (giftBox) {
 
 giftBox.onclick = () => {
 
-  giftBox.classList.add("open");
+giftBox.classList.add("open");
 
-  setTimeout(() => {
+setTimeout(() => {
 
-    giftBox.style.display = "none";
+giftBox.style.display = "none";
 
-    cakeArea.classList.add("show");
+if (cakeArea) {
+cakeArea.classList.add("show");
+}
 
-    cake.style.display = "block";
+if (cutBtn) {
+cutBtn.style.display = "block";
+}
 
-    cutBtn.style.display = "block";
-
-  }, 800);
+}, 800);
 
 };
 
+}
 
-/* Cut cake button */
+if (cutBtn) {
 
 cutBtn.onclick = () => {
 
-  cutBtn.innerHTML = "Cake Cut! 🎉";
-
-  cutBtn.disabled = true;
+alert("Happy Birthday! 🎂🎉");
 
 };
+
+}
+
+});
