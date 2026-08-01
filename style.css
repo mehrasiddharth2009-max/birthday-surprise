@@ -418,9 +418,13 @@ transform:scale(.78) translateY(-8px);
 }
 
 #cutBtn{
-display:block;
-position:relative;
-margin-top:30px;
-z-index:20;
+display:none;
+position:fixed;
+left:50%;
+bottom:120px;
+transform:translateX(-50%);
+z-index:99999;
+padding:15px 35px;
+font-size:18px;
 white-space:nowrap;
 }
