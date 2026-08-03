@@ -462,7 +462,112 @@ font-size:19px;
 }
 
 }
+/* ===== CAKE CUT ANIMATION ===== */
 
+.cake{
+overflow:visible;
+}
+
+.cakeLeft{
+position:absolute;
+left:0;
+bottom:0;
+width:180px;
+height:190px;
+transition:transform .8s ease;
+}
+
+.cakeSlice{
+position:absolute;
+right:0;
+bottom:0;
+width:58px;
+height:112px;
+opacity:0;
+transform:translateX(0);
+transition:
+transform .9s ease,
+opacity .3s ease;
+z-index:10;
+}
+
+.sliceBottom{
+position:absolute;
+bottom:0;
+left:0;
+width:58px;
+height:68px;
+background:linear-gradient(to bottom,#a94b2f,#6e2418);
+border-radius:0 0 24px 8px;
+box-shadow:0 10px 15px rgba(0,0,0,.35);
+}
+
+.sliceMiddle{
+position:absolute;
+bottom:60px;
+left:0;
+width:58px;
+height:55px;
+background:linear-gradient(to bottom,#f6b6a8,#d87b6d);
+border-radius:12px 0 0 12px;
+}
+
+.sliceTop{
+position:absolute;
+bottom:108px;
+left:0;
+width:58px;
+height:44px;
+background:linear-gradient(to bottom,#fff4d6,#f0c97c);
+border-radius:15px 0 0 15px;
+}
+
+/* Cut hone ke baad */
+
+.cake.cut{
+animation:none;
+}
+
+.cake.cut .cakeLeft{
+transform:translateX(-18px);
+}
+
+.cake.cut .cakeSlice{
+opacity:1;
+transform:
+translateX(75px)
+translateY(12px)
+rotate(8deg);
+}
+
+/* Original cake ka right part hide */
+
+.cake.cut .cakeBottom{
+clip-path:polygon(
+0 0,
+68% 0,
+68% 100%,
+0 100%
+);
+}
+
+.cake.cut .cakeMiddle{
+clip-path:polygon(
+0 0,
+68% 0,
+68% 100%,
+0 100%
+);
+}
+
+.cake.cut .cakeTop{
+clip-path:polygon(
+0 0,
+68% 0,
+68% 100%,
+0 100%
+);
+  }
 </style>
 </head>
 
@@ -521,7 +626,9 @@ Happy Birthday 🎂
 
 <div id="cakeArea">
 
-<div class="cake">
+  <div class="cake" id="cake">
+
+<div class="cakeLeft">
 
 <div class="cakeBottom"></div>
 
@@ -529,11 +636,24 @@ Happy Birthday 🎂
 
 <div class="cakeTop"></div>
 
+</div>
+
+<div class="cakeSlice">
+
+<div class="sliceBottom"></div>
+
+<div class="sliceMiddle"></div>
+
+<div class="sliceTop"></div>
+
+</div>
+
 <div class="candle"></div>
 
 <div class="flame"></div>
 
 </div>
+
 
 <button id="cutBtn">
 Cut Cake 🎂
@@ -637,11 +757,23 @@ document.getElementById("cakeArea").classList.add("show");
 };
 
 
-/* Cake */
+/* Cake Cut Animation */
 
 document.getElementById("cutBtn").onclick=function(){
 
+const cake=document.getElementById("cake");
+
+const cutBtn=document.getElementById("cutBtn");
+
+cake.classList.add("cut");
+
+cutBtn.style.display="none";
+
+setTimeout(function(){
+
 document.getElementById("letterPage").style.display="block";
+
+},1600);
 
 };
 
