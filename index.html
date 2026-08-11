@@ -1,1 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#d9d2f3">
 
+<title>A Little Birthday Surprise ✨</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Quicksand:wght@400;500;600;700&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    font-family:'Quicksand',sans-serif;
+    color:#403653;
+    overflow-x:hidden;
+
+    /* LIGHT LAVENDER CHECKED BACKGROUND */
+    background-color:#eee9fa;
+    background-image:
+        linear-gradient(45deg,rgba(190,181,224,.28) 25%,transparent 25%),
+        linear-gradient(-45deg,rgba(190,181,224,.28) 25%,transparent 25%),
+        linear-gradient(45deg,transparent 75%,rgba(190,181,224,.28) 75%),
+        linear-gradient(-45deg,transparent 75%,rgba(190,181,224,.28) 75%);
+    background-size:42px 42px;
+    background-position:0 0,0 21px,21px -21px,-21px 0;
+
+    transition:background .5s;
+}
+
+button{
+    font-family:inherit;
+    cursor:pointer;
+}
+
+.page{
+    display:none;
+    min-height:100vh;
+    width:100%;
+    padding:28px 18px 45px;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    animation:pageIn .7s ease;
+}
+
+.page.active{
+    display:flex;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ---------------- ENVELOPE PAGE ---------------- */
+
+.intro-title{
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(27px,7vw,48px);
+    text-align:center;
+    color:#493c61;
+    margin-bottom:8px;
+}
+
+.intro-subtitle{
+    text-align:center;
+    font-size:14px;
+    color:#746889;
+    margin-bottom:28px;
+}
+
+.envelope-area{
+    position:relative;
+    width:min(88vw,370px);
+    height:260px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.envelope{
+    position:relative;
+    width:min(82vw,340px);
+    height:205px;
+    background:#faf8ff;
+    border:1px solid #d4cce9;
+    border-radius:7px;
+    box-shadow:0 18px 45px rgba(79,62,112,.20);
+    transition:transform .7s ease;
+}
+
+.envelope-back{
+    position:absolute;
+    inset:0;
+    background:#ddd5f2;
+    border-radius:7px;
+    overflow:hidden;
+}
+
+.envelope-back:before,
+.envelope-back:after{
+    content:"";
+    position:absolute;
+    bottom:-2px;
+    width:72%;
+    height:145px;
+    background:#e8e2f7;
+}
+
+.envelope-back:before{
+    left:-15px;
+    transform:skewY(31deg);
+    transform-origin:bottom left;
+}
+
+.envelope-back:after{
+    right:-15px;
+    transform:skewY(-31deg);
+    transform-origin:bottom right;
+}
+
+.flap{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:125px;
+    background:#f5f1ff;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    transform-origin:top;
+    z-index:5;
+    transition:transform .9s cubic-bezier(.4,.2,.2,1);
+    filter:drop-shadow(0 3px 3px rgba(80,60,110,.12));
+}
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
+
+.letter{
+    position:absolute;
+    left:7%;
+    bottom:12px;
+    width:86%;
+    height:165px;
+    background:#fff;
+    border-radius:5px;
+    z-index:3;
+    padding:23px 15px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(70,50,100,.13);
+    transition:transform .9s cubic-bezier(.4,.2,.2,1);
+}
+
+.envelope.open .letter{
+    transform:translateY(-105px);
+}
+
+.letter-small{
+    font-size:11px;
+    color:#8b7da5;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.letter-big{
+    font-family:'DM Serif Display',serif;
+    font-size:27px;
+    margin-top:12px;
+    color:#55446d;
+}
+
+.seal{
+    position:absolute;
+    z-index:8;
+    bottom:72px;
+    left:50%;
+    transform:translateX(-50%);
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:#c8b9e9;
+    border:4px solid #eee9fa;
+    box-shadow:0 3px 10px rgba(60,45,90,.18);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#594b70;
+    font-size:20px;
+    transition:opacity .4s,transform .4s;
+}
+
+.envelope.open .seal{
+    opacity:0;
+    transform:translateX(-50%) scale(.5);
+}
+
+.open-btn{
+    margin-top:20px;
+    border:none;
+    background:#78659b;
+    color:white;
+    padding:13px 28px;
+    border-radius:30px;
+    font-size:15px;
+    font-weight:700;
+    box-shadow:0 8px 20px rgba(77,59,109,.22);
+    transition:.25s;
+}
+
+.open-btn:hover{
+    transform:translateY(-2px);
+    background:#675487;
+}
+
+.open-btn:active{
+    transform:scale(.96);
+}
+
+/* ---------------- BIRTHDAY PAGE ---------------- */
+
+.birthday-card{
+    width:min(94vw,650px);
+    background:rgba(255,255,255,.88);
+    border:1px solid rgba(177,164,210,.55);
+    border-radius:25px;
+    padding:22px;
+    box-shadow:0 20px 55px rgba(74,57,103,.18);
+    backdrop-filter:blur(8px);
+    text-align:center;
+}
+
+.photo-frame{
+    width:100%;
+    border-radius:18px;
+    overflow:hidden;
+    background:#e4def3;
+    margin-bottom:22px;
+}
+
+.photo-frame img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:520px;
+    object-fit:cover;
+}
+
+.birthday-label{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    color:#8b7aa8;
+}
+
+.birthday-title{
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(35px,10vw,62px);
+    color:#59466f;
+    margin:5px 0 10px;
+}
+
+.birthday-text{
+    font-size:15px;
+    line-height:1.8;
+    color:#625674;
+    max-width:540px;
+    margin:auto;
+}
+
+.signature{
+    margin-top:17px;
+    font-family:'DM Serif Display',serif;
+    font-style:italic;
+    font-size:21px;
+    color:#75618e;
+}
+
+/* ---------------- GALLERY ---------------- */
+
+.gallery-title{
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(32px,8vw,50px);
+    color:#59466f;
+    text-align:center;
+    margin-bottom:8px;
+}
+
+.gallery-subtitle{
+    text-align:center;
+    color:#75698a;
+    font-size:14px;
+    margin-bottom:24px;
+}
+
+.gallery-card{
+    width:min(94vw,620px);
+    background:rgba(255,255,255,.9);
+    border-radius:23px;
+    padding:16px;
+    box-shadow:0 18px 45px rgba(74,57,103,.17);
+    border:1px solid rgba(177,164,210,.5);
+}
+
+.gallery-image{
+    width:100%;
+    border-radius:16px;
+    overflow:hidden;
+    background:#e3ddf1;
+}
+
+.gallery-image img{
+    width:100%;
+    display:block;
+    max-height:590px;
+    object-fit:cover;
+}
+
+.caption{
+    padding:20px 7px 7px;
+    text-align:center;
+}
+
+.caption h2{
+    font-family:'DM Serif Display',serif;
+    color:#59466f;
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.caption p{
+    color:#6c607b;
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* ---------------- NAVIGATION ---------------- */
+
+.nav-buttons{
+    display:flex;
+    gap:12px;
+    margin-top:24px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.nav-btn{
+    border:1px solid #c2b6dc;
+    background:rgba(255,255,255,.85);
+    color:#5b4c72;
+    padding:11px 21px;
+    border-radius:25px;
+    font-weight:700;
+    font-size:14px;
+    transition:.25s;
+}
+
+.nav-btn:hover{
+    background:#78659b;
+    color:white;
+    transform:translateY(-2px);
+}
+
+/* ---------------- FINAL PAGE ---------------- */
+
+.final-box{
+    width:min(92vw,600px);
+    text-align:center;
+    background:rgba(255,255,255,.9);
+    border-radius:26px;
+    padding:40px 25px;
+    box-shadow:0 20px 55px rgba(74,57,103,.18);
+}
+
+.final-box h1{
+    font-family:'DM Serif Display',serif;
+    font-size:clamp(38px,10vw,60px);
+    color:#59466f;
+    margin-bottom:12px;
+}
+
+.final-box p{
+    color:#6b607a;
+    line-height:1.8;
+    font-size:15px;
+}
+
+.sparkles{
+    font-size:28px;
+    letter-spacing:8px;
+    margin-bottom:15px;
+    animation:float 2s infinite ease-in-out;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-7px)}
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media(max-width:480px){
+
+    .page{
+        padding:22px 12px 35px;
+    }
+
+    .envelope-area{
+        height:240px;
+    }
+
+    .envelope{
+        width:88vw;
+        height:190px;
+    }
+
+    .flap{
+        height:115px;
+    }
+
+    .letter{
+        height:152px;
+    }
+
+    .envelope.open .letter{
+        transform:translateY(-95px);
+    }
+
+    .birthday-card,
+    .gallery-card{
+        padding:13px;
+    }
+
+    .birthday-text{
+        font-size:14px;
+    }
+
+    .gallery-image img{
+        max-height:520px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ======================================================
+     PAGE 1 - ENVELOPE
+====================================================== -->
+
+<section class="page active" id="page1">
+
+    <h1 class="intro-title">A Little Birthday Surprise</h1>
+    <p class="intro-subtitle">Something made just for you ✨</p>
+
+    <div class="envelope-area">
+
+        <div class="envelope" id="envelope">
+
+            <div class="envelope-back"></div>
+
+            <div class="letter">
+                <div class="letter-small">A little note</div>
+                <div class="letter-big">Open Me ✨</div>
+            </div>
+
+            <div class="flap"></div>
+
+            <div class="seal">✦</div>
+
+        </div>
+
+    </div>
+
+    <button class="open-btn" id="openBtn" onclick="openEnvelope()">
+        Open the Envelope ✨
+    </button>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 2 - BIRTHDAY WISH
+     PHOTO 1.jpg
+====================================================== -->
+
+<section class="page" id="page2">
+
+    <div class="birthday-card">
+
+        <div class="photo-frame">
+            <img src="Photo 1.jpg" alt="Birthday memory">
+        </div>
+
+        <div class="birthday-label">A special day for a special person</div>
+
+        <h1 class="birthday-title">
+            Happy Birthday 🎂
+        </h1>
+
+        <p class="birthday-text">
+            Happy Birthday! ✨<br><br>
+
+            I hope this year brings you countless little reasons
+            to smile, beautiful memories to keep close, and
+            moments that make you genuinely happy.
+
+            <br><br>
+
+            Some people simply make ordinary moments feel a
+            little more special just by being there.
+            I hope your day is filled with the same warmth
+            and happiness that you bring to the people around you.
+
+            <br><br>
+
+            Keep smiling, keep being yourself,
+            and have the most beautiful birthday. 🤍
+        </p>
+
+        <div class="signature">
+            With lots of good wishes ✨
+        </div>
+
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" onclick="showPage(3)">
+            Continue ✨
+        </button>
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 3 - PHOTO 2
+     SUNFLOWER
+====================================================== -->
+
+<section class="page" id="page3">
+
+    <h1 class="gallery-title">Little Things 🌻</h1>
+    <p class="gallery-subtitle">Some moments deserve their own little page.</p>
+
+    <div class="gallery-card">
+
+        <div class="gallery-image">
+            <img src="Photo 2.jpg" alt="Sunflower memory">
+        </div>
+
+        <div class="caption">
+            <h2>Like a Sunflower 🌻</h2>
+
+            <p>
+                Just like a sunflower naturally turns toward the light,
+                some people have a way of bringing a little brightness
+                wherever they go.
+
+                <br><br>
+
+                This picture felt like one of those simple,
+                warm moments worth remembering.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" onclick="showPage(2)">← Back</button>
+        <button class="nav-btn" onclick="showPage(4)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 4 - PHOTO 3
+====================================================== -->
+
+<section class="page" id="page4">
+
+    <h1 class="gallery-title">A Beautiful Memory ✨</h1>
+
+    <div class="gallery-card">
+
+        <div class="gallery-image">
+            <img src="Photo 3.jpg" alt="Memory">
+        </div>
+
+        <div class="caption">
+            <h2>One for the Memories</h2>
+            <p>
+                Some pictures don't need a long explanation.
+                They simply become little memories that make
+                you smile whenever you see them again. 🤍
+            </p>
+        </div>
+
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" onclick="showPage(3)">← Back</button>
+        <button class="nav-btn" onclick="showPage(5)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 5 - PHOTO 4
+====================================================== -->
+
+<section class="page" id="page5">
+
+    <h1 class="gallery-title">Another Little Moment ✨</h1>
+
+    <div class="gallery-card">
+
+        <div class="gallery-image">
+            <img src="Photo 4.jpg" alt="Memory">
+        </div>
+
+        <div class="caption">
+            <h2>Simple & Special</h2>
+            <p>
+                It's funny how the simplest moments can sometimes
+                turn into the ones we remember the longest.
+                Here's another little memory worth keeping. 🌷
+            </p>
+        </div>
+
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" onclick="showPage(4)">← Back</button>
+        <button class="nav-btn" onclick="showPage(6)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 6 - PHOTO 5
+====================================================== -->
+
+<section class="page" id="page6">
+
+    <h1 class="gallery-title">Keep This Moment ✨</h1>
+
+    <div class="gallery-card">
+
+        <div class="gallery-image">
+            <img src="Photo 5.jpg" alt="Memory">
+        </div>
+
+        <div class="caption">
+            <h2>A Moment to Keep</h2>
+            <p>
+                A picture freezes a moment,
+                but the feeling attached to it is what makes
+                that moment truly special. 🤍
+            </p>
+        </div>
+
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" onclick="showPage(5)">← Back</button>
+        <button class="nav-btn" onclick="showPage(7)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 7 - PHOTO 6
+====================================================== -->
+
+<section class="page" id="page7">
+
+    <h1 class="gallery-title">One More Memory ✨</h1>
+
+    <div class="gallery-card">
+
+        <div class="gallery-image">
+            <img src="Photo 6.jpg" alt="Memory">
+        </div>
+
+        <div class="caption">
+            <h2>Worth Remembering</h2>
+            <p>
+                Years from now, little moments like this are the
+                ones that can bring an unexpected smile back.
+                So here's one more memory for the collection. ✨
+            </p>
+        </div>
+
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" onclick="showPage(6)">← Back</button>
+        <button class="nav-btn" onclick="showPage(8)">Next →</button>
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 8 - PHOTO 7
+====================================================== -->
+
+<section class="page" id="page8">
+
+    <h1 class="gallery-title">And Finally... ✨</h1>
+
+    <div class="gallery-card">
+
+        <div class="gallery-image">
+            <img src="Photo 7.jpg" alt="Final memory">
+        </div>
+
+        <div class="caption">
+            <h2>One Last Little Memory</h2>
+            <p>
+                And that's the little collection of memories
+                I wanted to put together for you.
+
+                <br><br>
+
+                Hopefully, whenever you look back at these,
+                they bring a small smile to your face. 🤍
+            </p>
+        </div>
+
+    </div>
+
+    <div class="nav-buttons">
+        <button class="nav-btn" onclick="showPage(7)">← Back</button>
+        <button class="nav-btn" onclick="showPage(9)">Final Note ✨</button>
+    </div>
+
+</section>
+
+
+<!-- ======================================================
+     PAGE 9 - FINAL NOTE
+====================================================== -->
+
+<section class="page" id="page9">
+
+    <div class="final-box">
+
+        <div class="sparkles">✦ ✧ ✦</div>
+
+        <h1>Once Again...</h1>
+
+        <p>
+            Happy Birthday! 🎂✨
+
+            <br><br>
+
+            I hope the coming year is full of happiness,
+            good memories, peaceful days and plenty of
+            reasons to smile.
+
+            <br><br>
+
+            And whenever you look back at this little surprise,
+            I hope it reminds you that someone took the time
+            to make your day a little more special.
+
+            <br><br>
+
+            Have a beautiful birthday. 🤍
+        </p>
+
+        <div class="nav-buttons">
+            <button class="nav-btn" onclick="showPage(1)">
+                ↻ Start Again
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* ======================================================
+   PAGE NAVIGATION
+====================================================== */
+
+function showPage(pageNumber){
+
+    document.querySelectorAll('.page').forEach(function(page){
+        page.classList.remove('active');
+    });
+
+    const target = document.getElementById('page' + pageNumber);
+
+    if(target){
+        target.classList.add('active');
+        window.scrollTo({
+            top:0,
+            behavior:'smooth'
+        });
+    }
+}
+
+
+/* ======================================================
+   ENVELOPE OPEN
+====================================================== */
+
+function openEnvelope(){
+
+    const envelope = document.getElementById('envelope');
+    const button = document.getElementById('openBtn');
+
+    envelope.classList.add('open');
+
+    button.disabled = true;
+    button.style.opacity = '0.5';
+    button.innerText = 'Opening... ✨';
+
+    setTimeout(function(){
+
+        showPage(2);
+
+        button.disabled = false;
+        button.style.opacity = '1';
+        button.innerText = 'Open the Envelope ✨';
+
+    },1200);
+}
+
+
+/* ======================================================
+   IMAGE ERROR HANDLING
+   If filename is wrong, show a friendly message.
+====================================================== */
+
+document.querySelectorAll('img').forEach(function(img){
+
+    img.addEventListener('error',function(){
+
+        this.style.display='none';
+
+        const errorBox=document.createElement('div');
+
+        errorBox.style.padding='35px 15px';
+        errorBox.style.textAlign='center';
+        errorBox.style.color='#75698a';
+        errorBox.style.fontSize='14px';
+
+        errorBox.innerHTML=
+            'Photo could not be loaded.<br>' +
+            '<small>Check the file name in GitHub.</small>';
+
+        this.parentElement.appendChild(errorBox);
+
+    });
+
+});
+
+</script>
+
+</body>
+  </html>
