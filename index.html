@@ -6,6 +6,8 @@
 <title>A Little Birthday Surprise ✨</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -13,639 +15,602 @@
 }
 
 body{
-    font-family:"Trebuchet MS",Arial,sans-serif;
-    background:#eee7ff;
-    color:#3d3450;
+    min-height:100vh;
+    font-family:'Cormorant Garamond',serif;
+    color:#514761;
     overflow-x:hidden;
+
+    background-color:#eee8ff;
+    background-image:
+        linear-gradient(90deg,rgba(255,255,255,.38) 50%,transparent 50%),
+        linear-gradient(rgba(255,255,255,.38) 50%,transparent 50%);
+    background-size:42px 42px;
 }
 
 .page{
-    min-height:100vh;
-    width:100%;
     display:none;
-    align-items:center;
+    min-height:100vh;
+    padding:28px 18px 45px;
     justify-content:center;
+    align-items:center;
     flex-direction:column;
-    padding:35px 18px;
     text-align:center;
-    position:relative;
 }
 
 .page.active{
     display:flex;
-    animation:fadeIn .8s ease;
+    animation:fade .7s ease;
 }
 
-@keyframes fadeIn{
-    from{opacity:0;transform:translateY(18px)}
-    to{opacity:1;transform:translateY(0)}
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-/* ---------- PASSWORD ---------- */
-
-#passwordPage{
-    background:#eee7ff;
-}
-
-.lock{
-    font-size:55px;
-    margin-bottom:15px;
-}
-
+/* PASSWORD */
 .password-box{
-    width:min(360px,90%);
-    background:rgba(255,255,255,.8);
-    padding:30px 25px;
+    width:min(420px,92%);
+    background:rgba(255,255,255,.88);
+    padding:38px 25px;
     border-radius:25px;
-    box-shadow:0 12px 35px rgba(72,55,100,.15);
+    box-shadow:0 15px 40px rgba(95,76,130,.18);
 }
 
 .password-box h1{
-    font-family:Georgia,serif;
-    font-size:28px;
+    font-family:'Playfair Display',serif;
+    font-size:30px;
     margin-bottom:10px;
 }
 
 .password-box p{
-    color:#786c8c;
+    font-size:19px;
     margin-bottom:22px;
 }
 
 .password-box input{
     width:100%;
-    padding:14px;
-    border:1px solid #d2c6ed;
-    border-radius:14px;
-    outline:none;
+    padding:13px;
+    border:1px solid #d8ccef;
+    border-radius:12px;
     text-align:center;
-    font-size:17px;
-    background:#fff;
+    font-size:18px;
+    outline:none;
+    font-family:inherit;
 }
 
-button{
+.btn{
     border:none;
-    padding:13px 24px;
-    border-radius:25px;
-    background:#8e78bd;
+    background:#8d78b7;
     color:white;
-    font-size:16px;
+    padding:12px 28px;
+    border-radius:30px;
+    font-size:17px;
+    font-family:inherit;
     cursor:pointer;
-    margin-top:16px;
-    box-shadow:0 6px 15px rgba(80,60,110,.18);
-}
-
-button:active{
-    transform:scale(.97);
+    margin-top:18px;
+    box-shadow:0 7px 18px rgba(100,80,140,.2);
 }
 
 .error{
-    color:#b35c72;
+    color:#a85b78;
     margin-top:12px;
     display:none;
 }
 
-/* ---------- BIRTHDAY ---------- */
-
-.birthday-photo{
-    width:min(260px,72vw);
-    background:white;
-    padding:10px 10px 28px;
-    transform:rotate(-2deg);
-    box-shadow:0 12px 30px rgba(50,40,70,.18);
-    margin-bottom:28px;
+/* BIRTHDAY */
+.birthday-card{
+    width:min(650px,94%);
+    background:rgba(255,255,255,.91);
+    border-radius:28px;
+    padding:25px 22px 30px;
+    box-shadow:0 18px 45px rgba(80,65,120,.18);
 }
 
-.birthday-photo img{
+.photo-small{
+    width:min(330px,90%);
+    height:310px;
+    margin:auto;
+    background:white;
+    padding:10px;
+    transform:rotate(-1deg);
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.photo-small img{
     width:100%;
-    height:260px;
-    object-fit:cover;
+    height:100%;
+    object-fit:contain;
     display:block;
+    background:#fafafa;
+}
+
+.birthday-card h1{
+    font-family:'Playfair Display',serif;
+    font-size:36px;
+    margin:25px 0 20px;
 }
 
 .birthday-text{
-    max-width:650px;
-    font-family:Georgia,serif;
-    font-size:18px;
-    line-height:1.9;
-    color:#4b405c;
-}
-
-.birthday-text h1{
-    font-size:34px;
-    margin-bottom:22px;
-    color:#59466f;
+    font-size:21px;
+    line-height:1.55;
 }
 
 .signature{
     margin-top:25px;
-    font-family:cursive;
-    font-size:20px;
-    color:#715c91;
+    font-size:22px;
+    font-style:italic;
 }
 
-/* ---------- CAKE ---------- */
-
-.cake-page h1{
-    font-family:Georgia,serif;
-    font-size:32px;
-    margin-bottom:20px;
+/* CAKE */
+.cake-page h1,
+.intro-page h1{
+    font-family:'Playfair Display',serif;
+    font-size:34px;
+    margin-bottom:15px;
 }
 
 .cake{
     position:relative;
-    width:230px;
-    height:190px;
-    margin:20px auto 25px;
+    width:220px;
+    height:180px;
+    margin:35px auto 20px;
 }
 
-.cake-base{
+.layer{
     position:absolute;
-    bottom:20px;
-    left:20px;
-    width:190px;
-    height:65px;
-    background:#d9c6ec;
-    border-radius:12px 12px 22px 22px;
-    box-shadow:0 10px 0 #b9a4d2;
+    left:10px;
+    width:200px;
+    height:55px;
+    background:#f3d8e9;
+    border-radius:15px;
+    box-shadow:inset 0 -8px rgba(180,130,165,.15);
 }
 
-.cake-middle{
-    position:absolute;
-    bottom:75px;
-    left:35px;
-    width:160px;
-    height:48px;
-    background:#f7d9e8;
-    border-radius:12px 12px 8px 8px;
-}
-
-.cake-top{
-    position:absolute;
-    bottom:115px;
-    left:48px;
-    width:135px;
-    height:35px;
-    background:#fff7fb;
-    border-radius:50%;
-}
+.layer.one{bottom:0}
+.layer.two{bottom:48px;left:25px;width:170px}
+.layer.three{bottom:94px;left:42px;width:136px}
 
 .candle{
     position:absolute;
-    bottom:140px;
-    left:105px;
-    width:20px;
+    width:14px;
     height:48px;
-    background:#c6b4e6;
+    background:#bda8e6;
+    left:103px;
+    top:0;
     border-radius:5px;
 }
 
 .flame{
     position:absolute;
-    bottom:187px;
-    left:105px;
-    width:20px;
-    height:28px;
-    background:#ffd36a;
-    border-radius:50% 50% 50% 0;
-    transform:rotate(-45deg);
-    animation:flicker .6s infinite alternate;
+    width:18px;
+    height:25px;
+    background:#ffd76b;
+    border-radius:50% 50% 50% 10%;
+    transform:rotate(45deg);
+    left:101px;
+    top:-23px;
+    animation:flicker .7s infinite alternate;
 }
 
 @keyframes flicker{
-    from{transform:rotate(-45deg) scale(1)}
-    to{transform:rotate(-40deg) scale(1.12)}
+    from{transform:rotate(40deg) scale(.9)}
+    to{transform:rotate(50deg) scale(1.05)}
 }
 
-.cake-note{
-    max-width:500px;
-    line-height:1.7;
-    color:#655a73;
+.cut{
+    margin-top:10px;
 }
 
-/* ---------- MEMORIES ---------- */
-
-.memory-intro h1{
-    font-family:Georgia,serif;
-    font-size:34px;
-    color:#59466f;
-    margin-bottom:15px;
+/* INTRO */
+.intro-card{
+    width:min(650px,94%);
+    background:rgba(255,255,255,.9);
+    padding:45px 25px;
+    border-radius:30px;
+    box-shadow:0 15px 40px rgba(80,65,120,.17);
 }
 
-.memory-intro p{
-    max-width:500px;
-    line-height:1.7;
-    color:#716681;
+.intro-card p{
+    font-size:25px;
+    line-height:1.45;
 }
 
-.gallery{
-    width:min(700px,100%);
+/* GALLERY */
+.gallery-page{
+    padding-top:25px;
+}
+
+.gallery-title{
+    font-family:'Playfair Display',serif;
+    font-size:32px;
+    margin-bottom:22px;
+}
+
+.polaroids{
+    width:min(900px,96%);
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:28px 20px;
-    margin-top:30px;
+    gap:22px;
 }
 
 .polaroid{
     position:relative;
     background:#fff;
-    padding:10px 10px 18px;
-    box-shadow:0 10px 25px rgba(65,50,85,.16);
-    transform:rotate(-1.5deg);
+    padding:12px 12px 18px;
+    box-shadow:0 12px 25px rgba(60,45,90,.16);
+    transform:rotate(-1deg);
 }
 
-.polaroid:nth-child(even){
-    transform:rotate(1.5deg);
+.polaroid:nth-child(2){
+    transform:rotate(1.2deg);
 }
 
-.polaroid::before{
-    content:"";
+.tape{
     position:absolute;
-    top:-12px;
+    width:72px;
+    height:27px;
+    background:rgba(213,201,245,.82);
+    top:-13px;
     left:50%;
-    transform:translateX(-50%) rotate(-2deg);
-    width:70px;
-    height:24px;
-    background:rgba(221,207,244,.85);
-    z-index:3;
+    transform:translateX(-50%) rotate(-1deg);
+    z-index:2;
 }
 
 .polaroid img{
     width:100%;
-    height:230px;
-    object-fit:cover;
+    height:260px;
+    object-fit:contain;
+    background:#f8f7fb;
     display:block;
 }
 
 .caption{
-    padding:13px 5px 3px;
-    font-family:Georgia,serif;
-    font-size:16px;
-    line-height:1.45;
-    color:#665674;
+    font-size:20px;
+    line-height:1.2;
+    margin-top:13px;
+    min-height:48px;
 }
 
-@media(max-width:560px){
-    .gallery{
-        grid-template-columns:1fr;
-        max-width:330px;
-    }
-
-    .polaroid img{
-        height:260px;
-    }
-
-    .birthday-text{
-        font-size:16px;
-    }
-
-    .birthday-text h1{
-        font-size:29px;
-    }
+.next-btn{
+    margin-top:25px;
 }
 
-/* ---------- ONE LAST THING ---------- */
-
-.last-message h1{
-    font-family:Georgia,serif;
-    font-size:34px;
-    color:#59466f;
-    margin-bottom:20px;
-}
-
-.last-message p{
-    max-width:550px;
-    line-height:1.9;
-    font-family:Georgia,serif;
-    font-size:18px;
-}
-
-/* ---------- FINAL ---------- */
-
-.final-page{
-    background:#eee7ff;
+/* LAST */
+.last-card{
+    width:min(650px,94%);
+    background:rgba(255,255,255,.91);
+    border-radius:30px;
+    padding:30px 22px 35px;
+    box-shadow:0 15px 40px rgba(80,65,120,.18);
 }
 
 .teddy{
-    font-size:95px;
-    margin-bottom:10px;
-    position:relative;
+    font-size:90px;
+    line-height:1;
+    margin-bottom:8px;
 }
 
 .sunflower{
-    font-size:48px;
-    margin-bottom:20px;
+    font-size:45px;
+    margin-bottom:15px;
 }
 
-.final-page h1{
-    font-family:Georgia,serif;
-    font-size:32px;
-    color:#59466f;
-    margin-bottom:20px;
+.last-card h1{
+    font-family:'Playfair Display',serif;
+    font-size:34px;
+    margin-bottom:18px;
 }
 
-.final-page p{
-    max-width:570px;
-    font-family:Georgia,serif;
-    line-height:1.9;
-    font-size:18px;
+.last-card p{
+    font-size:22px;
+    line-height:1.5;
 }
 
-.try-again{
-    margin-top:28px;
+.try{
+    margin-top:22px;
     background:transparent;
-    color:#715c91;
-    border:1px solid #9d8abe;
-    box-shadow:none;
+    color:#806ba7;
+    border:1px solid #a895c7;
 }
 
-/* small decorative stars */
+/* MOBILE */
+@media(max-width:650px){
+    .polaroids{
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+    }
 
-.star{
-    position:absolute;
-    color:#a18bc5;
-    opacity:.55;
-    animation:twinkle 2s infinite alternate;
+    .polaroid{
+        padding:8px 8px 13px;
+    }
+
+    .polaroid img{
+        height:190px;
+    }
+
+    .caption{
+        font-size:16px;
+        min-height:42px;
+    }
+
+    .gallery-title{
+        font-size:28px;
+    }
+
+    .birthday-text{
+        font-size:19px;
+    }
+
+    .birthday-card h1{
+        font-size:31px;
+    }
 }
 
-.s1{top:10%;left:10%}
-.s2{top:18%;right:12%}
-.s3{bottom:15%;left:15%}
-.s4{bottom:10%;right:13%}
+@media(max-width:420px){
+    .polaroid img{
+        height:165px;
+    }
 
-@keyframes twinkle{
-    from{opacity:.2;transform:scale(.8)}
-    to{opacity:.8;transform:scale(1.15)}
+    .caption{
+        font-size:15px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= PASSWORD ================= -->
-
+<!-- PASSWORD -->
 <section class="page active" id="passwordPage">
-
-    <div class="star s1">✦</div>
-    <div class="star s2">✧</div>
-    <div class="star s3">✦</div>
-    <div class="star s4">✧</div>
-
     <div class="password-box">
-        <div class="lock">🔐</div>
+        <h1>Birthday “Passcode” ✨</h1>
+        <p>A little surprise is waiting for you...</p>
 
-        <h1>A Little Surprise</h1>
-        <p>Enter the birthday passcode ✨</p>
+        <input id="pass" type="password" placeholder="Enter passcode">
 
-        <input
-            type="password"
-            id="password"
-            placeholder="Enter passcode"
-            maxlength="4"
-        >
-
-        <button onclick="checkPassword()">Unlock ✨</button>
+        <button class="btn" onclick="checkPassword()">Unlock ✨</button>
 
         <div class="error" id="error">
-            Wrong passcode. Try again 🤍
+            Hmm... that's not the right one 🙈
         </div>
     </div>
-
 </section>
 
 
-<!-- ================= BIRTHDAY WISHES ================= -->
-
+<!-- BIRTHDAY WISHES + PHOTO 1 -->
 <section class="page" id="birthdayPage">
 
-    <div class="birthday-photo">
-        <img src="Photo 1.jpg" alt="Birthday memory">
-    </div>
+    <div class="birthday-card">
 
-    <div class="birthday-text">
+        <div class="photo-small">
+            <img src="Photo 1.jpg" alt="Photo 1">
+        </div>
 
         <h1>Happy Birthday! ✨</h1>
 
-        <p>
-            I hope this year brings you countless little reasons
-            to smile, beautiful memories to keep close, and
-            moments that make you genuinely happy.
-        </p>
+        <p class="birthday-text">
 
-        <br>
+            I hope this year brings you countless
+            little reasons to smile, beautiful memories to keep
+            close, and moments that make you genuinely happy.
 
-        <p>
-            Some people simply make ordinary moments feel a
-            little more special just by being there. I hope your
-            day is filled with the same warmth and happiness
-            that you bring to the people around you.
-        </p>
+            <br><br>
 
-        <br>
+            Some people simply make ordinary moments
+            feel a little more special just by being there.
+            I hope your day is filled with the same warmth
+            and happiness that you bring to the people around you.
 
-        <p>
-            Keep smiling, keep being yourself, and have the most
-            beautiful birthday. 🤍
+            <br><br>
+
+            Keep smiling, keep being yourself,
+            and have the most beautiful birthday. 🤍
+
         </p>
 
         <div class="signature">
             With lots of good wishes ✨
         </div>
 
+        <button class="btn" onclick="showPage('cakePage')">
+            Continue ✨
+        </button>
+
+    </div>
+</section>
+
+
+<!-- CAKE -->
+<section class="page cake-page" id="cakePage">
+
+    <h1>A Little Birthday Cake 🎂</h1>
+
+    <p style="font-size:20px;">
+        Make a wish... and cut the cake ✨
+    </p>
+
+    <div class="cake">
+
+        <div class="flame" id="flame"></div>
+        <div class="candle"></div>
+
+        <div class="layer three"></div>
+        <div class="layer two"></div>
+        <div class="layer one"></div>
+
     </div>
 
-    <button onclick="showPage('cakePage')">
+    <button class="btn cut" onclick="cutCake()">
+        Cut the Cake 🎂
+    </button>
+
+    <button class="btn" id="cakeNext"
+            style="display:none"
+            onclick="showPage('introPage')">
         Continue ✨
     </button>
 
 </section>
 
 
-<!-- ================= CAKE ================= -->
+<!-- INTRO -->
+<section class="page intro-page" id="introPage">
 
-<section class="page cake-page" id="cakePage">
+    <div class="intro-card">
 
-    <h1>A Little Birthday Cake 🎂</h1>
+        <h1>One little thing... ✨</h1>
 
-    <div class="cake">
-
-        <div class="flame" id="flame"></div>
-
-        <div class="candle"></div>
-
-        <div class="cake-top"></div>
-        <div class="cake-middle"></div>
-        <div class="cake-base"></div>
-
-    </div>
-
-    <p class="cake-note">
-        Make a little wish before we cut the cake... ✨
-    </p>
-
-    <button onclick="cutCake()">
-        Cut the Cake 🎂
-    </button>
-
-</section>
-
-
-<!-- ================= MEMORIES INTRO ================= -->
-
-<section class="page memory-intro" id="memoryIntro">
-
-    <div class="star s1">✦</div>
-    <div class="star s2">✧</div>
-
-    <h1>Come With Me... ✨</h1>
-
-    <p>
-        Come with me into your beautiful memories,
-        because some pictures are more than just pictures...
-        they hold little moments that deserve to be remembered.
-    </p>
-
-    <button onclick="showPage('galleryPage')">
-        Our Beautiful Memories 📸
-    </button>
-
-</section>
-
-
-<!-- ================= GALLERY ================= -->
-
-<section class="page" id="galleryPage">
-
-    <div class="memory-intro">
-        <h1>Beautiful Memories ✨</h1>
         <p>
-            A few little moments that deserve their own place here.
+            Come with me into your beautiful memories...
+            <br>
+            because some moments deserve to be remembered. 🤍
         </p>
+
+        <button class="btn" onclick="showPage('gallery1')">
+            Let's go ✨
+        </button>
+
     </div>
 
-    <div class="gallery">
+</section>
 
-        <!-- PHOTO 2 = SUNFLOWER -->
+
+<!-- GALLERY PAGE 1 -->
+<section class="page gallery-page" id="gallery1">
+
+    <h1 class="gallery-title">Beautiful Memories ✨</h1>
+
+    <div class="polaroids">
 
         <div class="polaroid">
-            <img src="Photo 2.jpg" alt="Sunflower memory">
+            <div class="tape"></div>
+            <img src="Photo 2.jpg" alt="Photo 2">
             <div class="caption">
-                Just like a sunflower, you somehow bring a little
-                more warmth and brightness wherever you are. 🌻
+                Like a sunflower, you bring a little more warmth and light wherever you are. 🌻
             </div>
         </div>
 
-
         <div class="polaroid">
-            <img src="Photo 3.jpg" alt="Beautiful memory">
+            <div class="tape"></div>
+            <img src="Photo 3.jpg" alt="Photo 3">
             <div class="caption">
-                A beautiful moment that deserves to be remembered. ✨
-            </div>
-        </div>
-
-
-        <div class="polaroid">
-            <img src="Photo 4.jpg" alt="Beautiful memory">
-            <div class="caption">
-                Some memories become special simply because of
-                the person in them. 🤍
-            </div>
-        </div>
-
-
-        <div class="polaroid">
-            <img src="Photo 5.jpg" alt="Beautiful memory">
-            <div class="caption">
-                A little picture, a little moment,
-                and a memory worth keeping. ✨
-            </div>
-        </div>
-
-
-        <div class="polaroid">
-            <img src="Photo 6.jpg" alt="Beautiful memory">
-            <div class="caption">
-                May there always be more moments like this
-                waiting to become memories. 🌷
-            </div>
-        </div>
-
-
-        <div class="polaroid">
-            <img src="Photo 7.jpg" alt="Beautiful memory">
-            <div class="caption">
-                Another little memory to keep close
-                and smile about someday. ✨
+                A beautiful little moment that deserves to be remembered. ✨
             </div>
         </div>
 
     </div>
 
-    <button onclick="showPage('lastThing')">
-        One Last Thing... ✨
+    <button class="btn next-btn" onclick="showPage('gallery2')">
+        Next →
     </button>
 
 </section>
 
 
-<!-- ================= ONE LAST THING ================= -->
+<!-- GALLERY PAGE 2 -->
+<section class="page gallery-page" id="gallery2">
 
-<section class="page last-message" id="lastThing">
+    <h1 class="gallery-title">More Beautiful Moments 🤍</h1>
 
-    <h1>One Last Thing... 🤍</h1>
+    <div class="polaroids">
 
-    <p>
-        I don't know if a simple birthday wish can ever say
-        everything that deserves to be said, but I hope this
-        little surprise makes your day just a tiny bit more special.
-    </p>
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="Photo 4.jpg" alt="Photo 4">
+            <div class="caption">
+                Some memories quietly become our favourite ones. ✨
+            </div>
+        </div>
 
-    <br>
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="Photo 5.jpg" alt="Photo 5">
+            <div class="caption">
+                Ordinary moments feel special when the right memories are made. 🤍
+            </div>
+        </div>
 
-    <p>
-        Keep smiling, keep creating beautiful memories,
-        and never forget how lovely it is to simply be yourself.
-    </p>
+    </div>
 
-    <button onclick="showPage('finalPage')">
-        Open One Last Surprise ✨
+    <button class="btn next-btn" onclick="showPage('gallery3')">
+        Next →
     </button>
 
 </section>
 
 
-<!-- ================= FINAL PAGE ================= -->
+<!-- GALLERY PAGE 3 -->
+<section class="page gallery-page" id="gallery3">
 
-<section class="page final-page" id="finalPage">
+    <h1 class="gallery-title">And One Last Memory... ✨</h1>
 
-    <div class="teddy">🧸</div>
+    <div class="polaroids">
 
-    <div class="sunflower">🌻</div>
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="Photo 6.jpg" alt="Photo 6">
+            <div class="caption">
+                A moment captured, a memory kept forever. ✨
+            </div>
+        </div>
 
-    <h1>For Someone Special ✨</h1>
+        <div class="polaroid">
+            <div class="tape"></div>
+            <img src="Photo 7.jpg" alt="Photo 7">
+            <div class="caption">
+                Because the little moments often become the most beautiful memories. 🤍
+            </div>
+        </div>
 
-    <p>
-        May this new year of your life be filled with
-        countless smiles, peaceful moments, beautiful memories,
-        and all the happiness you deserve.
-    </p>
+    </div>
 
-    <br>
-
-    <p>
-        And whenever you see a sunflower,
-        I hope it reminds you that some people
-        simply make ordinary days feel a little brighter. 🌻
-    </p>
-
-    <br>
-
-    <p>
-        Happy Birthday once again. 🤍
-    </p>
-
-    <button class="try-again" onclick="restart()">
-        ↻ Try Again
+    <button class="btn next-btn" onclick="showPage('lastPage')">
+        Next →
     </button>
+
+</section>
+
+
+<!-- LAST PAGE -->
+<section class="page" id="lastPage">
+
+    <div class="last-card">
+
+        <div class="teddy">🧸</div>
+        <div class="sunflower">🌻</div>
+
+        <h1>One Last Little Surprise ✨</h1>
+
+        <p>
+            I hope these little memories brought
+            a smile to your face.
+
+            <br><br>
+
+            May your life always be filled with
+            beautiful moments, genuine happiness,
+            and people who make you smile.
+
+            <br><br>
+
+            Keep smiling and keep being you. 🤍
+
+            <br><br>
+
+            Happy Birthday once again! 🎂✨
+        </p>
+
+        <button class="btn try" onclick="restart()">
+            Try Again ↻
+        </button>
+
+    </div>
 
 </section>
 
@@ -654,15 +619,15 @@ button:active{
 
 function showPage(id){
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
+    document.querySelectorAll('.page').forEach(page=>{
+        page.classList.remove('active');
     });
 
-    document.getElementById(id).classList.add("active");
+    document.getElementById(id).classList.add('active');
 
     window.scrollTo({
         top:0,
-        behavior:"smooth"
+        behavior:'smooth'
     });
 }
 
@@ -670,80 +635,63 @@ function showPage(id){
 function checkPassword(){
 
     const password =
-        document.getElementById("password").value;
-
-    const error =
-        document.getElementById("error");
+        document.getElementById("pass").value;
 
     if(password === "0925"){
 
-        error.style.display="none";
+        document.getElementById("error").style.display="none";
 
         showPage("birthdayPage");
 
     }else{
 
-        error.style.display="block";
-
-        document.getElementById("password").value="";
+        document.getElementById("error").style.display="block";
 
     }
 }
 
-
-/* Enter key also works */
-
-document.getElementById("password").addEventListener(
-    "keydown",
-    function(event){
-
-        if(event.key === "Enter"){
-            checkPassword();
-        }
-
-    }
-);
-
-
-/* Cake cutting */
 
 function cutCake(){
 
-    const flame =
-        document.getElementById("flame");
+    document.getElementById("flame").style.display="none";
 
-    flame.style.display="none";
+    const layers =
+        document.querySelectorAll(".layer");
 
-    setTimeout(function(){
+    layers.forEach((layer,index)=>{
+        setTimeout(()=>{
+            layer.style.transform="translateX(30px) rotate(2deg)";
+        },index*150);
+    });
 
-        showPage("memoryIntro");
+    document.querySelector(".cut").style.display="none";
 
-    },900);
+    setTimeout(()=>{
 
+        document.getElementById("cakeNext").style.display="inline-block";
+
+    },700);
 }
 
 
-/* Try again */
-
 function restart(){
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
+    document.getElementById("pass").value="";
+
+    document.querySelectorAll(".layer").forEach(layer=>{
+        layer.style.transform="";
     });
 
-    document.getElementById("passwordPage")
-        .classList.add("active");
+    document.getElementById("flame").style.display="block";
 
-    document.getElementById("password").value="";
+    document.querySelector(".cut").style.display="inline-block";
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+    document.getElementById("cakeNext").style.display="none";
 
+    showPage("passwordPage");
 }
 
 </script>
 
 </body>
-</html>
+    </html>
