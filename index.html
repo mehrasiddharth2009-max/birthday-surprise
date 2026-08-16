@@ -26,7 +26,6 @@ body{
     color:#674b78;
     overflow-x:hidden;
 
-    /* light lavender checked background */
     background-color:#f4efff;
     background-image:
       linear-gradient(rgba(255,255,255,.62) 1px,transparent 1px),
@@ -273,120 +272,311 @@ button,input{
     color:#79528d;
 }
 
-/* CAKE */
+
+/* =====================================================
+   NEW CAKE DESIGN
+   Front-facing chocolate cake with melted/dripping layers
+   ===================================================== */
+
 .cake-page{
     justify-content:center;
 }
 
 .cake-box{
-    width:min(92%,620px);
+    width:min(94%,650px);
     text-align:center;
 }
 
 .cake-title{
     font-size:clamp(30px,7vw,47px);
-    margin-bottom:30px;
+    margin-bottom:22px;
 }
 
+/* complete cake */
 .cake{
     position:relative;
-    width:310px;
-    height:280px;
-    margin:0 auto 20px;
+    width:360px;
+    height:340px;
+    margin:0 auto 12px;
 }
 
+/* plate */
 .plate{
     position:absolute;
-    width:280px;
-    height:25px;
-    background:#e3d1f3;
-    border-radius:50%;
-    bottom:25px;
+    width:330px;
+    height:30px;
     left:15px;
-    box-shadow:0 7px 0 #c9addf;
+    bottom:30px;
+    background:linear-gradient(
+        to bottom,
+        #3d3030,
+        #211b1b
+    );
+    border-radius:50%;
+    border:3px solid #8b6c58;
+    box-shadow:
+        0 8px 0 #b18b70,
+        0 15px 22px rgba(50,35,30,.20);
 }
 
-.layer{
+/* cake base */
+.cake-base{
     position:absolute;
-    left:35px;
-    width:240px;
+    width:285px;
+    height:120px;
+    left:37px;
+    bottom:58px;
+    border-radius:18px 18px 30px 30px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #d8a978 0%,
+            #c68f5c 55%,
+            #b97845 100%
+        );
+
+    border:3px solid #9a643e;
+
+    box-shadow:
+        inset 0 -12px 0 rgba(93,45,25,.12),
+        0 7px 8px rgba(76,45,30,.15);
+}
+
+/* top chocolate surface */
+.cake-top{
+    position:absolute;
+    width:292px;
+    height:72px;
+    left:34px;
+    bottom:153px;
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #4b2a20 0%,
+            #351e18 65%,
+            #261511 100%
+        );
+
+    border:4px solid #7b4b32;
+
+    box-shadow:
+        inset 0 5px 8px rgba(255,255,255,.08),
+        0 5px 0 rgba(90,48,28,.18);
+}
+
+/* cream/chocolate upper layer */
+.cake-cream{
+    position:absolute;
+    width:285px;
+    height:58px;
+    left:37px;
+    bottom:138px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #e8c29a,
+            #c98c5c
+        );
+
+    border:3px solid #9b633e;
+    border-radius:12px 12px 20px 20px;
+
+    box-shadow:
+        inset 0 -8px 0 rgba(87,44,25,.10);
+}
+
+/* melted chocolate layer */
+.melted-chocolate{
+    position:absolute;
+    width:292px;
+    height:48px;
+    left:34px;
+    bottom:185px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #4b291f,
+            #301913
+        );
+
     border-radius:18px 18px 12px 12px;
-    background:linear-gradient(#efdfff,#d6b8ed);
-    border:3px solid #b58bd4;
-    box-shadow:inset 0 -10px 0 rgba(255,255,255,.25);
+    z-index:5;
+
+    box-shadow:
+        0 3px 4px rgba(45,20,15,.25);
 }
 
-.layer.bottom{
-    height:65px;
-    bottom:45px;
-}
-
-.layer.middle{
-    height:60px;
-    bottom:100px;
-    width:225px;
-    left:42px;
-}
-
-.layer.top{
-    height:55px;
-    bottom:151px;
-    width:205px;
-    left:52px;
-}
-
-.drip{
+/* chocolate drips */
+.choco-drip{
     position:absolute;
-    height:14px;
-    width:35px;
-    background:#f7eaff;
-    border-radius:0 0 18px 18px;
-    top:0;
+    top:28px;
+    width:25px;
+    background:#351b15;
+    border-radius:0 0 16px 16px;
+    box-shadow:0 2px 3px rgba(40,20,15,.20);
 }
 
-.drip.a{left:28px}
-.drip.b{left:92px;height:18px}
-.drip.c{left:150px;height:12px}
+.choco-drip.d1{
+    left:25px;
+    height:45px;
+}
 
+.choco-drip.d2{
+    left:68px;
+    height:28px;
+}
+
+.choco-drip.d3{
+    left:111px;
+    height:58px;
+}
+
+.choco-drip.d4{
+    left:158px;
+    height:35px;
+}
+
+.choco-drip.d5{
+    left:204px;
+    height:52px;
+}
+
+.choco-drip.d6{
+    left:250px;
+    height:29px;
+}
+
+/* little cream highlights */
+.cream-dot{
+    position:absolute;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#f2d7b5;
+    top:11px;
+    z-index:6;
+}
+
+.cream-dot.c1{left:45px}
+.cream-dot.c2{left:95px}
+.cream-dot.c3{left:145px}
+.cream-dot.c4{left:195px}
+.cream-dot.c5{left:242px}
+
+
+/* chocolate decorative circles on top */
+.choco-piece{
+    position:absolute;
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    background:#f0d29e;
+    border:2px solid #b78b58;
+    z-index:8;
+    box-shadow:0 3px 4px rgba(30,15,10,.25);
+}
+
+.choco-piece.p1{
+    left:67px;
+    bottom:179px;
+}
+
+.choco-piece.p2{
+    left:112px;
+    bottom:194px;
+}
+
+.choco-piece.p3{
+    left:158px;
+    bottom:179px;
+}
+
+.choco-piece.p4{
+    left:205px;
+    bottom:194px;
+}
+
+
+/* candle */
 .candle{
     position:absolute;
-    width:23px;
-    height:75px;
-    left:144px;
-    bottom:203px;
-    border-radius:8px;
-    border:2px solid #b58bd4;
-    background:repeating-linear-gradient(
-        135deg,
-        #fff 0px,
-        #fff 8px,
-        #dcb8ee 8px,
-        #dcb8ee 15px
-    );
+    width:24px;
+    height:82px;
+    left:168px;
+    bottom:211px;
+    border-radius:8px 8px 5px 5px;
+    border:2px solid #c19b75;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #fff8e9 0px,
+            #fff8e9 8px,
+            #d7b18b 8px,
+            #d7b18b 15px
+        );
+
+    z-index:10;
+
+    box-shadow:
+        0 3px 5px rgba(50,30,20,.18);
 }
 
+/* candle wick */
+.candle::before{
+    content:"";
+    position:absolute;
+    width:3px;
+    height:10px;
+    background:#3d2820;
+    top:-9px;
+    left:9px;
+    border-radius:3px;
+}
+
+/* flame */
 .flame{
     position:absolute;
-    width:25px;
-    height:37px;
+    width:27px;
+    height:40px;
     left:-3px;
-    top:-34px;
-    background:radial-gradient(
-        ellipse at center bottom,
-        #fff9b0 0 20%,
-        #ffd35e 35%,
-        #ffad28 60%,
-        transparent 70%
-    );
-    border-radius:50% 50% 50% 50%;
+    top:-46px;
+
+    background:
+        radial-gradient(
+            ellipse at center bottom,
+            #fffbd0 0 18%,
+            #ffe36c 34%,
+            #ffad32 58%,
+            transparent 72%
+        );
+
+    border-radius:55% 55% 50% 50%;
     transform-origin:bottom center;
     animation:flicker .65s infinite alternate;
-    filter:drop-shadow(0 0 8px rgba(255,184,52,.65));
+
+    filter:
+        drop-shadow(0 0 8px rgba(255,184,52,.70))
+        drop-shadow(0 0 14px rgba(255,205,70,.35));
 }
 
 @keyframes flicker{
-    0%{transform:rotate(-4deg) scale(1)}
-    100%{transform:rotate(5deg) scale(1.08)}
+    0%{
+        transform:rotate(-4deg) scale(1);
+    }
+
+    50%{
+        transform:rotate(3deg) scale(1.05);
+    }
+
+    100%{
+        transform:rotate(5deg) scale(1.10);
+    }
 }
 
 .cake-note{
@@ -394,8 +584,9 @@ button,input{
     font-style:italic;
     max-width:600px;
     line-height:1.35;
-    margin:10px auto 25px;
+    margin:5px auto 25px;
 }
+
 
 /* memories intro */
 .memory-intro{
@@ -414,6 +605,7 @@ button,input{
     line-height:1.4;
     margin:15px auto 25px;
 }
+
 
 /* gallery */
 .gallery-page{
@@ -488,6 +680,7 @@ button,input{
     margin-top:48px;
 }
 
+
 /* last thing */
 .last-thing{
     justify-content:center;
@@ -500,6 +693,7 @@ button,input{
     line-height:1.4;
     margin:15px auto 25px;
 }
+
 
 /* final */
 .final-page{
@@ -541,6 +735,7 @@ button,input{
     margin-top:25px;
 }
 
+
 /* mobile */
 @media(max-width:700px){
 
@@ -574,14 +769,15 @@ button,input{
         font-size:23px !important;
     }
 
+    /* mobile cake */
     .cake{
-        transform:scale(.86);
+        transform:scale(.82);
         margin-top:-10px;
-        margin-bottom:-15px;
+        margin-bottom:-20px;
     }
 
     .cake-title{
-        margin-bottom:8px;
+        margin-bottom:2px;
     }
 
     .cake-note{
@@ -633,6 +829,13 @@ button,input{
 }
 
 @media(max-width:380px){
+
+    .cake{
+        transform:scale(.72);
+        margin-top:-25px;
+        margin-bottom:-35px;
+    }
+
     .memory-card img{
         height:125px;
     }
@@ -755,31 +958,61 @@ button,input{
             Here's a little birthday cake for you 🎂✨
         </h1>
 
+
         <div class="cake">
 
+            <!-- plate -->
             <div class="plate"></div>
 
-            <div class="layer bottom">
-                <span class="drip a"></span>
-                <span class="drip b"></span>
-                <span class="drip c"></span>
+            <!-- cake base -->
+            <div class="cake-base"></div>
+
+            <!-- cream layer -->
+            <div class="cake-cream"></div>
+
+            <!-- top chocolate -->
+            <div class="cake-top"></div>
+
+            <!-- melted chocolate -->
+            <div class="melted-chocolate">
+
+                <span class="choco-drip d1"></span>
+                <span class="choco-drip d2"></span>
+                <span class="choco-drip d3"></span>
+                <span class="choco-drip d4"></span>
+                <span class="choco-drip d5"></span>
+                <span class="choco-drip d6"></span>
+
+                <span class="cream-dot c1"></span>
+                <span class="cream-dot c2"></span>
+                <span class="cream-dot c3"></span>
+                <span class="cream-dot c4"></span>
+                <span class="cream-dot c5"></span>
+
             </div>
 
-            <div class="layer middle"></div>
 
-            <div class="layer top"></div>
+            <!-- chocolate decorations -->
+            <div class="choco-piece p1"></div>
+            <div class="choco-piece p2"></div>
+            <div class="choco-piece p3"></div>
+            <div class="choco-piece p4"></div>
 
+
+            <!-- candle -->
             <div class="candle">
                 <div class="flame"></div>
             </div>
 
         </div>
 
+
         <p class="cake-note">
             This little cake is just for you —
             so you can celebrate your day in your own way. 🎂
             Make a wish, smile, and enjoy your special day. ✨
         </p>
+
 
         <button class="btn" onclick="showPage('memoryIntro')">
             Continue ✨
@@ -821,7 +1054,6 @@ button,input{
 
     <div class="gallery">
 
-        <!-- PHOTO 2 -->
         <div class="memory-card">
 
             <div class="tape"></div>
@@ -843,7 +1075,6 @@ button,input{
         </div>
 
 
-        <!-- PHOTO 3 -->
         <div class="memory-card">
 
             <div class="tape"></div>
@@ -884,7 +1115,6 @@ button,input{
 
     <div class="gallery">
 
-        <!-- PHOTO 4 -->
         <div class="memory-card">
 
             <div class="tape"></div>
@@ -906,7 +1136,6 @@ button,input{
         </div>
 
 
-        <!-- PHOTO 5 -->
         <div class="memory-card">
 
             <div class="tape"></div>
@@ -947,7 +1176,6 @@ button,input{
 
     <div class="gallery">
 
-        <!-- PHOTO 6 -->
         <div class="memory-card">
 
             <div class="tape"></div>
@@ -970,7 +1198,6 @@ button,input{
         </div>
 
 
-        <!-- PHOTO 7 -->
         <div class="memory-card">
 
             <div class="tape"></div>
@@ -1074,7 +1301,9 @@ function showPage(id){
     const target = document.getElementById(id);
 
     if(target){
+
         target.classList.add('active');
+
         window.scrollTo({
             top:0,
             behavior:'smooth'
@@ -1120,4 +1349,4 @@ document.getElementById('password').addEventListener(
 </script>
 
 </body>
-</html>
+                      </html>
