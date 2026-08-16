@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#f4efff">
+<meta name="supported-color-schemes" content="light">
 
 <title>A Little Birthday Surprise ✨</title>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+
+
+/* ================= RESET ================= */
 
 *{
     box-sizing:border-box;
@@ -15,39 +26,76 @@
     padding:0;
 }
 
-html,body{
+html{
     width:100%;
     min-height:100%;
+    background:#f4efff !important;
+    color-scheme:light !important;
+    forced-color-adjust:none;
 }
 
 body{
+    width:100%;
+    min-height:100%;
+    margin:0;
+
     font-family:'Cormorant Garamond',serif;
-    color:#674b78;
+
+    color:#674b78 !important;
+
     overflow-x:hidden;
 
-    background-color:#f4efff;
+    background-color:#f4efff !important;
 
     background-image:
-      linear-gradient(rgba(255,255,255,.62) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(255,255,255,.62) 1px,transparent 1px);
+        linear-gradient(
+            rgba(255,255,255,.62) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.62) 1px,
+            transparent 1px
+        ) !important;
 
     background-size:38px 38px;
+
+    color-scheme:light !important;
+    forced-color-adjust:none;
 }
 
-button,input{
+button,
+input{
     font-family:inherit;
 }
 
-/* ================= DECORATIONS ================= */
+button{
+    -webkit-appearance:none;
+    appearance:none;
+}
+
+.hidden{
+    display:none !important;
+}
+
+
+/* ================= FLOATING DECORATIONS ================= */
 
 .decor{
     position:fixed;
     pointer-events:none;
-    color:#c6a8e8;
+
+    color:#c6a8e8 !important;
+
     opacity:.65;
+
     z-index:0;
+
     font-size:24px;
+
     animation:float 5s ease-in-out infinite;
+
+    forced-color-adjust:none;
 }
 
 .d1{top:10%;left:7%}
@@ -58,34 +106,47 @@ button,input{
 .d6{bottom:17%;right:13%;animation-delay:.5s}
 
 @keyframes float{
+
     0%,100%{
-        transform:translateY(0) rotate(-5deg);
+        transform:translateY(0) rotate(-5deg)
     }
 
     50%{
-        transform:translateY(-12px) rotate(5deg);
+        transform:translateY(-12px) rotate(5deg)
     }
 }
+
 
 /* ================= PAGES ================= */
 
 .page{
+
     min-height:100vh;
     width:100%;
+
     display:none;
+
     position:relative;
     z-index:1;
+
     padding:45px 18px 90px;
+
     animation:pageIn .55s ease;
+
+    background:transparent !important;
 }
 
 .page.active{
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
 }
 
 @keyframes pageIn{
+
     from{
         opacity:0;
         transform:translateY(15px);
@@ -97,35 +158,63 @@ button,input{
     }
 }
 
+
 /* ================= HEADINGS ================= */
 
 .heading{
+
     font-family:'Playfair Display',serif;
+
     font-style:italic;
+
     font-weight:600;
-    color:#674477;
+
+    color:#674477 !important;
+
     text-align:center;
 }
 
 .heading.big{
+
     font-size:clamp(35px,8vw,62px);
+
     line-height:1.05;
 }
 
-/* ================= BUTTON ================= */
+.heading.medium{
+
+    font-size:clamp(30px,7vw,48px);
+}
+
+.subheading{
+
+    text-align:center;
+
+    font-size:20px;
+
+    line-height:1.35;
+
+    margin-top:10px;
+}
+
+
+/* ================= BUTTONS ================= */
 
 .btn{
+
     border:none;
     outline:none;
+
     cursor:pointer;
 
-    background:linear-gradient(
-        135deg,
-        #a985d4,
-        #8962b8
-    );
+    background:
+        linear-gradient(
+            135deg,
+            #a985d4,
+            #8962b8
+        ) !important;
 
-    color:white;
+    color:#ffffff !important;
 
     font-size:19px;
 
@@ -134,69 +223,100 @@ button,input{
     border-radius:40px;
 
     box-shadow:
-        0 8px 20px rgba(112,75,145,.20);
+        0 8px 20px
+        rgba(112,75,145,.20);
 
     transition:.25s;
 
     min-width:145px;
+
+    forced-color-adjust:none;
 }
 
 .btn:hover{
+
     transform:translateY(-2px);
 }
 
 .btn:active{
+
     transform:scale(.97);
 }
+
+.next-area{
+
+    margin-top:30px;
+}
+
 
 /* ================= PASSWORD ================= */
 
 .password-card{
+
     width:min(92%,430px);
+
     margin:auto;
 
     padding:34px 25px;
 
-    background:rgba(255,255,255,.78);
+    background:rgba(255,255,255,.78) !important;
 
-    border:
-        1px solid rgba(145,110,178,.25);
+    color:#674b78 !important;
+
+    border:1px solid
+        rgba(145,110,178,.25);
 
     border-radius:24px;
 
     box-shadow:
-        0 18px 45px rgba(105,77,130,.14);
+        0 18px 45px
+        rgba(105,77,130,.14);
 
     text-align:center;
 
     backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(8px);
 }
 
 .lock{
+
     font-size:54px;
+
+    margin-bottom:5px;
 }
 
 .password-card h1{
+
     font-size:42px;
+
     font-style:italic;
-    color:#704c84;
+
+    color:#704c84 !important;
 }
 
 .password-card p{
+
     font-size:19px;
+
     margin:8px 0 18px;
+
+    color:#674b78 !important;
 }
 
 .password-input{
+
     width:100%;
+
     height:48px;
 
-    border:
-        1.5px solid #b99bda;
+    border:1.5px solid #b99bda;
 
     border-radius:12px;
 
-    background:#fff;
+    background:#ffffff !important;
+
+    color:#68487b !important;
 
     text-align:center;
 
@@ -204,21 +324,34 @@ button,input{
 
     letter-spacing:9px;
 
-    color:#68487b;
-
     outline:none;
+
+    -webkit-text-fill-color:#68487b !important;
+}
+
+.password-input:focus{
+
+    box-shadow:
+        0 0 0 4px
+        rgba(170,133,211,.15);
 }
 
 .error{
+
     min-height:22px;
+
     margin-top:9px;
-    color:#a25c78;
+
+    color:#a25c78 !important;
+
     font-size:17px;
 }
 
-/* ================= WISHES ================= */
+
+/* ================= BIRTHDAY WISHES ================= */
 
 .wishes-layout{
+
     width:min(94%,1000px);
 
     display:grid;
@@ -233,23 +366,46 @@ button,input{
     margin:auto;
 }
 
+
+/* POLAROID */
+
 .polaroid{
+
     position:relative;
 
-    background:#fff;
+    background:#ffffff !important;
 
-    padding:
-        12px 12px 20px;
+    padding:12px 12px 20px;
 
     box-shadow:
-        0 14px 28px rgba(88,66,105,.18);
+        0 14px 28px
+        rgba(88,66,105,.18);
+
+    forced-color-adjust:none;
+}
+
+.polaroid::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    border:
+        1px solid
+        rgba(110,80,125,.08);
 }
 
 .photo1-card{
+
     transform:rotate(-2.5deg);
 }
 
 .tape{
+
     position:absolute;
 
     z-index:3;
@@ -263,14 +419,21 @@ button,input{
         rotate(-1deg);
 
     width:100px;
+
     height:30px;
 
     background:
-        rgba(193,165,235,.72);
+        rgba(193,165,235,.72) !important;
+
+    box-shadow:
+        0 2px 5px
+        rgba(100,75,120,.1);
 }
 
 .photo1-card img{
+
     width:100%;
+
     height:390px;
 
     display:block;
@@ -281,10 +444,12 @@ button,input{
 }
 
 .wishes{
+
     padding:10px 5px;
 }
 
 .wishes h2{
+
     font-family:'Playfair Display',serif;
 
     font-style:italic;
@@ -292,250 +457,332 @@ button,input{
     font-size:
         clamp(34px,5vw,52px);
 
-    color:#674477;
+    color:#674477 !important;
 
     margin-bottom:18px;
 }
 
 .wishes p{
+
     font-size:20px;
 
     line-height:1.45;
 
     margin-bottom:14px;
+
+    color:#674b78 !important;
 }
 
 .signature{
+
     font-size:25px !important;
 
     font-style:italic;
 
     margin-top:20px;
 
-    color:#79528d;
+    color:#79528d !important;
 }
+
 
 /* ================================================= */
 /* ===================== CAKE ===================== */
 /* ================================================= */
 
 .cake-page{
+
     justify-content:center;
 }
 
 .cake-box{
+
     width:min(94%,620px);
+
     text-align:center;
 }
 
 .cake-title{
+
     font-size:
         clamp(30px,7vw,47px);
 
-    margin-bottom:25px;
+    margin-bottom:18px;
 }
+
+
+/* CAKE AREA */
 
 .cake{
+
     position:relative;
 
-    width:360px;
-    height:390px;
+    width:340px;
 
-    margin:
-        0 auto 10px;
+    height:330px;
+
+    margin:5px auto 12px;
 }
+
 
 /* PLATE */
 
 .plate{
+
     position:absolute;
 
-    width:330px;
-    height:27px;
+    width:310px;
 
-    left:15px;
-    bottom:18px;
+    height:28px;
 
     background:
         linear-gradient(
             #4a3028,
-            #241914
-        );
+            #241814
+        ) !important;
 
     border-radius:50%;
 
+    bottom:22px;
+
+    left:15px;
+
     box-shadow:
-        0 7px 0 #b99572,
-        0 12px 18px
-        rgba(70,45,35,.20);
+        0 7px 0 #b88c62,
+        0 10px 18px
+        rgba(55,35,25,.25);
+
+    z-index:1;
 }
 
-/* THREE CAKE LAYERS */
+
+/* ================= CAKE LAYERS ================= */
 
 .layer{
+
     position:absolute;
 
     border-radius:
-        20px 20px 15px 15px;
+        18px 18px 14px 14px;
 
-    background:
-        linear-gradient(
-            #d99a5b 0%,
-            #c98649 65%,
-            #b9703b 100%
-        );
-
-    border:
-        3px solid #a96538;
-
-    box-shadow:
-        inset 0 -12px
-        rgba(255,255,255,.10),
-
-        0 5px 8px
-        rgba(80,45,30,.15);
+    border:3px solid #9c623c;
 
     overflow:visible;
+
+    box-shadow:
+        inset 0 -9px 0
+        rgba(255,255,255,.16),
+        0 5px 8px
+        rgba(85,52,32,.14);
+
+    z-index:2;
 }
 
-/* BOTTOM */
+
+/* BOTTOM LAYER */
 
 .layer.bottom{
-    width:290px;
-    height:90px;
+
+    width:270px;
+
+    height:70px;
 
     left:35px;
-    bottom:45px;
-}
 
-/* MIDDLE */
-
-.layer.middle{
-    width:265px;
-    height:82px;
-
-    left:47px;
-    bottom:125px;
-}
-
-/* TOP */
-
-.layer.top{
-    width:235px;
-    height:75px;
-
-    left:62px;
-    bottom:199px;
-}
-
-/* CHOCOLATE TOP */
-
-.layer::before{
-    content:"";
-
-    position:absolute;
-
-    left:-3px;
-    top:-4px;
-
-    width:
-        calc(100% + 6px);
-
-    height:34px;
+    bottom:48px;
 
     background:
         linear-gradient(
-            to bottom,
-            #3b2119 0%,
-            #4b271b 70%,
-            #351c16 100%
-        );
-
-    border-radius:
-        20px 20px 12px 12px;
-
-    box-shadow:
-        inset 0 4px 4px
-        rgba(255,255,255,.08),
-
-        0 3px 4px
-        rgba(50,25,18,.18);
+            #d49a61,
+            #b97743
+        ) !important;
 }
 
-/* MELTING CHOCOLATE */
 
-.layer::after{
+/* MIDDLE LAYER */
+
+.layer.middle{
+
+    width:255px;
+
+    height:67px;
+
+    left:42px;
+
+    bottom:103px;
+
+    background:
+        linear-gradient(
+            #e0aa70,
+            #c3834c
+        ) !important;
+
+    z-index:3;
+}
+
+
+/* TOP LAYER */
+
+.layer.top{
+
+    width:235px;
+
+    height:63px;
+
+    left:52px;
+
+    bottom:156px;
+
+    background:
+        linear-gradient(
+            #e9bb7d,
+            #cf8f54
+        ) !important;
+
+    z-index:4;
+}
+
+
+/* ================= CHOCOLATE DRIPS ================= */
+
+.chocolate{
+
+    position:absolute;
+
+    top:-3px;
+
+    left:-3px;
+
+    width:calc(100% + 6px);
+
+    height:35px;
+
+    background:
+        linear-gradient(
+            #43231b,
+            #321913
+        ) !important;
+
+    border-radius:
+        17px 17px 12px 12px;
+
+    z-index:10;
+}
+
+
+/* individual drips */
+
+.chocolate::before,
+.chocolate::after{
+
     content:"";
 
     position:absolute;
 
-    top:20px;
-    left:8px;
-
-    width:
-        calc(100% - 16px);
-
-    height:38px;
-
     background:
+        linear-gradient(
+            #43231b,
+            #2d1510
+        ) !important;
 
-        radial-gradient(
-            ellipse 9px 22px
-            at 8% 0%,
-            #3b2119 0 98%,
-            transparent 100%
-        ),
-
-        radial-gradient(
-            ellipse 10px 30px
-            at 23% 0%,
-            #3b2119 0 98%,
-            transparent 100%
-        ),
-
-        radial-gradient(
-            ellipse 8px 18px
-            at 39% 0%,
-            #3b2119 0 98%,
-            transparent 100%
-        ),
-
-        radial-gradient(
-            ellipse 11px 28px
-            at 56% 0%,
-            #3b2119 0 98%,
-            transparent 100%
-        ),
-
-        radial-gradient(
-            ellipse 9px 20px
-            at 73% 0%,
-            #3b2119 0 98%,
-            transparent 100%
-        ),
-
-        radial-gradient(
-            ellipse 10px 32px
-            at 89% 0%,
-            #3b2119 0 98%,
-            transparent 100%
-        );
-
-    pointer-events:none;
+    border-radius:
+        0 0 14px 14px;
 }
 
-/* CANDLE */
+
+/* left drip */
+
+.chocolate::before{
+
+    width:32px;
+
+    height:30px;
+
+    left:24px;
+
+    top:20px;
+
+    box-shadow:
+        72px 7px 0 #321913,
+        145px -1px 0 #321913;
+}
+
+
+/* right/center drip */
+
+.chocolate::after{
+
+    width:25px;
+
+    height:43px;
+
+    right:34px;
+
+    top:17px;
+
+    box-shadow:
+        -82px 8px 0 #321913;
+}
+
+
+/* EXTRA MELTED CHOCOLATE */
+
+.drip-melt{
+
+    position:absolute;
+
+    background:
+        linear-gradient(
+            #43231b,
+            #2b140f
+        ) !important;
+
+    border-radius:
+        0 0 14px 14px;
+
+    z-index:11;
+}
+
+.melt1{
+
+    width:21px;
+    height:38px;
+
+    left:72px;
+    top:29px;
+}
+
+.melt2{
+
+    width:25px;
+    height:52px;
+
+    left:133px;
+    top:28px;
+}
+
+.melt3{
+
+    width:19px;
+    height:32px;
+
+    right:69px;
+    top:30px;
+}
+
+
+/* ================= CANDLE ================= */
 
 .candle{
+
     position:absolute;
 
     width:24px;
+
     height:78px;
 
-    left:168px;
-    bottom:268px;
+    left:158px;
 
-    z-index:10;
+    bottom:210px;
 
     border-radius:8px;
 
@@ -545,53 +792,55 @@ button,input{
     background:
         repeating-linear-gradient(
             135deg,
-            #fffdf7 0px,
-            #fffdf7 8px,
-            #d9b991 8px,
-            #d9b991 15px
-        );
+            #fff 0px,
+            #fff 8px,
+            #dcb8ee 8px,
+            #dcb8ee 15px
+        ) !important;
 
-    box-shadow:
-        0 3px 5px
-        rgba(70,45,30,.15);
+    z-index:20;
 }
+
 
 /* FLAME */
 
 .flame{
+
     position:absolute;
 
-    width:28px;
-    height:42px;
+    width:27px;
 
-    left:-4px;
-    top:-39px;
+    height:39px;
 
-    z-index:20;
+    left:-3px;
+
+    top:-37px;
 
     background:
         radial-gradient(
             ellipse at center bottom,
-            #fffde0 0 18%,
-            #ffe36b 35%,
-            #ffad28 62%,
-            transparent 72%
-        );
+            #fff9b0 0 20%,
+            #ffd35e 35%,
+            #ffad28 60%,
+            transparent 70%
+        ) !important;
 
-    border-radius:50%;
+    border-radius:
+        50% 50% 50% 50%;
 
     transform-origin:
         bottom center;
 
     animation:
-        flicker .65s
-        infinite alternate;
+        flicker .65s infinite alternate;
 
     filter:
         drop-shadow(
-            0 0 7px
-            rgba(255,183,45,.85)
+            0 0 8px
+            rgba(255,184,52,.65)
         );
+
+    z-index:21;
 }
 
 @keyframes flicker{
@@ -602,20 +851,18 @@ button,input{
             scale(1);
     }
 
-    50%{
-        transform:
-            rotate(3deg)
-            scale(1.06);
-    }
-
     100%{
         transform:
             rotate(5deg)
-            scale(1.12);
+            scale(1.08);
     }
 }
 
+
+/* cake note */
+
 .cake-note{
+
     font-size:24px;
 
     font-style:italic;
@@ -624,39 +871,51 @@ button,input{
 
     line-height:1.35;
 
-    margin:
-        5px auto 25px;
+    margin:5px auto 25px;
+
+    color:#674b78 !important;
 }
+
 
 /* ================= MEMORY INTRO ================= */
 
 .memory-intro{
+
     justify-content:center;
+
     text-align:center;
 }
 
 .memory-intro .heart{
+
     font-size:45px;
+
+    margin-bottom:5px;
 }
 
 .memory-intro p{
+
     max-width:650px;
 
     font-size:23px;
 
     line-height:1.4;
 
-    margin:
-        15px auto 25px;
+    margin:15px auto 25px;
+
+    color:#674b78 !important;
 }
+
 
 /* ================= GALLERY ================= */
 
 .gallery-page{
+
     justify-content:center;
 }
 
 .gallery-title{
+
     font-size:
         clamp(30px,7vw,46px);
 
@@ -664,6 +923,7 @@ button,input{
 }
 
 .gallery{
+
     width:min(96%,900px);
 
     display:grid;
@@ -677,33 +937,40 @@ button,input{
 }
 
 .memory-card{
+
     position:relative;
 
-    background:#fff;
+    background:#ffffff !important;
 
-    padding:
-        11px 11px 19px;
+    color:#765e7e !important;
+
+    padding:11px 11px 19px;
 
     box-shadow:
         0 12px 25px
         rgba(87,64,103,.18);
 
     min-width:0;
+
+    forced-color-adjust:none;
 }
 
 .memory-card:nth-child(odd){
+
     transform:
         rotate(-2.8deg)
         translateY(5px);
 }
 
 .memory-card:nth-child(even){
+
     transform:
         rotate(2.8deg)
         translateY(25px);
 }
 
 .memory-card img{
+
     width:100%;
 
     height:230px;
@@ -714,13 +981,14 @@ button,input{
 }
 
 .memory-caption{
-    padding:
-        12px 5px 2px;
+
+    padding:12px 5px 2px;
 
     text-align:center;
 }
 
 .memory-caption strong{
+
     display:block;
 
     font-family:
@@ -732,64 +1000,86 @@ button,input{
 
     line-height:1.1;
 
-    color:#765381;
+    color:#765381 !important;
 
     margin-bottom:7px;
 }
 
 .memory-caption span{
+
     display:block;
 
     font-size:17px;
 
     line-height:1.25;
 
-    color:#765e7e;
+    color:#765e7e !important;
 }
 
 .gallery .tape{
+
     width:75px;
+
     height:24px;
+
     top:-12px;
 }
 
 .gallery-next{
+
     margin-top:48px;
 }
 
-/* ================= LAST ================= */
+
+/* ================= LAST THING ================= */
 
 .last-thing{
+
     justify-content:center;
+
     text-align:center;
 }
 
 .last-thing p{
+
     max-width:580px;
 
     font-size:22px;
 
     line-height:1.4;
 
-    margin:
-        15px auto 25px;
+    margin:15px auto 25px;
+
+    color:#674b78 !important;
 }
 
-/* ================= FINAL ================= */
+
+/* ================= FINAL PAGE ================= */
 
 .final-page{
+
     justify-content:center;
+
     text-align:center;
 }
 
 .teddy{
+
     font-size:130px;
+
     line-height:1;
 
     margin-bottom:5px;
+
+    filter:
+        drop-shadow(
+            0 10px 10px
+            rgba(80,55,90,.12)
+        );
 }
 
 .sunflowers{
+
     font-size:55px;
 
     margin-top:-18px;
@@ -798,10 +1088,12 @@ button,input{
 }
 
 .final-text{
+
     max-width:650px;
 }
 
 .final-text h2{
+
     font-family:
         'Playfair Display',serif;
 
@@ -811,30 +1103,42 @@ button,input{
         clamp(34px,7vw,50px);
 
     margin-bottom:16px;
+
+    color:#674477 !important;
 }
 
 .final-text p{
+
     font-size:21px;
 
     line-height:1.4;
 
     margin-bottom:14px;
+
+    color:#674b78 !important;
 }
 
 .try-again{
+
     margin-top:25px;
 }
+
 
 /* ================= MOBILE ================= */
 
 @media(max-width:700px){
 
     .page{
+
         padding:
             35px 12px 80px;
     }
 
+
+    /* wishes */
+
     .wishes-layout{
+
         grid-template-columns:1fr;
 
         gap:25px;
@@ -843,112 +1147,240 @@ button,input{
     }
 
     .photo1-card img{
+
         height:330px;
     }
 
     .wishes{
+
         text-align:center;
     }
 
+    .wishes h2{
+
+        font-size:39px;
+    }
+
     .wishes p{
+
         font-size:19px;
     }
 
+    .signature{
+
+        font-size:23px !important;
+    }
+
+
+    /* cake */
+
     .cake{
-        transform:scale(.82);
 
-        margin-top:-15px;
+        transform:scale(.84);
 
-        margin-bottom:-35px;
+        margin-top:-8px;
+
+        margin-bottom:-20px;
+    }
+
+    .cake-title{
+
+        margin-bottom:0;
     }
 
     .cake-note{
+
         font-size:21px;
     }
 
+
+    /* gallery */
+
     .gallery{
+
         width:97%;
 
         gap:18px;
     }
 
     .memory-card{
+
         padding:
             8px 8px 14px;
     }
 
     .memory-card img{
+
         height:145px;
     }
 
     .memory-caption strong{
+
         font-size:18px;
     }
 
     .memory-caption span{
+
         font-size:14px;
     }
 
     .gallery .tape{
+
         width:58px;
+
         height:19px;
+
         top:-9px;
     }
 
+
+    /* memory */
+
     .memory-intro p{
+
         font-size:21px;
     }
 
+
+    /* final */
+
     .teddy{
+
         font-size:105px;
     }
 
     .sunflowers{
+
         font-size:44px;
     }
 
     .final-text p{
+
         font-size:19px;
     }
 }
 
+
 @media(max-width:380px){
 
     .memory-card img{
+
         height:125px;
     }
 
     .memory-caption strong{
+
         font-size:16px;
     }
 
     .memory-caption span{
+
         font-size:13px;
     }
 
     .btn{
+
         font-size:17px;
 
         padding:
             10px 25px;
     }
+}
 
-    .cake{
-        transform:scale(.73);
 
-        margin-top:-25px;
+/* ================================================= */
+/* DARK MODE PROTECTION                              */
+/* ================================================= */
 
-        margin-bottom:-55px;
+@media(prefers-color-scheme:dark){
+
+    html,
+    body{
+
+        background-color:#f4efff !important;
+
+        color:#674b78 !important;
+
+        color-scheme:light !important;
     }
 
-    .cake-note{
-        font-size:19px;
+    .page{
+
+        background:transparent !important;
+    }
+
+    .password-card{
+
+        background:
+            rgba(255,255,255,.78) !important;
+
+        color:#674b78 !important;
+    }
+
+    .password-input{
+
+        background:#ffffff !important;
+
+        color:#68487b !important;
+
+        -webkit-text-fill-color:#68487b !important;
+    }
+
+    .polaroid,
+    .memory-card{
+
+        background:#ffffff !important;
+
+        color:#765e7e !important;
+    }
+
+    .heading,
+    .wishes h2,
+    .final-text h2{
+
+        color:#674477 !important;
+    }
+
+    .wishes p,
+    .cake-note,
+    .memory-intro p,
+    .last-thing p,
+    .final-text p{
+
+        color:#674b78 !important;
+    }
+
+    .memory-caption strong{
+
+        color:#765381 !important;
+    }
+
+    .memory-caption span{
+
+        color:#765e7e !important;
+    }
+
+    .btn{
+
+        background:
+            linear-gradient(
+                135deg,
+                #a985d4,
+                #8962b8
+            ) !important;
+
+        color:#ffffff !important;
     }
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- ================= FLOATING DECORATIONS ================= -->
 
 <div class="decor d1">✦</div>
 <div class="decor d2">♡</div>
@@ -958,15 +1390,21 @@ button,input{
 <div class="decor d6">♡</div>
 
 
-<!-- ================= PASSWORD ================= -->
+<!-- ================================================= -->
+<!-- PASSWORD PAGE                                      -->
+<!-- ================================================= -->
 
 <section class="page active" id="passwordPage">
 
     <div class="password-card">
 
-        <div class="lock">🔐</div>
+        <div class="lock">
+            🔐
+        </div>
 
-        <h1>A Little Surprise ♡</h1>
+        <h1>
+            A Little Surprise ♡
+        </h1>
 
         <p>
             Enter the birthday passcode ✨
@@ -981,7 +1419,10 @@ button,input{
             placeholder="••••"
         >
 
-        <div class="error" id="error"></div>
+        <div
+            class="error"
+            id="error">
+        </div>
 
         <button
             class="btn"
@@ -997,11 +1438,18 @@ button,input{
 </section>
 
 
-<!-- ================= BIRTHDAY WISHES ================= -->
+<!-- ================================================= -->
+<!-- BIRTHDAY WISHES                                   -->
+<!-- ================================================= -->
 
-<section class="page" id="wishPage">
+<section
+    class="page"
+    id="wishPage">
 
     <div class="wishes-layout">
+
+
+        <!-- PHOTO 1 -->
 
         <div class="polaroid photo1-card">
 
@@ -1009,11 +1457,12 @@ button,input{
 
             <img
                 src="Photo 1.jpg"
-                alt="Photo 1"
-            >
+                alt="Photo 1">
 
         </div>
 
+
+        <!-- WISHES -->
 
         <div class="wishes">
 
@@ -1022,21 +1471,21 @@ button,input{
             </h2>
 
             <p>
-                I hope this year brings you countless little reasons
-                to smile, beautiful memories to keep close, and
-                moments that make you genuinely happy.
+                I hope this year brings you countless little
+                reasons to smile, beautiful memories to keep
+                close, and moments that make you genuinely happy.
             </p>
 
             <p>
                 Some people simply make ordinary moments feel a
-                little more special just by being there. I hope your
-                day is filled with the same warmth and happiness
-                that you bring to the people around you.
+                little more special just by being there. I hope
+                your day is filled with the same warmth and
+                happiness that you bring to the people around you.
             </p>
 
             <p>
-                Keep smiling, keep being yourself, and have the most
-                beautiful birthday. 🤍
+                Keep smiling, keep being yourself, and have the
+                most beautiful birthday. 🤍
             </p>
 
             <p class="signature">
@@ -1044,7 +1493,7 @@ button,input{
             </p>
 
             <button
-                class="btn"
+                class="btn next-area"
                 type="button"
                 onclick="showPage('cakePage')">
 
@@ -1059,7 +1508,9 @@ button,input{
 </section>
 
 
-<!-- ================= CAKE ================= -->
+<!-- ================================================= -->
+<!-- CAKE PAGE                                         -->
+<!-- ================================================= -->
 
 <section
     class="page cake-page"
@@ -1067,25 +1518,74 @@ button,input{
 
     <div class="cake-box">
 
+
         <h1 class="heading cake-title">
 
-            Here's a little birthday<br>
+            Here's a little birthday
             cake for you 🎂✨
 
         </h1>
 
 
+        <!-- CAKE -->
+
         <div class="cake">
+
+
+            <!-- PLATE -->
 
             <div class="plate"></div>
 
-            <!-- THREE LAYERS -->
 
-            <div class="layer bottom"></div>
+            <!-- BOTTOM CAKE LAYER -->
 
-            <div class="layer middle"></div>
+            <div class="layer bottom">
 
-            <div class="layer top"></div>
+                <div class="chocolate">
+
+                    <span class="drip-melt melt1"></span>
+
+                    <span class="drip-melt melt2"></span>
+
+                    <span class="drip-melt melt3"></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- MIDDLE CAKE LAYER -->
+
+            <div class="layer middle">
+
+                <div class="chocolate">
+
+                    <span class="drip-melt melt1"></span>
+
+                    <span class="drip-melt melt2"></span>
+
+                    <span class="drip-melt melt3"></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOP CAKE LAYER -->
+
+            <div class="layer top">
+
+                <div class="chocolate">
+
+                    <span class="drip-melt melt1"></span>
+
+                    <span class="drip-melt melt2"></span>
+
+                    <span class="drip-melt melt3"></span>
+
+                </div>
+
+            </div>
 
 
             <!-- CANDLE -->
@@ -1096,8 +1596,11 @@ button,input{
 
             </div>
 
+
         </div>
 
+
+        <!-- CAKE NOTE -->
 
         <p class="cake-note">
 
@@ -1117,12 +1620,15 @@ button,input{
 
         </button>
 
+
     </div>
 
 </section>
 
 
-<!-- ================= MEMORY INTRO ================= -->
+<!-- ================================================= -->
+<!-- MEMORY INTRO                                      -->
+<!-- ================================================= -->
 
 <section
     class="page memory-intro"
@@ -1158,7 +1664,9 @@ button,input{
 </section>
 
 
-<!-- ================= GALLERY 1 ================= -->
+<!-- ================================================= -->
+<!-- GALLERY 1                                         -->
+<!-- ================================================= -->
 
 <section
     class="page gallery-page"
@@ -1182,8 +1690,7 @@ button,input{
 
             <img
                 src="Photo 2.jpg"
-                alt="Photo 2"
-            >
+                alt="Photo 2">
 
             <div class="memory-caption">
 
@@ -1208,8 +1715,7 @@ button,input{
 
             <img
                 src="Photo 3.jpg"
-                alt="Photo 3"
-            >
+                alt="Photo 3">
 
             <div class="memory-caption">
 
@@ -1226,6 +1732,7 @@ button,input{
 
         </div>
 
+
     </div>
 
 
@@ -1241,7 +1748,9 @@ button,input{
 </section>
 
 
-<!-- ================= GALLERY 2 ================= -->
+<!-- ================================================= -->
+<!-- GALLERY 2                                         -->
+<!-- ================================================= -->
 
 <section
     class="page gallery-page"
@@ -1265,8 +1774,7 @@ button,input{
 
             <img
                 src="Photo 4.jpg"
-                alt="Photo 4"
-            >
+                alt="Photo 4">
 
             <div class="memory-caption">
 
@@ -1291,8 +1799,7 @@ button,input{
 
             <img
                 src="Photo 5.jpg"
-                alt="Photo 5"
-            >
+                alt="Photo 5">
 
             <div class="memory-caption">
 
@@ -1309,6 +1816,7 @@ button,input{
 
         </div>
 
+
     </div>
 
 
@@ -1324,7 +1832,9 @@ button,input{
 </section>
 
 
-<!-- ================= GALLERY 3 ================= -->
+<!-- ================================================= -->
+<!-- GALLERY 3                                         -->
+<!-- ================================================= -->
 
 <section
     class="page gallery-page"
@@ -1348,8 +1858,7 @@ button,input{
 
             <img
                 src="Photo 6.jpg"
-                alt="Photo 6"
-            >
+                alt="Photo 6">
 
             <div class="memory-caption">
 
@@ -1375,8 +1884,7 @@ button,input{
 
             <img
                 src="Photo 7.jpg"
-                alt="Photo 7"
-            >
+                alt="Photo 7">
 
             <div class="memory-caption">
 
@@ -1393,6 +1901,7 @@ button,input{
 
         </div>
 
+
     </div>
 
 
@@ -1408,7 +1917,9 @@ button,input{
 </section>
 
 
-<!-- ================= ONE LAST THING ================= -->
+<!-- ================================================= -->
+<!-- ONE LAST THING                                    -->
+<!-- ================================================= -->
 
 <section
     class="page last-thing"
@@ -1439,15 +1950,19 @@ button,input{
 </section>
 
 
-<!-- ================= FINAL PAGE ================= -->
+<!-- ================================================= -->
+<!-- FINAL PAGE                                         -->
+<!-- ================================================= -->
 
 <section
     class="page final-page"
     id="finalPage">
 
+
     <div class="teddy">
         🧸
     </div>
+
 
     <div class="sunflowers">
         🌻🌻
@@ -1456,9 +1971,11 @@ button,input{
 
     <div class="final-text">
 
+
         <h2>
             For Someone Special 🤍
         </h2>
+
 
         <p>
 
@@ -1468,6 +1985,7 @@ button,input{
 
         </p>
 
+
         <p>
 
             Keep shining, keep smiling and never change,
@@ -1475,11 +1993,13 @@ button,input{
 
         </p>
 
+
         <p>
 
             Happy Birthday once again! 🎂✨🤍
 
         </p>
+
 
     </div>
 
@@ -1487,26 +2007,35 @@ button,input{
     <button
         class="btn try-again"
         type="button"
-        onclick="location.reload()">
+        onclick="restartWebsite()">
 
         Try Again ↻
 
     </button>
 
+
 </section>
 
 
+<!-- ================================================= -->
+<!-- JAVASCRIPT                                        -->
+<!-- ================================================= -->
+
 <script>
+
+
+/* ================= SHOW PAGE ================= */
 
 function showPage(id){
 
-    document
-        .querySelectorAll('.page')
-        .forEach(function(page){
+    const pages =
+        document.querySelectorAll('.page');
 
-            page.classList.remove('active');
+    pages.forEach(function(page){
 
-        });
+        page.classList.remove('active');
+
+    });
 
 
     const target =
@@ -1519,6 +2048,7 @@ function showPage(id){
 
         window.scrollTo({
             top:0,
+            left:0,
             behavior:'smooth'
         });
 
@@ -1526,6 +2056,8 @@ function showPage(id){
 
 }
 
+
+/* ================= PASSWORD ================= */
 
 function unlock(){
 
@@ -1558,9 +2090,15 @@ function unlock(){
 }
 
 
-document
-    .getElementById('password')
-    .addEventListener(
+/* ================= ENTER KEY ================= */
+
+const passwordInput =
+    document.getElementById('password');
+
+
+if(passwordInput){
+
+    passwordInput.addEventListener(
         'keydown',
         function(event){
 
@@ -1573,7 +2111,55 @@ document
         }
     );
 
+}
+
+
+/* ================= TRY AGAIN ================= */
+
+function restartWebsite(){
+
+    document.querySelectorAll('.page')
+        .forEach(function(page){
+
+            page.classList.remove('active');
+
+        });
+
+
+    document
+        .getElementById('passwordPage')
+        .classList.add('active');
+
+
+    const input =
+        document.getElementById('password');
+
+    const error =
+        document.getElementById('error');
+
+
+    if(input){
+
+        input.value = "";
+
+    }
+
+    if(error){
+
+        error.textContent = "";
+
+    }
+
+
+    window.scrollTo({
+        top:0,
+        left:0,
+        behavior:'smooth'
+    });
+
+}
+
 </script>
 
 </body>
-      </html>
+    </html>
