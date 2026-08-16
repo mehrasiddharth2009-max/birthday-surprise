@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
 <title>A Little Birthday Surprise ✨</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Playfair+Display:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 
 *{
     box-sizing:border-box;
@@ -14,478 +16,554 @@
     padding:0;
 }
 
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
 body{
     font-family:'Cormorant Garamond',serif;
-    background:
-      linear-gradient(rgba(255,255,255,.48) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(255,255,255,.48) 1px,transparent 1px),
-      #eee8ff;
-    background-size:32px 32px;
-    color:#634b72;
-    min-height:100vh;
+    color:#674b78;
     overflow-x:hidden;
+
+    /* light lavender checked background */
+    background-color:#f4efff;
+    background-image:
+      linear-gradient(rgba(255,255,255,.62) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.62) 1px,transparent 1px);
+    background-size:38px 38px;
 }
 
-body:before{
-    content:"";
+button,input{
+    font-family:inherit;
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* floating decorations */
+.decor{
     position:fixed;
-    inset:0;
     pointer-events:none;
-    background:
-      radial-gradient(circle at 10% 15%,rgba(181,145,230,.13),transparent 20%),
-      radial-gradient(circle at 90% 80%,rgba(181,145,230,.12),transparent 20%);
+    color:#c6a8e8;
+    opacity:.65;
+    z-index:0;
+    font-size:24px;
+    animation:float 5s ease-in-out infinite;
 }
 
+.d1{top:10%;left:7%}
+.d2{top:19%;right:8%;animation-delay:1s}
+.d3{top:48%;left:4%;animation-delay:2s}
+.d4{top:68%;right:6%;animation-delay:1.5s}
+.d5{bottom:10%;left:12%;animation-delay:2.5s}
+.d6{bottom:17%;right:13%;animation-delay:.5s}
+
+@keyframes float{
+    0%,100%{transform:translateY(0) rotate(-5deg)}
+    50%{transform:translateY(-12px) rotate(5deg)}
+}
+
+/* pages */
 .page{
-    display:none;
     min-height:100vh;
     width:100%;
-    padding:30px 18px 70px;
+    display:none;
     position:relative;
-    animation:fadeIn .7s ease;
+    z-index:1;
+    padding:45px 18px 90px;
+    animation:pageIn .55s ease;
 }
 
 .page.active{
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:center;
 }
 
-@keyframes fadeIn{
-    from{opacity:0;transform:translateY(15px)}
-    to{opacity:1;transform:translateY(0)}
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
-.decor{
-    position:absolute;
-    color:#b79ad9;
-    font-size:27px;
-    opacity:.65;
-}
-
-.d1{top:7%;left:7%}
-.d2{top:14%;right:8%}
-.d3{bottom:14%;left:10%}
-.d4{bottom:8%;right:9%}
-
-/* PASSWORD */
-
-.password-card{
-    width:min(430px,94%);
-    background:rgba(255,255,255,.88);
-    padding:38px 25px;
-    border-radius:22px;
-    box-shadow:0 15px 45px rgba(104,74,130,.18);
+/* headings */
+.heading{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-weight:600;
+    color:#674477;
     text-align:center;
 }
 
-.lock{
-    font-size:50px;
-    margin-bottom:10px;
+.heading.big{
+    font-size:clamp(35px,8vw,62px);
+    line-height:1.05;
 }
 
-.script-title{
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-size:34px;
-    color:#76538b;
-    margin-bottom:8px;
+.heading.medium{
+    font-size:clamp(30px,7vw,48px);
 }
 
-.subtitle{
+.subheading{
+    text-align:center;
     font-size:20px;
-    margin-bottom:20px;
+    line-height:1.35;
+    margin-top:10px;
+}
+
+/* buttons */
+.btn{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    background:linear-gradient(135deg,#a985d4,#8962b8);
+    color:white;
+    font-size:19px;
+    padding:12px 32px;
+    border-radius:40px;
+    box-shadow:0 8px 20px rgba(112,75,145,.20);
+    transition:.25s;
+    min-width:145px;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn:active{
+    transform:scale(.97);
+}
+
+.next-area{
+    margin-top:30px;
+}
+
+/* PASSWORD */
+.password-card{
+    width:min(92%,430px);
+    margin:auto;
+    padding:34px 25px;
+    background:rgba(255,255,255,.78);
+    border:1px solid rgba(145,110,178,.25);
+    border-radius:24px;
+    box-shadow:0 18px 45px rgba(105,77,130,.14);
+    text-align:center;
+    backdrop-filter:blur(8px);
+}
+
+.lock{
+    font-size:54px;
+    margin-bottom:5px;
+}
+
+.password-card h1{
+    font-size:42px;
+    font-style:italic;
+    color:#704c84;
+}
+
+.password-card p{
+    font-size:19px;
+    margin:8px 0 18px;
 }
 
 .password-input{
     width:100%;
     height:48px;
-    border:1.5px solid #b99cda;
+    border:1.5px solid #b99bda;
     border-radius:12px;
-    text-align:center;
-    font-size:22px;
-    letter-spacing:8px;
-    outline:none;
-    color:#694b78;
     background:#fff;
+    text-align:center;
+    font-size:23px;
+    letter-spacing:9px;
+    color:#68487b;
+    outline:none;
 }
 
-.btn{
-    border:none;
-    background:linear-gradient(135deg,#bda1df,#9e78ca);
-    color:white;
-    padding:12px 30px;
-    border-radius:30px;
-    font-family:'Cormorant Garamond',serif;
-    font-size:20px;
-    cursor:pointer;
-    margin-top:20px;
-    box-shadow:0 8px 18px rgba(120,83,155,.22);
-    transition:.2s;
-}
-
-.btn:active{
-    transform:scale(.95);
+.password-input:focus{
+    box-shadow:0 0 0 4px rgba(170,133,211,.15);
 }
 
 .error{
-    color:#a95778;
-    min-height:25px;
-    margin-top:10px;
+    min-height:22px;
+    margin-top:9px;
+    color:#a25c78;
     font-size:17px;
 }
 
-/* WISH PAGE */
-
-.wish-wrap{
-    width:min(1000px,96%);
-    display:flex;
+/* birthday wishes */
+.wishes-layout{
+    width:min(94%,1000px);
+    display:grid;
+    grid-template-columns:1fr 1.05fr;
+    gap:38px;
     align-items:center;
-    gap:35px;
-    background:rgba(255,255,255,.42);
-    padding:25px;
-    border-radius:25px;
+    margin:auto;
 }
 
-.wish-photo{
-    width:min(43%,390px);
-    background:#fff;
-    padding:14px 14px 25px;
-    transform:rotate(-2deg);
-    box-shadow:0 12px 25px rgba(91,67,105,.18);
+/* Polaroid */
+.polaroid{
     position:relative;
+    background:#fff;
+    padding:12px 12px 20px;
+    box-shadow:0 14px 28px rgba(88,66,105,.18);
 }
 
-.wish-photo:before{
+.polaroid::after{
     content:"";
     position:absolute;
-    width:105px;
-    height:30px;
-    background:#d6c0ee;
-    top:-13px;
-    left:50%;
-    transform:translateX(-50%) rotate(1deg);
-    opacity:.9;
+    inset:0;
+    pointer-events:none;
+    border:1px solid rgba(110,80,125,.08);
 }
 
-.wish-photo img{
+.photo1-card{
+    transform:rotate(-2.5deg);
+}
+
+.tape{
+    position:absolute;
+    z-index:3;
+    top:-15px;
+    left:50%;
+    transform:translateX(-50%) rotate(-1deg);
+    width:100px;
+    height:30px;
+    background:rgba(193,165,235,.72);
+    box-shadow:0 2px 5px rgba(100,75,120,.1);
+}
+
+.photo1-card img{
     width:100%;
-    height:310px;
-    object-fit:cover;
+    height:390px;
     display:block;
+    object-fit:cover;
+    object-position:center top;
 }
 
 .wishes{
-    flex:1;
+    padding:10px 5px;
 }
 
-.wishes h1{
+.wishes h2{
     font-family:'Playfair Display',serif;
     font-style:italic;
-    font-size:43px;
+    font-size:clamp(34px,5vw,52px);
+    color:#674477;
     margin-bottom:18px;
-    color:#704c86;
 }
 
 .wishes p{
-    font-size:21px;
+    font-size:20px;
     line-height:1.45;
-    margin-bottom:17px;
+    margin-bottom:14px;
 }
 
 .signature{
-    font-size:23px;
+    font-size:25px !important;
     font-style:italic;
-    margin-top:10px;
-}
-
-.center-title{
-    text-align:center;
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-size:40px;
-    color:#704c86;
-    margin-bottom:20px;
+    margin-top:20px;
+    color:#79528d;
 }
 
 /* CAKE */
-
 .cake-page{
+    justify-content:center;
+}
+
+.cake-box{
+    width:min(92%,620px);
     text-align:center;
 }
 
-.cake-heading{
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-size:35px;
-    max-width:650px;
+.cake-title{
+    font-size:clamp(30px,7vw,47px);
     margin-bottom:30px;
 }
 
 .cake{
     position:relative;
-    width:260px;
-    height:245px;
-    margin:5px auto 15px;
+    width:310px;
+    height:280px;
+    margin:0 auto 20px;
+}
+
+.plate{
+    position:absolute;
+    width:280px;
+    height:25px;
+    background:#e3d1f3;
+    border-radius:50%;
+    bottom:25px;
+    left:15px;
+    box-shadow:0 7px 0 #c9addf;
 }
 
 .layer{
     position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    width:235px;
-    height:55px;
-    border-radius:15px;
-    background:linear-gradient(#f9eaff,#dfc7f3);
-    border:3px solid #c7a9df;
-    box-shadow:0 6px 10px rgba(110,75,130,.15);
+    left:35px;
+    width:240px;
+    border-radius:18px 18px 12px 12px;
+    background:linear-gradient(#efdfff,#d6b8ed);
+    border:3px solid #b58bd4;
+    box-shadow:inset 0 -10px 0 rgba(255,255,255,.25);
 }
 
-.layer:nth-child(1){top:65px}
-.layer:nth-child(2){top:120px}
-.layer:nth-child(3){top:175px}
+.layer.bottom{
+    height:65px;
+    bottom:45px;
+}
+
+.layer.middle{
+    height:60px;
+    bottom:100px;
+    width:225px;
+    left:42px;
+}
+
+.layer.top{
+    height:55px;
+    bottom:151px;
+    width:205px;
+    left:52px;
+}
+
+.drip{
+    position:absolute;
+    height:14px;
+    width:35px;
+    background:#f7eaff;
+    border-radius:0 0 18px 18px;
+    top:0;
+}
+
+.drip.a{left:28px}
+.drip.b{left:92px;height:18px}
+.drip.c{left:150px;height:12px}
 
 .candle{
     position:absolute;
-    top:18px;
-    left:50%;
-    transform:translateX(-50%);
     width:23px;
-    height:55px;
-    border:3px solid #c7a9df;
-    background:#fff;
-    border-radius:7px;
+    height:75px;
+    left:144px;
+    bottom:203px;
+    border-radius:8px;
+    border:2px solid #b58bd4;
+    background:repeating-linear-gradient(
+        135deg,
+        #fff 0px,
+        #fff 8px,
+        #dcb8ee 8px,
+        #dcb8ee 15px
+    );
 }
 
 .flame{
     position:absolute;
-    top:-35px;
-    left:50%;
-    transform:translateX(-50%);
     width:25px;
-    height:35px;
-    background:#ffd85b;
-    border-radius:50% 50% 50% 10%;
-    transform-origin:center bottom;
-    rotate:45deg;
-    box-shadow:0 0 20px #ffd85b;
-    cursor:pointer;
-    animation:flicker .55s infinite alternate;
+    height:37px;
+    left:-3px;
+    top:-34px;
+    background:radial-gradient(
+        ellipse at center bottom,
+        #fff9b0 0 20%,
+        #ffd35e 35%,
+        #ffad28 60%,
+        transparent 70%
+    );
+    border-radius:50% 50% 50% 50%;
+    transform-origin:bottom center;
+    animation:flicker .65s infinite alternate;
+    filter:drop-shadow(0 0 8px rgba(255,184,52,.65));
 }
 
 @keyframes flicker{
-    from{scale:1}
-    to{scale:.84}
+    0%{transform:rotate(-4deg) scale(1)}
+    100%{transform:rotate(5deg) scale(1.08)}
 }
 
-.flame.off{
-    display:none;
-}
-
-.smoke{
-    display:none;
-    position:absolute;
-    top:-40px;
-    left:50%;
-    font-size:35px;
-}
-
-.smoke.show{
-    display:block;
-    animation:smoke 1.5s ease forwards;
-}
-
-@keyframes smoke{
-    from{opacity:1;transform:translate(-50%,0)}
-    to{opacity:0;transform:translate(-50%,-50px)}
-}
-
-.cake-message{
-    font-size:23px;
+.cake-note{
+    font-size:24px;
     font-style:italic;
-    margin:10px auto;
     max-width:600px;
+    line-height:1.35;
+    margin:10px auto 25px;
 }
 
-.hidden-after{
-    display:none;
+/* memories intro */
+.memory-intro{
+    justify-content:center;
+    text-align:center;
 }
 
-.hidden-after.show{
-    display:block;
+.memory-intro .heart{
+    font-size:45px;
+    margin-bottom:5px;
 }
 
-/* MEMORIES */
-
-.memory-page{
-    justify-content:flex-start!important;
-    padding-top:45px;
+.memory-intro p{
+    max-width:650px;
+    font-size:23px;
+    line-height:1.4;
+    margin:15px auto 25px;
 }
 
-.memory-title{
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-size:38px;
-    margin-bottom:25px;
+/* gallery */
+.gallery-page{
+    justify-content:center;
 }
 
-.memory-grid{
-    width:min(850px,96%);
+.gallery-title{
+    font-size:clamp(30px,7vw,46px);
+    margin-bottom:26px;
+}
+
+.gallery{
+    width:min(96%,900px);
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:30px;
     align-items:start;
 }
 
-.polaroid{
-    background:#fff;
-    padding:12px 12px 22px;
-    box-shadow:0 10px 25px rgba(90,65,105,.2);
+.memory-card{
     position:relative;
+    background:#fff;
+    padding:11px 11px 19px;
+    box-shadow:0 12px 25px rgba(87,64,103,.18);
+    min-width:0;
+}
+
+.memory-card:nth-child(odd){
+    transform:rotate(-2.8deg) translateY(5px);
+}
+
+.memory-card:nth-child(even){
+    transform:rotate(2.8deg) translateY(25px);
+}
+
+.memory-card img{
     width:100%;
-}
-
-.polaroid:nth-child(1){
-    transform:rotate(-3deg);
-}
-
-.polaroid:nth-child(2){
-    transform:rotate(3deg);
-    margin-top:30px;
-}
-
-.polaroid:before{
-    content:"";
-    position:absolute;
-    top:-13px;
-    left:50%;
-    transform:translateX(-50%) rotate(-2deg);
-    width:90px;
-    height:28px;
-    background:#d5c0eb;
-    opacity:.9;
-}
-
-.polaroid img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
+    height:230px;
     display:block;
+    object-fit:cover;
 }
 
-.caption{
+.memory-caption{
+    padding:12px 5px 2px;
     text-align:center;
-    padding:13px 6px 0;
 }
 
-.caption strong{
+.memory-caption strong{
     display:block;
     font-family:'Playfair Display',serif;
     font-style:italic;
     font-size:22px;
-    color:#72537e;
-    margin-bottom:5px;
+    line-height:1.1;
+    color:#765381;
+    margin-bottom:7px;
 }
 
-.caption span{
+.memory-caption span{
     display:block;
-    font-size:18px;
+    font-size:17px;
     line-height:1.25;
+    color:#765e7e;
 }
 
-.memory-bottom{
+.gallery .tape{
+    width:75px;
+    height:24px;
+    top:-12px;
+}
+
+.gallery-next{
+    margin-top:48px;
+}
+
+/* last thing */
+.last-thing{
+    justify-content:center;
     text-align:center;
-    margin-top:35px;
 }
 
-.next-btn{
-    margin-top:0;
-}
-
-/* ONE LAST THING */
-
-.last-card{
-    text-align:center;
-    width:min(650px,94%);
-    background:rgba(255,255,255,.52);
-    padding:40px 25px;
-    border-radius:25px;
-}
-
-.last-card h1{
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-size:43px;
-}
-
-.last-card p{
-    font-size:23px;
+.last-thing p{
+    max-width:580px;
+    font-size:22px;
     line-height:1.4;
-    margin-top:15px;
+    margin:15px auto 25px;
 }
 
-/* FINAL */
-
+/* final */
 .final-page{
+    justify-content:center;
     text-align:center;
 }
 
 .teddy{
-    font-size:125px;
+    font-size:130px;
     line-height:1;
-    margin-bottom:10px;
-    filter:drop-shadow(0 8px 10px rgba(80,55,90,.18));
+    margin-bottom:5px;
+    filter:drop-shadow(0 10px 10px rgba(80,55,90,.12));
 }
 
 .sunflowers{
-    font-size:42px;
-    margin-top:-25px;
-    margin-bottom:10px;
+    font-size:55px;
+    margin-top:-18px;
+    margin-bottom:15px;
 }
 
-.final-page h1{
+.final-text{
+    max-width:650px;
+}
+
+.final-text h2{
     font-family:'Playfair Display',serif;
     font-style:italic;
-    font-size:40px;
+    font-size:clamp(34px,7vw,50px);
+    margin-bottom:16px;
 }
 
-.final-page p{
-    width:min(650px,94%);
-    font-size:22px;
-    line-height:1.45;
-    margin:15px auto;
+.final-text p{
+    font-size:21px;
+    line-height:1.4;
+    margin-bottom:14px;
 }
 
-/* MOBILE */
+.try-again{
+    margin-top:25px;
+}
 
+/* mobile */
 @media(max-width:700px){
 
     .page{
-        padding:25px 14px 55px;
+        padding:35px 12px 80px;
     }
 
-    .wish-wrap{
-        flex-direction:column;
-        gap:20px;
-        padding:17px;
+    .wishes-layout{
+        grid-template-columns:1fr;
+        gap:25px;
+        width:95%;
     }
 
-    .wish-photo{
-        width:82%;
-        max-width:330px;
-    }
-
-    .wish-photo img{
-        height:260px;
+    .photo1-card img{
+        height:330px;
     }
 
     .wishes{
         text-align:center;
     }
 
-    .wishes h1{
-        font-size:34px;
+    .wishes h2{
+        font-size:39px;
     }
 
     .wishes p{
@@ -493,48 +571,83 @@ body:before{
     }
 
     .signature{
+        font-size:23px !important;
+    }
+
+    .cake{
+        transform:scale(.86);
+        margin-top:-10px;
+        margin-bottom:-15px;
+    }
+
+    .cake-title{
+        margin-bottom:8px;
+    }
+
+    .cake-note{
         font-size:21px;
     }
 
-    .cake-heading{
-        font-size:29px;
+    .gallery{
+        width:97%;
+        gap:18px;
     }
 
-    .memory-grid{
-        gap:20px;
+    .memory-card{
+        padding:8px 8px 14px;
     }
 
-    .polaroid{
-        padding:9px 9px 18px;
+    .memory-card img{
+        height:145px;
     }
 
-    .polaroid img{
-        height:180px;
-    }
-
-    .caption strong{
+    .memory-caption strong{
         font-size:18px;
     }
 
-    .caption span{
-        font-size:16px;
+    .memory-caption span{
+        font-size:14px;
     }
 
-    .memory-title{
-        font-size:31px;
-        text-align:center;
+    .gallery .tape{
+        width:58px;
+        height:19px;
+        top:-9px;
+    }
+
+    .memory-intro p{
+        font-size:21px;
     }
 
     .teddy{
-        font-size:100px;
+        font-size:105px;
     }
 
-    .final-page h1{
-        font-size:34px;
+    .sunflowers{
+        font-size:44px;
     }
 
-    .final-page p{
-        font-size:20px;
+    .final-text p{
+        font-size:19px;
+    }
+}
+
+@media(max-width:380px){
+    .memory-card img{
+        height:125px;
+    }
+
+    .memory-caption strong{
+        font-size:16px;
+    }
+
+    .memory-caption span{
+        font-size:13px;
+    }
+
+    .btn{
+        font-size:17px;
+        padding:10px 25px;
     }
 }
 </style>
@@ -542,29 +655,32 @@ body:before{
 
 <body>
 
-<!-- PASSWORD PAGE -->
+<!-- floating decorations -->
+<div class="decor d1">✦</div>
+<div class="decor d2">♡</div>
+<div class="decor d3">✧</div>
+<div class="decor d4">♡</div>
+<div class="decor d5">✦</div>
+<div class="decor d6">♡</div>
+
+
+<!-- ================= PASSWORD ================= -->
 <section class="page active" id="passwordPage">
 
-    <span class="decor d1">♡</span>
-    <span class="decor d2">✦</span>
-    <span class="decor d3">♡</span>
-    <span class="decor d4">✧</span>
-
     <div class="password-card">
+
         <div class="lock">🔐</div>
 
-        <div class="script-title">A Little Surprise ♡</div>
+        <h1>A Little Surprise ♡</h1>
 
-        <div class="subtitle">
-            Enter the birthday passcode ✨
-        </div>
+        <p>Enter the birthday passcode ✨</p>
 
         <input
-            id="passwordInput"
+            id="password"
             class="password-input"
             type="password"
-            maxlength="4"
             inputmode="numeric"
+            maxlength="4"
             placeholder="••••"
         >
 
@@ -573,27 +689,29 @@ body:before{
         <button class="btn" onclick="unlock()">
             Unlock ✨
         </button>
+
     </div>
 
 </section>
 
 
-<!-- WISHES PAGE -->
+<!-- ================= BIRTHDAY WISHES ================= -->
 <section class="page" id="wishPage">
 
-    <span class="decor d1">♡</span>
-    <span class="decor d2">✦</span>
-    <span class="decor d3">✧</span>
+    <div class="wishes-layout">
 
-    <div class="wish-wrap">
+        <div class="polaroid photo1-card">
 
-        <div class="wish-photo">
-            <img src="Photo 1.jpg" alt="Birthday memory">
+            <div class="tape"></div>
+
+            <img src="Photo 1.jpg" alt="Photo 1">
+
         </div>
+
 
         <div class="wishes">
 
-            <h1>Happy Birthday! ✨</h1>
+            <h2>Happy Birthday! ✨</h2>
 
             <p>
                 I hope this year brings you countless little reasons
@@ -613,60 +731,57 @@ body:before{
                 beautiful birthday. 🤍
             </p>
 
-            <div class="signature">
+            <p class="signature">
                 With lots of good wishes ✨
-            </div>
+            </p>
 
-            <button class="btn" onclick="showPage('cakePage')">
+            <button class="btn next-area" onclick="showPage('cakePage')">
                 Continue ✨
             </button>
 
         </div>
+
     </div>
 
 </section>
 
 
-<!-- CAKE PAGE -->
+<!-- ================= CAKE ================= -->
 <section class="page cake-page" id="cakePage">
 
-    <span class="decor d1">✦</span>
-    <span class="decor d2">♡</span>
+    <div class="cake-box">
 
-    <div class="cake-heading">
-        First, blow out the flame and let's celebrate your birthday! 🎂✨
-    </div>
+        <h1 class="heading cake-title">
+            Here's a little birthday cake for you 🎂✨
+        </h1>
 
-    <div class="cake">
+        <div class="cake">
 
-        <div class="candle">
-            <div
-                class="flame"
-                id="flame"
-                onclick="blowCandle()"
-                ontouchstart="blowCandle()">
+            <div class="plate"></div>
+
+            <div class="layer bottom">
+                <span class="drip a"></span>
+                <span class="drip b"></span>
+                <span class="drip c"></span>
             </div>
-            <div class="smoke" id="smoke">☁️</div>
+
+            <div class="layer middle"></div>
+
+            <div class="layer top"></div>
+
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+
         </div>
 
-        <div class="layer"></div>
-        <div class="layer"></div>
-        <div class="layer"></div>
+        <p class="cake-note">
+            This little cake is just for you —
+            so you can celebrate your day in your own way. 🎂
+            Make a wish, smile, and enjoy your special day. ✨
+        </p>
 
-    </div>
-
-    <div class="cake-message">
-        Tap the flame to blow it out! 🕯️✨
-    </div>
-
-    <div id="cakeDone" class="hidden-after">
-
-        <div class="cake-message">
-            Yay! You did it! 🎉<br>
-            Your wish has been made. ✨
-        </div>
-
-        <button class="btn" onclick="showPage('memoriesIntro')">
+        <button class="btn" onclick="showPage('memoryIntro')">
             Continue ✨
         </button>
 
@@ -675,207 +790,273 @@ body:before{
 </section>
 
 
-<!-- MEMORIES INTRO -->
-<section class="page" id="memoriesIntro">
+<!-- ================= MEMORY INTRO ================= -->
+<section class="page memory-intro" id="memoryIntro">
 
-    <span class="decor d1">♡</span>
-    <span class="decor d2">✦</span>
+    <div class="heart">♡</div>
 
-    <div class="last-card">
+    <h1 class="heading big">
+        Come with me...
+    </h1>
 
-        <h1>Come with me... ♡</h1>
+    <p>
+        Come with me into your beautiful memories,
+        because some moments deserve to be remembered
+        a little more than others. ✨
+    </p>
 
-        <p>
-            Come with me into your beautiful memories,
-            because some moments deserve to be remembered
-            a little more than others. 🤍
-        </p>
-
-        <button class="btn" onclick="showPage('memory1')">
-            Let's Go ✨
-        </button>
-
-    </div>
+    <button class="btn" onclick="showPage('gallery1')">
+        Let's Go ✨
+    </button>
 
 </section>
 
 
-<!-- MEMORY PAGE 1 -->
-<section class="page memory-page" id="memory1">
+<!-- ================= GALLERY 1 ================= -->
+<section class="page gallery-page" id="gallery1">
 
-    <div class="memory-title">
+    <h1 class="heading gallery-title">
         Beautiful Memories ✨
-    </div>
+    </h1>
 
-    <div class="memory-grid">
+    <div class="gallery">
 
-        <div class="polaroid">
-            <img src="Photo 2.jpg" alt="Memory 1">
-            <div class="caption">
-                <strong>Like a sunflower 🌻</strong>
+        <!-- PHOTO 2 -->
+        <div class="memory-card">
+
+            <div class="tape"></div>
+
+            <img src="Photo 2.jpg" alt="Photo 2">
+
+            <div class="memory-caption">
+
+                <strong>
+                    Like a Sunflower 🌻
+                </strong>
+
                 <span>
                     You bring sunshine wherever you go. 🌻
                 </span>
+
             </div>
+
         </div>
 
-        <div class="polaroid">
-            <img src="Photo 3.jpg" alt="Memory 2">
-            <div class="caption">
-                <strong>A little moment 🤍</strong>
+
+        <!-- PHOTO 3 -->
+        <div class="memory-card">
+
+            <div class="tape"></div>
+
+            <img src="Photo 3.jpg" alt="Photo 3">
+
+            <div class="memory-caption">
+
+                <strong>
+                    A Little Moment ✨
+                </strong>
+
                 <span>
-                    Some moments quietly become the ones we remember most. ✨
+                    Some moments quietly become the ones
+                    we remember the most.
                 </span>
+
             </div>
+
         </div>
 
     </div>
 
-    <div class="memory-bottom">
-        <button class="btn next-btn" onclick="showPage('memory2')">
-            Next →
-        </button>
-    </div>
+    <button class="btn gallery-next"
+            onclick="showPage('gallery2')">
+        Next →
+    </button>
 
 </section>
 
 
-<!-- MEMORY PAGE 2 -->
-<section class="page memory-page" id="memory2">
+<!-- ================= GALLERY 2 ================= -->
+<section class="page gallery-page" id="gallery2">
 
-    <div class="memory-title">
-        More Little Moments ♡
-    </div>
+    <h1 class="heading gallery-title">
+        More Little Moments 🤍
+    </h1>
 
-    <div class="memory-grid">
+    <div class="gallery">
 
-        <div class="polaroid">
-            <img src="Photo 4.jpg" alt="Memory 3">
-            <div class="caption">
-                <strong>That Cute Little Smile 🤍</strong>
+        <!-- PHOTO 4 -->
+        <div class="memory-card">
+
+            <div class="tape"></div>
+
+            <img src="Photo 4.jpg" alt="Photo 4">
+
+            <div class="memory-caption">
+
+                <strong>
+                    That Cute Little Smile 🤍
+                </strong>
+
                 <span>
                     One smile, and the whole moment feels brighter.
                 </span>
+
             </div>
+
         </div>
 
-        <div class="polaroid">
-            <img src="Photo 5.jpg" alt="Memory 4">
-            <div class="caption">
-                <strong>Little moments ✨</strong>
+
+        <!-- PHOTO 5 -->
+        <div class="memory-card">
+
+            <div class="tape"></div>
+
+            <img src="Photo 5.jpg" alt="Photo 5">
+
+            <div class="memory-caption">
+
+                <strong>
+                    Little Moments ✨
+                </strong>
+
                 <span>
-                    The little moments like these become the best memories.
+                    Little moments like these become the
+                    best memories.
                 </span>
+
             </div>
+
         </div>
 
     </div>
 
-    <div class="memory-bottom">
-        <button class="btn next-btn" onclick="showPage('memory3')">
-            Next →
-        </button>
-    </div>
+    <button class="btn gallery-next"
+            onclick="showPage('gallery3')">
+        Next →
+    </button>
 
 </section>
 
 
-<!-- MEMORY PAGE 3 -->
-<section class="page memory-page" id="memory3">
+<!-- ================= GALLERY 3 ================= -->
+<section class="page gallery-page" id="gallery3">
 
-    <div class="memory-title">
-        And A Few More... 🌸
-    </div>
+    <h1 class="heading gallery-title">
+        And a Few More... 🌸
+    </h1>
 
-    <div class="memory-grid">
+    <div class="gallery">
 
-        <div class="polaroid">
-            <img src="Photo 6.jpg" alt="Memory 5">
-            <div class="caption">
-                <strong>Pretty Moments, Beautiful Memories 🌸</strong>
+        <!-- PHOTO 6 -->
+        <div class="memory-card">
+
+            <div class="tape"></div>
+
+            <img src="Photo 6.jpg" alt="Photo 6">
+
+            <div class="memory-caption">
+
+                <strong>
+                    Pretty Moments, Beautiful Memories 🌸
+                </strong>
+
                 <span>
-                    Some pictures become memories without even trying.
+                    Some pictures become memories
+                    without even trying.
                 </span>
+
             </div>
+
         </div>
 
-        <div class="polaroid">
-            <img src="Photo 7.jpg" alt="Memory 6">
-            <div class="caption">
-                <strong>Because every moment matters ♡</strong>
+
+        <!-- PHOTO 7 -->
+        <div class="memory-card">
+
+            <div class="tape"></div>
+
+            <img src="Photo 7.jpg" alt="Photo 7">
+
+            <div class="memory-caption">
+
+                <strong>
+                    Worth Remembering 🤍
+                </strong>
+
                 <span>
-                    Every little moment is worth remembering. ✨
+                    Because every moment with you
+                    is worth remembering.
                 </span>
+
             </div>
+
         </div>
 
     </div>
 
-    <div class="memory-bottom">
-        <button class="btn next-btn" onclick="showPage('lastThing')">
-            Next →
-        </button>
-    </div>
+    <button class="btn gallery-next"
+            onclick="showPage('lastThing')">
+        Next →
+    </button>
 
 </section>
 
 
-<!-- ONE LAST THING -->
-<section class="page" id="lastThing">
+<!-- ================= ONE LAST THING ================= -->
+<section class="page last-thing" id="lastThing">
 
-    <span class="decor d1">♡</span>
-    <span class="decor d2">✦</span>
+    <h1 class="heading big">
+        One Last Thing... 💌
+    </h1>
 
-    <div class="last-card">
+    <p>
+        Before this little surprise comes to an end,
+        there's just one more little thing for you. ✨
+    </p>
 
-        <h1>One Last Thing... 💌</h1>
-
-        <p>
-            Before this little surprise comes to an end,
-            there's just one more little thing for you. ✨
-        </p>
-
-        <button class="btn" onclick="showPage('finalPage')">
-            Open It ✨
-        </button>
-
-    </div>
+    <button class="btn" onclick="showPage('finalPage')">
+        Open It ✨
+    </button>
 
 </section>
 
 
-<!-- FINAL PAGE -->
+<!-- ================= FINAL PAGE ================= -->
 <section class="page final-page" id="finalPage">
 
-    <span class="decor d1">♡</span>
-    <span class="decor d2">✦</span>
-    <span class="decor d3">♡</span>
-    <span class="decor d4">✧</span>
-
-    <div class="teddy">🧸</div>
+    <div class="teddy">
+        🧸
+    </div>
 
     <div class="sunflowers">
         🌻🌻
     </div>
 
-    <h1>For Someone Special ♡</h1>
+    <div class="final-text">
 
-    <p>
-        May your life be filled with love, happiness,
-        laughter, beautiful memories and all the little
-        things that make your heart smile.
-    </p>
+        <h2>
+            For Someone Special 🤍
+        </h2>
 
-    <p>
-        Keep shining, keep smiling and never change,
-        because you are truly amazing. ✨
-    </p>
+        <p>
+            May your life be filled with love, happiness,
+            laughter, beautiful memories and all the little
+            things that make your heart smile.
+        </p>
 
-    <p>
-        Happy Birthday once again! 🎂✨🤍
-    </p>
+        <p>
+            Keep shining, keep smiling and never change,
+            because you are truly amazing. ✨
+        </p>
 
-    <button class="btn" onclick="restart()">
+        <p>
+            Happy Birthday once again! 🎂✨🤍
+        </p>
+
+    </div>
+
+    <button class="btn try-again"
+            onclick="location.reload()">
         Try Again ↻
     </button>
 
@@ -890,23 +1071,21 @@ function showPage(id){
         page.classList.remove('active');
     });
 
-    const next = document.getElementById(id);
+    const target = document.getElementById(id);
 
-    if(next){
-        next.classList.add('active');
+    if(target){
+        target.classList.add('active');
         window.scrollTo({
             top:0,
-            behavior:'instant'
+            behavior:'smooth'
         });
     }
 }
 
 
-/* PASSWORD */
-
 function unlock(){
 
-    const input = document.getElementById('passwordInput');
+    const input = document.getElementById('password');
     const error = document.getElementById('error');
 
     if(input.value === "0925"){
@@ -917,16 +1096,17 @@ function unlock(){
 
     }else{
 
-        error.textContent = "Wrong passcode... try again ♡";
+        error.textContent = "Wrong passcode... try again 🤍";
+
         input.value = "";
 
+        input.focus();
     }
 }
 
 
-/* ENTER KEY PASSWORD */
-
-document.getElementById('passwordInput').addEventListener(
+/* Enter key also unlocks */
+document.getElementById('password').addEventListener(
     'keydown',
     function(event){
 
@@ -937,52 +1117,7 @@ document.getElementById('passwordInput').addEventListener(
     }
 );
 
-
-/* CAKE */
-
-let candleBlown = false;
-
-function blowCandle(){
-
-    if(candleBlown) return;
-
-    candleBlown = true;
-
-    const flame = document.getElementById('flame');
-    const smoke = document.getElementById('smoke');
-    const done = document.getElementById('cakeDone');
-
-    flame.classList.add('off');
-    smoke.classList.add('show');
-
-    setTimeout(function(){
-
-        done.classList.add('show');
-
-    },500);
-
-}
-
-
-/* RESTART */
-
-function restart(){
-
-    candleBlown = false;
-
-    document.getElementById('flame').classList.remove('off');
-    document.getElementById('smoke').classList.remove('show');
-    document.getElementById('cakeDone').classList.remove('show');
-
-    document.getElementById('passwordInput').value = "";
-
-    showPage('passwordPage');
-
-}
-
 </script>
 
 </body>
-                </html>
-
-        
+</html>
