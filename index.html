@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
-<meta name="color-scheme" content="light only">
-<meta name="theme-color" content="#f4efff">
-<meta name="supported-color-schemes" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <title>A Little Birthday Surprise ✨</title>
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
-
-
-/* ================= RESET ================= */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Great+Vibes&display=swap');
 
 *{
     box-sizing:border-box;
@@ -26,76 +15,46 @@
     padding:0;
 }
 
-html{
+html,body{
     width:100%;
     min-height:100%;
-    background:#f4efff !important;
-    color-scheme:light !important;
-    forced-color-adjust:none;
 }
 
 body{
-    width:100%;
-    min-height:100%;
-    margin:0;
-
     font-family:'Cormorant Garamond',serif;
-
-    color:#674b78 !important;
-
+    color:#674b78;
     overflow-x:hidden;
 
-    background-color:#f4efff !important;
-
+    background-color:#f4efff;
     background-image:
-        linear-gradient(
-            rgba(255,255,255,.62) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.62) 1px,
-            transparent 1px
-        ) !important;
-
+        linear-gradient(rgba(255,255,255,.62) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.62) 1px,transparent 1px);
     background-size:38px 38px;
-
-    color-scheme:light !important;
-    forced-color-adjust:none;
 }
 
-button,
-input{
+button,input{
     font-family:inherit;
 }
 
 button{
-    -webkit-appearance:none;
-    appearance:none;
+    -webkit-tap-highlight-color:transparent;
 }
 
 .hidden{
-    display:none !important;
+    display:none!important;
 }
 
 
-/* ================= FLOATING DECORATIONS ================= */
+/* ================= DECORATIONS ================= */
 
 .decor{
     position:fixed;
     pointer-events:none;
-
-    color:#c6a8e8 !important;
-
+    color:#c6a8e8;
     opacity:.65;
-
     z-index:0;
-
     font-size:24px;
-
     animation:float 5s ease-in-out infinite;
-
-    forced-color-adjust:none;
 }
 
 .d1{top:10%;left:7%}
@@ -106,13 +65,11 @@ button{
 .d6{bottom:17%;right:13%;animation-delay:.5s}
 
 @keyframes float{
-
     0%,100%{
-        transform:translateY(0) rotate(-5deg)
+        transform:translateY(0) rotate(-5deg);
     }
-
     50%{
-        transform:translateY(-12px) rotate(5deg)
+        transform:translateY(-12px) rotate(5deg);
     }
 }
 
@@ -120,38 +77,26 @@ button{
 /* ================= PAGES ================= */
 
 .page{
-
     min-height:100vh;
     width:100%;
-
     display:none;
-
     position:relative;
     z-index:1;
-
     padding:45px 18px 90px;
-
     animation:pageIn .55s ease;
-
-    background:transparent !important;
 }
 
 .page.active{
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
 }
 
 @keyframes pageIn{
-
     from{
         opacity:0;
         transform:translateY(15px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
@@ -159,967 +104,828 @@ button{
 }
 
 
-/* ================= HEADINGS ================= */
+/* ================= COMMON ================= */
 
 .heading{
-
     font-family:'Playfair Display',serif;
-
     font-style:italic;
-
     font-weight:600;
-
-    color:#674477 !important;
-
+    color:#674477;
     text-align:center;
 }
 
 .heading.big{
-
     font-size:clamp(35px,8vw,62px);
-
     line-height:1.05;
 }
 
-.heading.medium{
-
-    font-size:clamp(30px,7vw,48px);
-}
-
-.subheading{
-
-    text-align:center;
-
-    font-size:20px;
-
-    line-height:1.35;
-
-    margin-top:10px;
-}
-
-
-/* ================= BUTTONS ================= */
-
 .btn{
-
     border:none;
     outline:none;
-
     cursor:pointer;
-
-    background:
-        linear-gradient(
-            135deg,
-            #a985d4,
-            #8962b8
-        ) !important;
-
-    color:#ffffff !important;
-
+    background:linear-gradient(135deg,#a985d4,#8962b8);
+    color:white;
     font-size:19px;
-
     padding:12px 32px;
-
     border-radius:40px;
-
-    box-shadow:
-        0 8px 20px
-        rgba(112,75,145,.20);
-
+    box-shadow:0 8px 20px rgba(112,75,145,.20);
     transition:.25s;
-
     min-width:145px;
-
-    forced-color-adjust:none;
 }
 
 .btn:hover{
-
     transform:translateY(-2px);
 }
 
 .btn:active{
-
     transform:scale(.97);
-}
-
-.next-area{
-
-    margin-top:30px;
 }
 
 
 /* ================= PASSWORD ================= */
 
+.password-page{
+    justify-content:center;
+}
+
 .password-card{
-
     width:min(92%,430px);
-
-    margin:auto;
-
     padding:34px 25px;
-
-    background:rgba(255,255,255,.78) !important;
-
-    color:#674b78 !important;
-
-    border:1px solid
-        rgba(145,110,178,.25);
-
+    background:rgba(255,255,255,.78);
+    border:1px solid rgba(145,110,178,.25);
     border-radius:24px;
-
-    box-shadow:
-        0 18px 45px
-        rgba(105,77,130,.14);
-
+    box-shadow:0 18px 45px rgba(105,77,130,.14);
     text-align:center;
-
     backdrop-filter:blur(8px);
-
-    -webkit-backdrop-filter:blur(8px);
 }
 
 .lock{
-
     font-size:54px;
-
     margin-bottom:5px;
 }
 
 .password-card h1{
-
     font-size:42px;
-
     font-style:italic;
-
-    color:#704c84 !important;
+    color:#704c84;
 }
 
 .password-card p{
-
     font-size:19px;
-
     margin:8px 0 18px;
-
-    color:#674b78 !important;
 }
 
 .password-input{
-
     width:100%;
-
     height:48px;
-
     border:1.5px solid #b99bda;
-
     border-radius:12px;
-
-    background:#ffffff !important;
-
-    color:#68487b !important;
-
+    background:#fff;
     text-align:center;
-
     font-size:23px;
-
     letter-spacing:9px;
-
+    color:#68487b;
     outline:none;
-
-    -webkit-text-fill-color:#68487b !important;
 }
 
 .password-input:focus{
-
-    box-shadow:
-        0 0 0 4px
-        rgba(170,133,211,.15);
+    box-shadow:0 0 0 4px rgba(170,133,211,.15);
 }
 
 .error{
-
     min-height:22px;
-
     margin-top:9px;
-
-    color:#a25c78 !important;
-
+    color:#a25c78;
     font-size:17px;
 }
 
 
-/* ================= BIRTHDAY WISHES ================= */
+/* ================= BIRTHDAY OPENING ================= */
+
+.birthday-page{
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(255,255,255,.08),transparent 22%),
+        radial-gradient(circle at 85% 75%,rgba(255,215,160,.08),transparent 24%),
+        linear-gradient(135deg,#4a111d,#651d2b 48%,#38101a);
+    color:#f9ead9;
+}
+
+.birthday-page::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.16;
+    background-image:
+        repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,.08) 0,
+            rgba(255,255,255,.08) 2px,
+            transparent 2px,
+            transparent 10px
+        );
+}
+
+.birthday-inner{
+    width:min(94%,850px);
+    position:relative;
+    z-index:2;
+}
+
+.birthday-stars{
+    font-size:30px;
+    color:#f6d9a8;
+    letter-spacing:25px;
+    margin-bottom:18px;
+}
+
+.birthday-small{
+    font-size:20px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:#e9c99f;
+    margin-bottom:5px;
+}
+
+.birthday-title{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(46px,12vw,92px);
+    line-height:.9;
+    color:#fff8ef;
+    text-shadow:0 5px 18px rgba(0,0,0,.25);
+}
+
+.birthday-script{
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(55px,13vw,105px);
+    color:#f3d6d0;
+    line-height:1;
+    margin-bottom:25px;
+}
+
+.birthday-content{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:30px;
+    margin:25px auto 30px;
+}
+
+.birthday-photo{
+    width:min(43vw,270px);
+    background:#fffaf1;
+    padding:10px 10px 15px;
+    box-shadow:0 18px 35px rgba(0,0,0,.30);
+    transform:rotate(3deg);
+    border-radius:2px;
+}
+
+.birthday-photo img{
+    width:100%;
+    height:250px;
+    display:block;
+    object-fit:cover;
+}
+
+.photo-caption{
+    color:#6a4b42;
+    font-size:18px;
+    padding-top:8px;
+    font-style:italic;
+}
+
+.birthday-message{
+    max-width:390px;
+    text-align:left;
+    font-size:23px;
+    line-height:1.35;
+    color:#f8e9dc;
+}
+
+.birthday-message strong{
+    display:block;
+    font-family:'Playfair Display',serif;
+    font-size:29px;
+    margin-bottom:10px;
+    color:#f8d9bd;
+}
+
+.birthday-btn{
+    background:linear-gradient(135deg,#d2a46b,#a96b49);
+    color:#fff;
+    box-shadow:0 10px 28px rgba(0,0,0,.28);
+    margin-top:10px;
+}
+
+
+/* ================= WISHES ================= */
 
 .wishes-layout{
-
     width:min(94%,1000px);
-
     display:grid;
-
-    grid-template-columns:
-        1fr 1.05fr;
-
+    grid-template-columns:1fr 1.05fr;
     gap:38px;
-
     align-items:center;
-
     margin:auto;
 }
 
-
-/* POLAROID */
-
 .polaroid{
-
     position:relative;
-
-    background:#ffffff !important;
-
+    background:#fff;
     padding:12px 12px 20px;
-
-    box-shadow:
-        0 14px 28px
-        rgba(88,66,105,.18);
-
-    forced-color-adjust:none;
+    box-shadow:0 14px 28px rgba(88,66,105,.18);
 }
 
 .polaroid::after{
-
     content:"";
-
     position:absolute;
-
     inset:0;
-
     pointer-events:none;
-
-    border:
-        1px solid
-        rgba(110,80,125,.08);
+    border:1px solid rgba(110,80,125,.08);
 }
 
 .photo1-card{
-
     transform:rotate(-2.5deg);
 }
 
 .tape{
-
     position:absolute;
-
     z-index:3;
-
     top:-15px;
-
     left:50%;
-
-    transform:
-        translateX(-50%)
-        rotate(-1deg);
-
+    transform:translateX(-50%) rotate(-1deg);
     width:100px;
-
     height:30px;
-
-    background:
-        rgba(193,165,235,.72) !important;
-
-    box-shadow:
-        0 2px 5px
-        rgba(100,75,120,.1);
+    background:rgba(193,165,235,.72);
 }
 
 .photo1-card img{
-
     width:100%;
-
     height:390px;
-
     display:block;
-
     object-fit:cover;
-
     object-position:center top;
 }
 
 .wishes{
-
     padding:10px 5px;
 }
 
 .wishes h2{
-
     font-family:'Playfair Display',serif;
-
     font-style:italic;
-
-    font-size:
-        clamp(34px,5vw,52px);
-
-    color:#674477 !important;
-
+    font-size:clamp(34px,5vw,52px);
+    color:#674477;
     margin-bottom:18px;
 }
 
 .wishes p{
-
     font-size:20px;
-
     line-height:1.45;
-
     margin-bottom:14px;
-
-    color:#674b78 !important;
 }
 
 .signature{
-
-    font-size:25px !important;
-
+    font-size:25px!important;
     font-style:italic;
-
     margin-top:20px;
+    color:#79528d;
+}
 
-    color:#79528d !important;
+.next-area{
+    margin-top:20px;
 }
 
 
-/* ================================================= */
-/* ===================== CAKE ===================== */
-/* ================================================= */
+/* ================= CAKE ================= */
 
 .cake-page{
-
     justify-content:center;
 }
 
 .cake-box{
-
-    width:min(94%,620px);
-
+    width:min(94%,650px);
     text-align:center;
 }
 
 .cake-title{
-
-    font-size:
-        clamp(30px,7vw,47px);
-
-    margin-bottom:18px;
+    font-size:clamp(30px,7vw,47px);
+    margin-bottom:20px;
 }
-
-
-/* CAKE AREA */
 
 .cake{
-
     position:relative;
-
-    width:340px;
-
-    height:330px;
-
-    margin:5px auto 12px;
+    width:330px;
+    height:350px;
+    margin:0 auto 10px;
 }
-
-
-/* PLATE */
 
 .plate{
-
     position:absolute;
-
-    width:310px;
-
-    height:28px;
-
-    background:
-        linear-gradient(
-            #4a3028,
-            #241814
-        ) !important;
-
+    width:305px;
+    height:27px;
+    background:linear-gradient(#4b3027,#1e1715);
     border-radius:50%;
-
-    bottom:22px;
-
-    left:15px;
-
+    bottom:24px;
+    left:12px;
     box-shadow:
-        0 7px 0 #b88c62,
-        0 10px 18px
-        rgba(55,35,25,.25);
-
-    z-index:1;
+        0 7px 0 #a57b50,
+        0 13px 18px rgba(70,45,35,.25);
 }
 
 
-/* ================= CAKE LAYERS ================= */
+/* THREE CAKE LAYERS */
 
 .layer{
-
     position:absolute;
-
-    border-radius:
-        18px 18px 14px 14px;
-
-    border:3px solid #9c623c;
-
-    overflow:visible;
-
+    border-radius:20px 20px 14px 14px;
+    background:linear-gradient(
+        #e9b477,
+        #c8884c
+    );
+    border:3px solid #a96e3e;
     box-shadow:
-        inset 0 -9px 0
-        rgba(255,255,255,.16),
-        0 5px 8px
-        rgba(85,52,32,.14);
-
-    z-index:2;
+        inset 0 -12px 0 rgba(255,255,255,.13),
+        0 5px 8px rgba(90,55,35,.15);
 }
 
 
-/* BOTTOM LAYER */
-
+/* bottom */
 .layer.bottom{
-
     width:270px;
-
-    height:70px;
-
-    left:35px;
-
+    height:78px;
+    left:30px;
     bottom:48px;
-
-    background:
-        linear-gradient(
-            #d49a61,
-            #b97743
-        ) !important;
 }
 
-
-/* MIDDLE LAYER */
-
+/* middle */
 .layer.middle{
-
     width:255px;
-
-    height:67px;
-
-    left:42px;
-
-    bottom:103px;
-
-    background:
-        linear-gradient(
-            #e0aa70,
-            #c3834c
-        ) !important;
-
-    z-index:3;
+    height:70px;
+    left:37px;
+    bottom:113px;
 }
 
-
-/* TOP LAYER */
-
+/* top */
 .layer.top{
-
-    width:235px;
-
-    height:63px;
-
-    left:52px;
-
-    bottom:156px;
-
-    background:
-        linear-gradient(
-            #e9bb7d,
-            #cf8f54
-        ) !important;
-
-    z-index:4;
+    width:240px;
+    height:64px;
+    left:45px;
+    bottom:172px;
+    background:linear-gradient(#5a291e,#351813);
+    border-color:#3d1c15;
+    border-radius:22px 22px 15px 15px;
 }
 
 
-/* ================= CHOCOLATE DRIPS ================= */
+/* chocolate dripping on every layer */
 
-.chocolate{
-
+.chocolate-drip{
     position:absolute;
-
     top:-3px;
-
     left:-3px;
-
     width:calc(100% + 6px);
-
-    height:35px;
-
-    background:
-        linear-gradient(
-            #43231b,
-            #321913
-        ) !important;
-
-    border-radius:
-        17px 17px 12px 12px;
-
-    z-index:10;
+    height:45px;
+    background:#3b1b15;
+    border-radius:22px 22px 14px 14px 12px;
 }
 
-
-/* individual drips */
-
-.chocolate::before,
-.chocolate::after{
-
-    content:"";
-
+.chocolate-drip span{
     position:absolute;
-
-    background:
-        linear-gradient(
-            #43231b,
-            #2d1510
-        ) !important;
-
-    border-radius:
-        0 0 14px 14px;
-}
-
-
-/* left drip */
-
-.chocolate::before{
-
-    width:32px;
-
+    display:block;
+    width:28px;
     height:30px;
-
-    left:24px;
-
-    top:20px;
-
-    box-shadow:
-        72px 7px 0 #321913,
-        145px -1px 0 #321913;
+    background:#3b1b15;
+    border-radius:0 0 16px 16px;
 }
 
-
-/* right/center drip */
-
-.chocolate::after{
-
-    width:25px;
-
-    height:43px;
-
-    right:34px;
-
-    top:17px;
-
-    box-shadow:
-        -82px 8px 0 #321913;
+.chocolate-drip span:nth-child(1){
+    left:22px;
+    height:42px;
 }
 
-
-/* EXTRA MELTED CHOCOLATE */
-
-.drip-melt{
-
-    position:absolute;
-
-    background:
-        linear-gradient(
-            #43231b,
-            #2b140f
-        ) !important;
-
-    border-radius:
-        0 0 14px 14px;
-
-    z-index:11;
-}
-
-.melt1{
-
-    width:21px;
-    height:38px;
-
+.chocolate-drip span:nth-child(2){
     left:72px;
-    top:29px;
+    height:27px;
 }
 
-.melt2{
-
-    width:25px;
-    height:52px;
-
-    left:133px;
-    top:28px;
+.chocolate-drip span:nth-child(3){
+    left:125px;
+    height:48px;
 }
 
-.melt3{
+.chocolate-drip span:nth-child(4){
+    right:53px;
+    height:34px;
+}
 
-    width:19px;
-    height:32px;
-
-    right:69px;
-    top:30px;
+.chocolate-drip span:nth-child(5){
+    right:18px;
+    height:44px;
 }
 
 
-/* ================= CANDLE ================= */
+/* middle and bottom chocolate */
+
+.layer.middle .chocolate-drip,
+.layer.bottom .chocolate-drip{
+    height:28px;
+    background:#60311f;
+}
+
+.layer.middle .chocolate-drip span,
+.layer.bottom .chocolate-drip span{
+    background:#60311f;
+    width:24px;
+}
+
+.layer.middle .chocolate-drip span:nth-child(1){
+    height:35px;
+}
+
+.layer.middle .chocolate-drip span:nth-child(2){
+    height:22px;
+}
+
+.layer.middle .chocolate-drip span:nth-child(3){
+    height:40px;
+}
+
+.layer.middle .chocolate-drip span:nth-child(4){
+    height:25px;
+}
+
+.layer.middle .chocolate-drip span:nth-child(5){
+    height:34px;
+}
+
+
+/* candle */
 
 .candle{
-
     position:absolute;
-
-    width:24px;
-
-    height:78px;
-
-    left:158px;
-
-    bottom:210px;
-
-    border-radius:8px;
-
-    border:
-        2px solid #b58bd4;
-
-    background:
-        repeating-linear-gradient(
-            135deg,
-            #fff 0px,
-            #fff 8px,
-            #dcb8ee 8px,
-            #dcb8ee 15px
-        ) !important;
-
-    z-index:20;
+    width:25px;
+    height:82px;
+    left:152px;
+    bottom:224px;
+    border-radius:9px;
+    border:2px solid #b58bd4;
+    background:repeating-linear-gradient(
+        135deg,
+        #fff 0px,
+        #fff 8px,
+        #dcb8ee 8px,
+        #dcb8ee 15px
+    );
+    z-index:8;
+    box-shadow:0 3px 5px rgba(70,45,90,.15);
 }
 
-
-/* FLAME */
-
 .flame{
-
     position:absolute;
-
-    width:27px;
-
-    height:39px;
-
-    left:-3px;
-
-    top:-37px;
-
-    background:
-        radial-gradient(
-            ellipse at center bottom,
-            #fff9b0 0 20%,
-            #ffd35e 35%,
-            #ffad28 60%,
-            transparent 70%
-        ) !important;
-
-    border-radius:
-        50% 50% 50% 50%;
-
-    transform-origin:
-        bottom center;
-
-    animation:
-        flicker .65s infinite alternate;
-
-    filter:
-        drop-shadow(
-            0 0 8px
-            rgba(255,184,52,.65)
-        );
-
-    z-index:21;
+    width:30px;
+    height:43px;
+    left:-5px;
+    top:-40px;
+    background:radial-gradient(
+        ellipse at center bottom,
+        #fffbd1 0 20%,
+        #ffd45e 38%,
+        #ffad28 62%,
+        transparent 73%
+    );
+    border-radius:50% 50% 50% 50%;
+    transform-origin:bottom center;
+    animation:flicker .65s infinite alternate;
+    filter:drop-shadow(0 0 10px rgba(255,184,52,.7));
 }
 
 @keyframes flicker{
-
     0%{
-        transform:
-            rotate(-4deg)
-            scale(1);
+        transform:rotate(-4deg) scale(1);
     }
-
     100%{
-        transform:
-            rotate(5deg)
-            scale(1.08);
+        transform:rotate(5deg) scale(1.08);
     }
 }
 
-
-/* cake note */
-
 .cake-note{
-
     font-size:24px;
-
     font-style:italic;
-
     max-width:600px;
-
     line-height:1.35;
-
-    margin:5px auto 25px;
-
-    color:#674b78 !important;
+    margin:0 auto 25px;
 }
 
 
 /* ================= MEMORY INTRO ================= */
 
 .memory-intro{
-
     justify-content:center;
-
     text-align:center;
 }
 
 .memory-intro .heart{
-
     font-size:45px;
-
     margin-bottom:5px;
 }
 
 .memory-intro p{
-
     max-width:650px;
-
     font-size:23px;
-
     line-height:1.4;
-
     margin:15px auto 25px;
-
-    color:#674b78 !important;
 }
 
 
 /* ================= GALLERY ================= */
 
 .gallery-page{
-
     justify-content:center;
 }
 
 .gallery-title{
-
-    font-size:
-        clamp(30px,7vw,46px);
-
+    font-size:clamp(30px,7vw,46px);
     margin-bottom:26px;
 }
 
 .gallery{
-
     width:min(96%,900px);
-
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:30px;
-
     align-items:start;
 }
 
 .memory-card{
-
     position:relative;
-
-    background:#ffffff !important;
-
-    color:#765e7e !important;
-
+    background:#fff;
     padding:11px 11px 19px;
-
-    box-shadow:
-        0 12px 25px
-        rgba(87,64,103,.18);
-
+    box-shadow:0 12px 25px rgba(87,64,103,.18);
     min-width:0;
-
-    forced-color-adjust:none;
 }
 
 .memory-card:nth-child(odd){
-
-    transform:
-        rotate(-2.8deg)
-        translateY(5px);
+    transform:rotate(-2.8deg) translateY(5px);
 }
 
 .memory-card:nth-child(even){
-
-    transform:
-        rotate(2.8deg)
-        translateY(25px);
+    transform:rotate(2.8deg) translateY(25px);
 }
 
 .memory-card img{
-
     width:100%;
-
     height:230px;
-
     display:block;
-
     object-fit:cover;
 }
 
 .memory-caption{
-
     padding:12px 5px 2px;
-
     text-align:center;
 }
 
 .memory-caption strong{
-
     display:block;
-
-    font-family:
-        'Playfair Display',serif;
-
+    font-family:'Playfair Display',serif;
     font-style:italic;
-
     font-size:22px;
-
     line-height:1.1;
-
-    color:#765381 !important;
-
+    color:#765381;
     margin-bottom:7px;
 }
 
 .memory-caption span{
-
     display:block;
-
     font-size:17px;
-
     line-height:1.25;
-
-    color:#765e7e !important;
+    color:#765e7e;
 }
 
 .gallery .tape{
-
     width:75px;
-
     height:24px;
-
     top:-12px;
 }
 
 .gallery-next{
-
     margin-top:48px;
 }
 
 
-/* ================= LAST THING ================= */
+/* ================= ENVELOPE ================= */
 
-.last-thing{
-
+.envelope-page{
     justify-content:center;
-
     text-align:center;
 }
 
-.last-thing p{
-
-    max-width:580px;
-
-    font-size:22px;
-
-    line-height:1.4;
-
-    margin:15px auto 25px;
-
-    color:#674b78 !important;
+.envelope-page h1{
+    margin-bottom:25px;
 }
 
+.envelope{
+    position:relative;
+    width:min(88vw,430px);
+    height:280px;
+    margin:10px auto 30px;
+    cursor:pointer;
+    perspective:900px;
+}
 
-/* ================= FINAL PAGE ================= */
+.envelope-body{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(145deg,#641d2b,#48121d);
+    border-radius:5px;
+    box-shadow:0 20px 40px rgba(50,15,25,.28);
+    overflow:hidden;
+}
 
-.final-page{
+.envelope-body::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(135deg,transparent 49.5%,rgba(255,255,255,.12) 50%,transparent 50.5%),
+        linear-gradient(225deg,transparent 49.5%,rgba(255,255,255,.12) 50%,transparent 50.5%);
+}
 
+.flap{
+    position:absolute;
+    z-index:5;
+    top:0;
+    left:0;
+    width:100%;
+    height:150px;
+    background:linear-gradient(145deg,#7b2738,#521521);
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    transform-origin:top center;
+    transition:1s ease;
+    filter:drop-shadow(0 5px 5px rgba(0,0,0,.12));
+}
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+    z-index:1;
+}
+
+.seal{
+    position:absolute;
+    z-index:8;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:radial-gradient(circle,#d6a26a,#9a583f);
+    display:flex;
+    align-items:center;
     justify-content:center;
-
-    text-align:center;
+    color:#fff1df;
+    font-size:27px;
+    box-shadow:0 5px 12px rgba(0,0,0,.2);
+    transition:.5s;
 }
 
-.teddy{
+.envelope.open .seal{
+    opacity:0;
+    transform:translate(-50%,-50%) scale(.7);
+}
 
-    font-size:130px;
+.envelope-hint{
+    font-size:21px;
+    font-style:italic;
+}
 
-    line-height:1;
 
-    margin-bottom:5px;
+/* ================= LETTER ================= */
 
-    filter:
-        drop-shadow(
-            0 10px 10px
-            rgba(80,55,90,.12)
+.letter-page{
+    justify-content:center;
+}
+
+.letter-paper{
+    position:relative;
+    width:min(94%,760px);
+    padding:48px 38px;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(126,76,28,.08),transparent 20%),
+        radial-gradient(circle at 80% 70%,rgba(126,76,28,.07),transparent 25%),
+        #ead4a6;
+    border:1px solid #c49c62;
+    box-shadow:0 18px 45px rgba(73,47,27,.2);
+    color:#63371f;
+    overflow:hidden;
+}
+
+.letter-paper::before{
+    content:"";
+    position:absolute;
+    inset:12px;
+    border:1px solid rgba(105,57,28,.25);
+    pointer-events:none;
+}
+
+.letter-paper::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.12;
+    pointer-events:none;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(80,45,20,.2) 0,
+            rgba(80,45,20,.2) 1px,
+            transparent 1px,
+            transparent 5px
         );
 }
 
+.letter-title{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(48px,10vw,76px);
+    font-weight:400;
+    color:#71391f;
+    margin-bottom:25px;
+}
+
+.letter-date{
+    position:relative;
+    z-index:2;
+    text-align:right;
+    font-size:18px;
+    font-style:italic;
+    margin-bottom:25px;
+}
+
+.letter-content{
+    position:relative;
+    z-index:2;
+    font-size:22px;
+    line-height:1.55;
+}
+
+.letter-content p{
+    margin-bottom:18px;
+}
+
+.letter-sign{
+    text-align:right;
+    font-family:'Great Vibes',cursive;
+    font-size:38px;
+    margin-top:25px;
+}
+
+
+/* ================= FINAL ================= */
+
+.final-page{
+    justify-content:center;
+    text-align:center;
+    background:
+        radial-gradient(circle at 50% 20%,rgba(255,255,255,.8),transparent 30%),
+        linear-gradient(135deg,#eee5ff,#d8c4f0,#eee5ff);
+}
+
+.teddy{
+    font-size:120px;
+    line-height:1;
+    margin-bottom:5px;
+    filter:drop-shadow(0 10px 10px rgba(80,55,90,.12));
+}
+
 .sunflowers{
-
     font-size:55px;
-
     margin-top:-18px;
-
     margin-bottom:15px;
 }
 
 .final-text{
-
     max-width:650px;
 }
 
 .final-text h2{
-
-    font-family:
-        'Playfair Display',serif;
-
+    font-family:'Playfair Display',serif;
     font-style:italic;
-
-    font-size:
-        clamp(34px,7vw,50px);
-
+    font-size:clamp(34px,7vw,50px);
     margin-bottom:16px;
-
-    color:#674477 !important;
 }
 
 .final-text p{
-
     font-size:21px;
-
     line-height:1.4;
-
     margin-bottom:14px;
-
-    color:#674b78 !important;
 }
 
 .try-again{
-
     margin-top:25px;
 }
 
@@ -1129,259 +935,166 @@ button{
 @media(max-width:700px){
 
     .page{
-
-        padding:
-            35px 12px 80px;
+        padding:35px 12px 80px;
     }
 
+    .birthday-content{
+        flex-direction:column;
+        gap:25px;
+    }
 
-    /* wishes */
+    .birthday-photo{
+        width:min(78vw,300px);
+    }
+
+    .birthday-photo img{
+        height:280px;
+    }
+
+    .birthday-message{
+        text-align:center;
+        font-size:21px;
+    }
+
+    .birthday-title{
+        font-size:57px;
+    }
+
+    .birthday-script{
+        font-size:70px;
+    }
+
+    .birthday-stars{
+        letter-spacing:12px;
+    }
 
     .wishes-layout{
-
         grid-template-columns:1fr;
-
         gap:25px;
-
         width:95%;
     }
 
     .photo1-card img{
-
         height:330px;
     }
 
     .wishes{
-
         text-align:center;
     }
 
     .wishes h2{
-
         font-size:39px;
     }
 
     .wishes p{
-
         font-size:19px;
     }
 
     .signature{
-
-        font-size:23px !important;
+        font-size:23px!important;
     }
 
-
-    /* cake */
-
     .cake{
-
-        transform:scale(.84);
-
-        margin-top:-8px;
-
+        transform:scale(.86);
+        margin-top:-5px;
         margin-bottom:-20px;
     }
 
     .cake-title{
-
         margin-bottom:0;
     }
 
     .cake-note{
-
         font-size:21px;
     }
 
-
-    /* gallery */
-
     .gallery{
-
         width:97%;
-
         gap:18px;
     }
 
     .memory-card{
-
-        padding:
-            8px 8px 14px;
+        padding:8px 8px 14px;
     }
 
     .memory-card img{
-
         height:145px;
     }
 
     .memory-caption strong{
-
         font-size:18px;
     }
 
     .memory-caption span{
-
         font-size:14px;
     }
 
     .gallery .tape{
-
         width:58px;
-
         height:19px;
-
         top:-9px;
     }
 
-
-    /* memory */
-
     .memory-intro p{
-
         font-size:21px;
     }
 
+    .letter-paper{
+        padding:38px 25px;
+    }
 
-    /* final */
+    .letter-content{
+        font-size:19px;
+    }
+
+    .letter-sign{
+        font-size:34px;
+    }
 
     .teddy{
-
         font-size:105px;
     }
 
     .sunflowers{
-
         font-size:44px;
     }
 
     .final-text p{
-
         font-size:19px;
     }
 }
 
-
 @media(max-width:380px){
 
     .memory-card img{
-
         height:125px;
     }
 
     .memory-caption strong{
-
         font-size:16px;
     }
 
     .memory-caption span{
-
         font-size:13px;
     }
 
     .btn{
-
         font-size:17px;
+        padding:10px 25px;
+    }
 
-        padding:
-            10px 25px;
+    .cake{
+        transform:scale(.76);
+        margin-top:-25px;
+        margin-bottom:-45px;
     }
 }
-
-
-/* ================================================= */
-/* DARK MODE PROTECTION                              */
-/* ================================================= */
-
-@media(prefers-color-scheme:dark){
-
-    html,
-    body{
-
-        background-color:#f4efff !important;
-
-        color:#674b78 !important;
-
-        color-scheme:light !important;
-    }
-
-    .page{
-
-        background:transparent !important;
-    }
-
-    .password-card{
-
-        background:
-            rgba(255,255,255,.78) !important;
-
-        color:#674b78 !important;
-    }
-
-    .password-input{
-
-        background:#ffffff !important;
-
-        color:#68487b !important;
-
-        -webkit-text-fill-color:#68487b !important;
-    }
-
-    .polaroid,
-    .memory-card{
-
-        background:#ffffff !important;
-
-        color:#765e7e !important;
-    }
-
-    .heading,
-    .wishes h2,
-    .final-text h2{
-
-        color:#674477 !important;
-    }
-
-    .wishes p,
-    .cake-note,
-    .memory-intro p,
-    .last-thing p,
-    .final-text p{
-
-        color:#674b78 !important;
-    }
-
-    .memory-caption strong{
-
-        color:#765381 !important;
-    }
-
-    .memory-caption span{
-
-        color:#765e7e !important;
-    }
-
-    .btn{
-
-        background:
-            linear-gradient(
-                135deg,
-                #a985d4,
-                #8962b8
-            ) !important;
-
-        color:#ffffff !important;
-    }
-}
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ================= FLOATING DECORATIONS ================= -->
-
+<!-- floating decorations -->
 <div class="decor d1">✦</div>
 <div class="decor d2">♡</div>
 <div class="decor d3">✧</div>
@@ -1390,25 +1103,19 @@ button{
 <div class="decor d6">♡</div>
 
 
-<!-- ================================================= -->
-<!-- PASSWORD PAGE                                      -->
-<!-- ================================================= -->
+<!-- =========================================================
+     PASSWORD
+========================================================= -->
 
-<section class="page active" id="passwordPage">
+<section class="page active password-page" id="passwordPage">
 
     <div class="password-card">
 
-        <div class="lock">
-            🔐
-        </div>
+        <div class="lock">🔐</div>
 
-        <h1>
-            A Little Surprise ♡
-        </h1>
+        <h1>A Little Surprise ♡</h1>
 
-        <p>
-            Enter the birthday passcode ✨
-        </p>
+        <p>Enter the birthday passcode ✨</p>
 
         <input
             id="password"
@@ -1419,17 +1126,71 @@ button{
             placeholder="••••"
         >
 
-        <div
-            class="error"
-            id="error">
+        <div class="error" id="error"></div>
+
+        <button class="btn" onclick="unlock()">
+            Unlock ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     BIRTHDAY OPENING
+========================================================= -->
+
+<section class="page birthday-page" id="birthdayPage">
+
+    <div class="birthday-inner">
+
+        <div class="birthday-stars">
+            ☆ ✦ ☆
         </div>
 
-        <button
-            class="btn"
-            type="button"
-            onclick="unlock()">
+        <div class="birthday-small">
+            A little celebration for
+        </div>
 
-            Unlock ✨
+        <h1 class="birthday-title">
+            HAPPY
+        </h1>
+
+        <div class="birthday-script">
+            Birthday
+        </div>
+
+        <div class="birthday-content">
+
+            <div class="birthday-photo">
+
+                <img src="Photo 1.jpg" alt="Birthday Photo">
+
+                <div class="photo-caption">
+                    A beautiful moment ✨
+                </div>
+
+            </div>
+
+            <div class="birthday-message">
+
+                <strong>
+                    For Someone Special 🤍
+                </strong>
+
+                A little surprise made with
+                lots of good wishes, happy thoughts
+                and some beautiful memories. ✨
+
+            </div>
+
+        </div>
+
+        <button class="btn birthday-btn"
+                onclick="showPage('wishPage')">
+
+            Open Your Surprise ✨
 
         </button>
 
@@ -1438,31 +1199,22 @@ button{
 </section>
 
 
-<!-- ================================================= -->
-<!-- BIRTHDAY WISHES                                   -->
-<!-- ================================================= -->
+<!-- =========================================================
+     BIRTHDAY WISHES
+========================================================= -->
 
-<section
-    class="page"
-    id="wishPage">
+<section class="page" id="wishPage">
 
     <div class="wishes-layout">
-
-
-        <!-- PHOTO 1 -->
 
         <div class="polaroid photo1-card">
 
             <div class="tape"></div>
 
-            <img
-                src="Photo 1.jpg"
-                alt="Photo 1">
+            <img src="Photo 1.jpg" alt="Photo 1">
 
         </div>
 
-
-        <!-- WISHES -->
 
         <div class="wishes">
 
@@ -1471,31 +1223,29 @@ button{
             </h2>
 
             <p>
-                I hope this year brings you countless little
-                reasons to smile, beautiful memories to keep
-                close, and moments that make you genuinely happy.
+                I hope this year brings you countless little reasons
+                to smile, beautiful memories to keep close, and
+                moments that make you genuinely happy.
             </p>
 
             <p>
                 Some people simply make ordinary moments feel a
-                little more special just by being there. I hope
-                your day is filled with the same warmth and
-                happiness that you bring to the people around you.
+                little more special just by being there. I hope your
+                day is filled with the same warmth and happiness
+                that you bring to the people around you.
             </p>
 
             <p>
-                Keep smiling, keep being yourself, and have the
-                most beautiful birthday. 🤍
+                Keep smiling, keep being yourself, and have the most
+                beautiful birthday. 🤍
             </p>
 
             <p class="signature">
                 With lots of good wishes ✨
             </p>
 
-            <button
-                class="btn next-area"
-                type="button"
-                onclick="showPage('cakePage')">
+            <button class="btn next-area"
+                    onclick="showPage('cakePage')">
 
                 Continue ✨
 
@@ -1508,81 +1258,64 @@ button{
 </section>
 
 
-<!-- ================================================= -->
-<!-- CAKE PAGE                                         -->
-<!-- ================================================= -->
+<!-- =========================================================
+     CAKE
+========================================================= -->
 
-<section
-    class="page cake-page"
-    id="cakePage">
+<section class="page cake-page" id="cakePage">
 
     <div class="cake-box">
 
-
         <h1 class="heading cake-title">
-
-            Here's a little birthday
-            cake for you 🎂✨
-
+            Here's a little birthday cake for you 🎂✨
         </h1>
 
 
-        <!-- CAKE -->
-
         <div class="cake">
-
-
-            <!-- PLATE -->
 
             <div class="plate"></div>
 
 
-            <!-- BOTTOM CAKE LAYER -->
+            <!-- BOTTOM LAYER -->
 
             <div class="layer bottom">
 
-                <div class="chocolate">
-
-                    <span class="drip-melt melt1"></span>
-
-                    <span class="drip-melt melt2"></span>
-
-                    <span class="drip-melt melt3"></span>
-
+                <div class="chocolate-drip">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
 
             </div>
 
 
-            <!-- MIDDLE CAKE LAYER -->
+            <!-- MIDDLE LAYER -->
 
             <div class="layer middle">
 
-                <div class="chocolate">
-
-                    <span class="drip-melt melt1"></span>
-
-                    <span class="drip-melt melt2"></span>
-
-                    <span class="drip-melt melt3"></span>
-
+                <div class="chocolate-drip">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
 
             </div>
 
 
-            <!-- TOP CAKE LAYER -->
+            <!-- TOP LAYER -->
 
             <div class="layer top">
 
-                <div class="chocolate">
-
-                    <span class="drip-melt melt1"></span>
-
-                    <span class="drip-melt melt2"></span>
-
-                    <span class="drip-melt melt3"></span>
-
+                <div class="chocolate-drip">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
 
             </div>
@@ -1596,11 +1329,8 @@ button{
 
             </div>
 
-
         </div>
 
-
-        <!-- CAKE NOTE -->
 
         <p class="cake-note">
 
@@ -1611,51 +1341,40 @@ button{
         </p>
 
 
-        <button
-            class="btn"
-            type="button"
-            onclick="showPage('memoryIntro')">
+        <button class="btn"
+                onclick="showPage('memoryIntro')">
 
             Continue ✨
 
         </button>
-
 
     </div>
 
 </section>
 
 
-<!-- ================================================= -->
-<!-- MEMORY INTRO                                      -->
-<!-- ================================================= -->
+<!-- =========================================================
+     MEMORY INTRO
+========================================================= -->
 
-<section
-    class="page memory-intro"
-    id="memoryIntro">
+<section class="page memory-intro" id="memoryIntro">
 
     <div class="heart">
         ♡
     </div>
 
     <h1 class="heading big">
-
         Come with me...
-
     </h1>
 
     <p>
-
         Come with me into your beautiful memories,
         because some moments deserve to be remembered
         a little more than others. ✨
-
     </p>
 
-    <button
-        class="btn"
-        type="button"
-        onclick="showPage('gallery1')">
+    <button class="btn"
+            onclick="showPage('gallery1')">
 
         Let's Go ✨
 
@@ -1664,33 +1383,25 @@ button{
 </section>
 
 
-<!-- ================================================= -->
-<!-- GALLERY 1                                         -->
-<!-- ================================================= -->
+<!-- =========================================================
+     GALLERY 1
+========================================================= -->
 
-<section
-    class="page gallery-page"
-    id="gallery1">
+<section class="page gallery-page" id="gallery1">
 
     <h1 class="heading gallery-title">
-
         Beautiful Memories ✨
-
     </h1>
 
 
     <div class="gallery">
 
 
-        <!-- PHOTO 2 -->
-
         <div class="memory-card">
 
             <div class="tape"></div>
 
-            <img
-                src="Photo 2.jpg"
-                alt="Photo 2">
+            <img src="Photo 2.jpg" alt="Photo 2">
 
             <div class="memory-caption">
 
@@ -1707,15 +1418,11 @@ button{
         </div>
 
 
-        <!-- PHOTO 3 -->
-
         <div class="memory-card">
 
             <div class="tape"></div>
 
-            <img
-                src="Photo 3.jpg"
-                alt="Photo 3">
+            <img src="Photo 3.jpg" alt="Photo 3">
 
             <div class="memory-caption">
 
@@ -1732,14 +1439,11 @@ button{
 
         </div>
 
-
     </div>
 
 
-    <button
-        class="btn gallery-next"
-        type="button"
-        onclick="showPage('gallery2')">
+    <button class="btn gallery-next"
+            onclick="showPage('gallery2')">
 
         Next →
 
@@ -1748,33 +1452,25 @@ button{
 </section>
 
 
-<!-- ================================================= -->
-<!-- GALLERY 2                                         -->
-<!-- ================================================= -->
+<!-- =========================================================
+     GALLERY 2
+========================================================= -->
 
-<section
-    class="page gallery-page"
-    id="gallery2">
+<section class="page gallery-page" id="gallery2">
 
     <h1 class="heading gallery-title">
-
         More Little Moments 🤍
-
     </h1>
 
 
     <div class="gallery">
 
 
-        <!-- PHOTO 4 -->
-
         <div class="memory-card">
 
             <div class="tape"></div>
 
-            <img
-                src="Photo 4.jpg"
-                alt="Photo 4">
+            <img src="Photo 4.jpg" alt="Photo 4">
 
             <div class="memory-caption">
 
@@ -1791,15 +1487,11 @@ button{
         </div>
 
 
-        <!-- PHOTO 5 -->
-
         <div class="memory-card">
 
             <div class="tape"></div>
 
-            <img
-                src="Photo 5.jpg"
-                alt="Photo 5">
+            <img src="Photo 5.jpg" alt="Photo 5">
 
             <div class="memory-caption">
 
@@ -1816,14 +1508,11 @@ button{
 
         </div>
 
-
     </div>
 
 
-    <button
-        class="btn gallery-next"
-        type="button"
-        onclick="showPage('gallery3')">
+    <button class="btn gallery-next"
+            onclick="showPage('gallery3')">
 
         Next →
 
@@ -1832,33 +1521,25 @@ button{
 </section>
 
 
-<!-- ================================================= -->
-<!-- GALLERY 3                                         -->
-<!-- ================================================= -->
+<!-- =========================================================
+     GALLERY 3
+========================================================= -->
 
-<section
-    class="page gallery-page"
-    id="gallery3">
+<section class="page gallery-page" id="gallery3">
 
     <h1 class="heading gallery-title">
-
         And a Few More... 🌸
-
     </h1>
 
 
     <div class="gallery">
 
 
-        <!-- PHOTO 6 -->
-
         <div class="memory-card">
 
             <div class="tape"></div>
 
-            <img
-                src="Photo 6.jpg"
-                alt="Photo 6">
+            <img src="Photo 6.jpg" alt="Photo 6">
 
             <div class="memory-caption">
 
@@ -1876,15 +1557,11 @@ button{
         </div>
 
 
-        <!-- PHOTO 7 -->
-
         <div class="memory-card">
 
             <div class="tape"></div>
 
-            <img
-                src="Photo 7.jpg"
-                alt="Photo 7">
+            <img src="Photo 7.jpg" alt="Photo 7">
 
             <div class="memory-caption">
 
@@ -1901,14 +1578,11 @@ button{
 
         </div>
 
-
     </div>
 
 
-    <button
-        class="btn gallery-next"
-        type="button"
-        onclick="showPage('lastThing')">
+    <button class="btn gallery-next"
+            onclick="showPage('envelopePage')">
 
         Next →
 
@@ -1917,52 +1591,126 @@ button{
 </section>
 
 
-<!-- ================================================= -->
-<!-- ONE LAST THING                                    -->
-<!-- ================================================= -->
+<!-- =========================================================
+     ENVELOPE
+========================================================= -->
 
-<section
-    class="page last-thing"
-    id="lastThing">
+<section class="page envelope-page" id="envelopePage">
 
     <h1 class="heading big">
-
         One Last Thing... 💌
-
     </h1>
 
-    <p>
-
-        Before this little surprise comes to an end,
-        there's just one more little thing for you. ✨
-
+    <p class="envelope-hint">
+        There's a little letter waiting for you... ✨
     </p>
 
-    <button
-        class="btn"
-        type="button"
-        onclick="showPage('finalPage')">
 
-        Open It ✨
+    <div class="envelope"
+         id="envelope"
+         onclick="openEnvelope()">
+
+        <div class="envelope-body"></div>
+
+        <div class="flap"></div>
+
+        <div class="seal">
+            ♡
+        </div>
+
+    </div>
+
+
+    <button class="btn"
+            onclick="openEnvelope()">
+
+        Open the Letter ✨
 
     </button>
 
 </section>
 
 
-<!-- ================================================= -->
-<!-- FINAL PAGE                                         -->
-<!-- ================================================= -->
+<!-- =========================================================
+     LETTER
+========================================================= -->
 
-<section
-    class="page final-page"
-    id="finalPage">
+<section class="page letter-page" id="letterPage">
 
+    <div class="letter-paper">
+
+        <div class="letter-title">
+            For Someone Special
+        </div>
+
+        <div class="letter-date">
+            A little note for your birthday ✨
+        </div>
+
+
+        <div class="letter-content">
+
+            <p>
+                Some people become special without making any
+                effort to do so. They simply become a part of
+                our everyday moments, our conversations, our
+                random laughs and the memories we slowly collect.
+            </p>
+
+            <p>
+                You are one of those people for me. Someone
+                whose presence can make an ordinary day feel
+                a little better and a simple moment a little
+                more memorable.
+            </p>
+
+            <p>
+                On your birthday, I just want to wish you
+                happiness in all the little ways — good days,
+                genuine smiles, beautiful memories and people
+                who always remind you how special you are.
+            </p>
+
+            <p>
+                I hope you keep being exactly the person you are,
+                keep smiling the way you do, and keep creating
+                memories that are worth looking back on.
+            </p>
+
+            <p>
+                Happy Birthday once again.
+                I hope this little surprise made you smile. 🤍✨
+            </p>
+
+            <div class="letter-sign">
+                With lots of good wishes ✨
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button class="btn"
+            style="margin-top:30px;"
+            onclick="showPage('finalPage')">
+
+        Continue ✨
+
+    </button>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL
+========================================================= -->
+
+<section class="page final-page" id="finalPage">
 
     <div class="teddy">
         🧸
     </div>
-
 
     <div class="sunflowers">
         🌻🌻
@@ -1971,76 +1719,55 @@ button{
 
     <div class="final-text">
 
-
         <h2>
             For Someone Special 🤍
         </h2>
 
-
         <p>
-
-            May your life be filled with love, happiness,
+            May your life be filled with happiness,
             laughter, beautiful memories and all the little
             things that make your heart smile.
-
         </p>
 
-
         <p>
-
-            Keep shining, keep smiling and never change,
-            because you are truly amazing. ✨
-
+            Keep shining, keep smiling and never stop being
+            the wonderful person you are. ✨
         </p>
 
-
         <p>
-
             Happy Birthday once again! 🎂✨🤍
-
         </p>
-
 
     </div>
 
 
-    <button
-        class="btn try-again"
-        type="button"
-        onclick="restartWebsite()">
+    <button class="btn try-again"
+            onclick="location.reload()">
 
-        Try Again ↻
+        Start Again ↻
 
     </button>
-
 
 </section>
 
 
-<!-- ================================================= -->
-<!-- JAVASCRIPT                                        -->
-<!-- ================================================= -->
 
 <script>
 
-
-/* ================= SHOW PAGE ================= */
+/* =========================================================
+   PAGE SWITCHING
+========================================================= */
 
 function showPage(id){
 
-    const pages =
-        document.querySelectorAll('.page');
-
-    pages.forEach(function(page){
+    document.querySelectorAll('.page').forEach(function(page){
 
         page.classList.remove('active');
 
     });
 
 
-    const target =
-        document.getElementById(id);
-
+    const target = document.getElementById(id);
 
     if(target){
 
@@ -2048,35 +1775,31 @@ function showPage(id){
 
         window.scrollTo({
             top:0,
-            left:0,
             behavior:'smooth'
         });
 
     }
-
 }
 
 
-/* ================= PASSWORD ================= */
+/* =========================================================
+   PASSWORD
+========================================================= */
 
 function unlock(){
 
-    const input =
-        document.getElementById('password');
+    const input = document.getElementById('password');
 
-    const error =
-        document.getElementById('error');
+    const error = document.getElementById('error');
 
 
     if(input.value === "0925"){
 
         error.textContent = "";
 
-        showPage('wishPage');
+        showPage('birthdayPage');
 
-    }
-
-    else{
+    }else{
 
         error.textContent =
             "Wrong passcode... try again 🤍";
@@ -2086,80 +1809,58 @@ function unlock(){
         input.focus();
 
     }
-
 }
 
 
-/* ================= ENTER KEY ================= */
+/* Enter key */
 
-const passwordInput =
-    document.getElementById('password');
+document.getElementById('password').addEventListener(
+    'keydown',
+    function(event){
 
+        if(event.key === "Enter"){
 
-if(passwordInput){
-
-    passwordInput.addEventListener(
-        'keydown',
-        function(event){
-
-            if(event.key === "Enter"){
-
-                unlock();
-
-            }
+            unlock();
 
         }
-    );
-
-}
-
-
-/* ================= TRY AGAIN ================= */
-
-function restartWebsite(){
-
-    document.querySelectorAll('.page')
-        .forEach(function(page){
-
-            page.classList.remove('active');
-
-        });
-
-
-    document
-        .getElementById('passwordPage')
-        .classList.add('active');
-
-
-    const input =
-        document.getElementById('password');
-
-    const error =
-        document.getElementById('error');
-
-
-    if(input){
-
-        input.value = "";
 
     }
+);
 
-    if(error){
 
-        error.textContent = "";
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+let envelopeOpened = false;
+
+function openEnvelope(){
+
+    const envelope =
+        document.getElementById('envelope');
+
+
+    if(!envelopeOpened){
+
+        envelope.classList.add('open');
+
+        envelopeOpened = true;
+
+        setTimeout(function(){
+
+            showPage('letterPage');
+
+        },900);
+
+    }else{
+
+        showPage('letterPage');
 
     }
-
-
-    window.scrollTo({
-        top:0,
-        left:0,
-        behavior:'smooth'
-    });
 
 }
 
 </script>
 
 </body>
-    </html>
+              </html>
